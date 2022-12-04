@@ -1,0 +1,38 @@
+# This workflow automates the release process.
+
+name: Release automation
+on:
+  workflow_run:
+    workflows: ["Tests and code quality"]
+    branches: [main]
+    types:
+      - completed
+jobs:
+  cut-release:
+    name: Create a new release
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: ruby
+          package-name: blacklight-solrcloud-repository
+          token: ${{secrets.GH_TOKEN}}
+          bump-minor-pre-major: true
+          bump-patch-for-minor-pre-major: true
+          changelog-types: >-
+            [
+              {"type":"feat","section":"Features","hidden":false},
+              {"type":"fix","section":"Bug Fixes","hidden":false},
+              {"type":"perf","section":"Performance Improvements","hidden":false},
+              {"type":"revert","section":"Reverts","hidden":false},
+              {"type":"docs","section":"Documentation","hidden":false},
+              {"type":"style","section":"Styles","hidden":false},
+              {"type":"chore","section":"Miscellaneous","hidden":false},
+              {"type":"refactor","section":"Code Refactoring","hidden":false},
+              {"type":"test","section":"Tests","hidden":false},
+              {"type":"build","section":"Build System","hidden":false},
+              {"type":"ci","section":"Continuous Integration","hidden":false}
+            ]
+          version-file: "lib/blacklight/solr_cloud/version.rb"
