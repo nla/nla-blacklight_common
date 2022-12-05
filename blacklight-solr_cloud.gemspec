@@ -2,6 +2,8 @@
 
 require_relative "lib/blacklight/solr_cloud/version"
 
+ruby_version = File.read(File.join(__dir__, ".ruby-version"))
+
 Gem::Specification.new do |spec|
   spec.name = "blacklight-solrcloud-repository"
   spec.version = Blacklight::SolrCloud::VERSION
@@ -11,10 +13,14 @@ Gem::Specification.new do |spec|
   spec.summary = "Blacklight repository to connect with a collection on a ZooKeeper managed SolrCloud cluster."
   spec.homepage = "https://github.com/nla/blacklight-solrcloud-repository"
   spec.license = "Apache-2.0"
-  spec.required_ruby_version = ">= 3.0.2"
+  spec.required_ruby_version = ">= #{ruby_version}"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/yetti/blacklight-solrcloud-repository.git"
+
+  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
+  # to allow pushing to a single host or delete this section to allow pushing to any host.
+  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
