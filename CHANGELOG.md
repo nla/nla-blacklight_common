@@ -1,5 +1,22 @@
 ## [Unreleased]
 
+## [0.2.1](https://github.com/nla/blacklight-solrcloud-repository/compare/0.2.0...0.2.1) (2022-12-06)
+
+
+### Build System
+
+* update Gemfile.lock after release ([f02565a](https://github.com/nla/blacklight-solrcloud-repository/commit/f02565a102a19a61dd36fcdba25e90f4da15ae0b))
+
+
+### Documentation
+
+* updates README.md ([289d720](https://github.com/nla/blacklight-solrcloud-repository/commit/289d720ca78bcc8cbeeb802bb5537ea18edbc843))
+
+
+### Continuous Integration
+
+* replace token for release workflow ([0ffcab6](https://github.com/nla/blacklight-solrcloud-repository/commit/0ffcab6e84fbd6f2b5af43ede0e485f92f6ed67c))
+
 ## [0.2.0](https://github.com/nla/blacklight-solrcloud-repository/compare/0.1.0...0.2.0) (2022-12-05)
 
 
