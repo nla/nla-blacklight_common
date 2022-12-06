@@ -2,8 +2,8 @@
 
 A Blacklight repository to connect with a collection on a ZooKeeper managed SolrCloud cluster.
 
-The main concepts for this gem come from the [rsolr-cloud](https://github.com/enigmo/rsolr-cloud) gem.
-Unfortunately that library is abandoned and relies on RSolr v1, whilst Blacklight uses v2.
+The main ideas for this gem come from the [rsolr-cloud](https://github.com/enigmo/rsolr-cloud) gem.
+Unfortunately that gem seems abandoned and depends on RSolr v1, whilst Blacklight uses RSolr v2.
 
 ## Usage
 
@@ -14,10 +14,10 @@ This repository requires the following ENV variables be defined in the Blackligh
 
 ## Installation
 
-Add this line to your application's Gemfile, replacing `[choose a tag]` with an actual release tag.
+Add this line to your Blacklight/ArcLight application's Gemfile, replacing `[choose a tag]` with a release tag.
 
 ```ruby
-gem "blacklight-solr_cloud", git: "https://github.com/nla/blacklight-solrcloud-repository", tag: '[choose a tag]'
+gem "blacklight-solrcloud-repository", git: "https://github.com/nla/blacklight-solrcloud-repository", tag: '[choose a tag]'
 ```
 
 And then execute:
@@ -36,7 +36,7 @@ $ bundle install
 
 #### Containers
 
-Specs are executed against a local SolrCloud cluster. You will need [Podman](https://podman.io/)
+🚨 Specs are executed against a local SolrCloud cluster. You will need [Podman](https://podman.io/)
 to create a container for this cluster using the `docker-compose.yml` file in the `solr` directory.
 
 Create local Solr cluster:
