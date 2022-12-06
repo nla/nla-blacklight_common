@@ -17,7 +17,7 @@ jobs:
         with:
           release-type: ruby
           package-name: blacklight-solrcloud-repository
-          token: ${{secrets.GH_TOKEN}}
+          token: ${{ secrets.GITHUB_TOKEN }}
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
           include-v-in-tag: false
