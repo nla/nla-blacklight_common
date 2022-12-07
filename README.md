@@ -41,7 +41,7 @@ The most important prefixes you should have in mind are:
 * `feat:` which represents a new feature, and correlates to a SemVer minor.
 * `feat!:`, or `fix!:`, `refactor!:`, etc., which represent a breaking change (indicated by the !) and will result in a SemVer major.
 
-Releases are automated via GitHub workflows. See more in the ["Releases"](https://github.com/nla/blacklight-solrcloud-repository#releases) section below.
+Releases are automated via GitHub workflows. See more in the ["Releases"](#releases) section below.
 
 ### Setup
 
@@ -80,7 +80,9 @@ requests when changes are pushed to main. It will bump the version automatically
 when the pull request is merged. Read more about how 
 [release-please](https://github.com/googleapis/release-please) works.
 
-🚨 `CHANGELOG.md` is automatically created/updated for each release based on the commit messages.
+`CHANGELOG.md` is automatically created/updated for each release based on the commit messages.
+
+
 
 ## License
 The gem is available as open source under the terms of the [Apache 2 License](https://opensource.org/licenses/Apache-2.0).

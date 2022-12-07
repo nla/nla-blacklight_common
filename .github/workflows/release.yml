@@ -5,8 +5,7 @@
 name: Release automation
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 jobs:
   release-please:
     name: Create a new release
@@ -17,7 +16,6 @@ jobs:
         with:
           release-type: ruby
           package-name: blacklight-solrcloud-repository
-          token: ${{ secrets.GITHUB_TOKEN }}
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
           include-v-in-tag: false
