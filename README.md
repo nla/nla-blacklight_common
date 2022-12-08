@@ -54,16 +54,15 @@ Releases are automated via GitHub workflows. See more in the ["Releases"](#relea
 🚨 Specs are executed against a local SolrCloud cluster. You will need [Podman](https://podman.io/)
 to create a container for this cluster using the `docker-compose.yml` file in the `solr` directory.
 
-Create local Solr cluster:
+In order to run this cluster successfully, you'll need a Podman machine with at least 4GB of memory and 6GB of disk space.
+
+The Podman machine created below will be initialised with 2 CPUs and 6GB of memory and disk space.
 
 ```bash
-podman-compose -f ./solr/docker-compose.yml up -d
-```
-
-Destroy container and volumes when finished:
-
-```bash
-podman-compose -f ./solr/docker-compose.yml down --volumes
+podman machine init --cpus 2 --disk-size 6144 --memory 6144      # initialise a Podman machine
+podman machine start                                             # start the Podman machine
+podman-compose -f ./solr/docker-compose.yml up -d          # spin up a ZK + SolrCloud cluster
+podman-compose -f ./solr/docker-compose.yml down --volumes # pull down the ZK + SolrCloud cluster
 ```
 
 ### Testing
@@ -80,9 +79,7 @@ requests when changes are pushed to main. It will bump the version automatically
 when the pull request is merged. Read more about how 
 [release-please](https://github.com/googleapis/release-please) works.
 
-`CHANGELOG.md` is automatically created/updated for each release based on the commit messages.
-
-
+🚨 `CHANGELOG.md` is automatically created/updated for each release based on the commit messages.
 
 ## License
 The gem is available as open source under the terms of the [Apache 2 License](https://opensource.org/licenses/Apache-2.0).
