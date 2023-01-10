@@ -5,9 +5,9 @@
 name: "Tests and code quality"
 on:
   push:
-    branches: [main, release-please**]
+    branches: [main]
   pull_request:
-    branches: [main, release-please**]
+    branches: [main]
 jobs:
   linters:
     concurrency:

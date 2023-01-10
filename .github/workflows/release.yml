@@ -1,26 +1,24 @@
-# This workflow automates the release process.
+# This workflow creates a release pull request whenever a change is pushed to 'main'.
+# When the release pull request is merged into main, it will automatically create and tag a new
+# release version.
 
 name: Release automation
 on:
-  workflow_run:
-    workflows: ["Tests and code quality"]
+  push:
     branches: [main]
-    types:
-      - completed
 jobs:
-  cut-release:
+  release-please:
     name: Create a new release
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - uses: google-github-actions/release-please-action@v3
         id: release
         with:
           release-type: ruby
           package-name: blacklight-solrcloud-repository
-          token: ${{secrets.GH_TOKEN}}
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
+          include-v-in-tag: false
           changelog-types: >-
             [
               {"type":"feat","section":"Features","hidden":false},
