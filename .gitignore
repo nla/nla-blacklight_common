@@ -1,0 +1,34 @@
+/.bundle/
+/doc/
+/log/*.log
+/pkg/
+/tmp/
+/spec/dummy/log/*.log
+/spec/dummy/storage/
+/spec/dummy/tmp/
+
+# Ignore .idea files
+/.idea
+
+# rspec failure tracking
+.rspec_status
+
+# Ignore vendor/bundle
+/vendor/bundle
+
+# The .env file is used for both dev and test
+# and creates more problems than it solves
+.env
+
+# .env.*.local files are where we put actual secrets we need for dev and test,
+# so we really don't wnat them in version control
+.env.*.local
+
+# Ignore compiled assets
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Ignore SimpleCov coverage reports
+/coverage
+/spec/dummy/coverage
+/spec/dummy/db/schema.rb

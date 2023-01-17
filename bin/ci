@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "[ bin/ci ] Clearing log and temp files"
+bin/rails log:clear tmp:clear
+
+echo "[ bin/ci ] Preparing database"
+bin/rails db:reset || bin/rails db:migrate
+
+echo "[ bin/ci ] Linting source"
+bundle exec rubocop -A
+
+echo "[ bin/ci ] Running RSpec tests"
+bundle exec rspec
+
+echo "[ bin/ci ] Analysing Ruby gems for"
+echo "[ bin/ci ] security vulnerabilities"
+bundle exec bundle audit check --update
+
+echo "[ bin/ci ] Done"
