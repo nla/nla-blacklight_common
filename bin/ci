@@ -2,8 +2,10 @@
 
 set -e
 
+set RAILS_ENV=test
+
 echo "[ bin/ci ] Clearing log and temp files"
-bin/rails log:clear tmp:clear
+bin/rails app:log:clear app:tmp:clear
 
 echo "[ bin/ci ] Preparing database"
 bin/rails db:reset || bin/rails db:migrate
@@ -17,5 +19,7 @@ bundle exec rspec
 echo "[ bin/ci ] Analysing Ruby gems for"
 echo "[ bin/ci ] security vulnerabilities"
 bundle exec bundle audit check --update
+
+unset RAILS_ENV
 
 echo "[ bin/ci ] Done"

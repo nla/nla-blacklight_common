@@ -4,8 +4,35 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in catalogue-patrons.gemspec.
 gemspec
 
-gem "sqlite3"
+gem "mysql2"
 
 gem "sprockets-rails"
 
 gem "puma", "~> 6.0"
+
+group :development, :test do
+  gem "blacklight", "~> 7.32"
+
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem "standard", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+
+  gem "rspec-rails", "~> 6.0"
+  gem "shoulda-matchers"
+  gem "factory_bot_rails"
+  gem "faker"
+end
+
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+  gem "database_cleaner-active_record"
+  gem "rails-controller-testing", "~> 1.0", ">= 1.0.5"
+  gem "webmock"
+
+  gem "simplecov", "~> 0.21.2"
+  gem "simplecov-json", "~> 0.2.3"
+end

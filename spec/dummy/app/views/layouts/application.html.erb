@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <div class="alerts">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+    <nav>
+      <%= render "shared/user_links" %>
+    </nav>
     <%= yield %>
   </body>
 </html>

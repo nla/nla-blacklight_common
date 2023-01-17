@@ -27,14 +27,19 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 7.0.4"
 
-  spec.add_development_dependency "blacklight", "~> 7.32"
+  # All runtime config comes from the UNIX environment
+  # but we use dotenv to store that in files for development and testing
+  spec.add_dependency "dotenv-rails"
 
-  spec.add_development_dependency "standard"
-  spec.add_development_dependency "rubocop-rails"
-  spec.add_development_dependency "rubocop-rspec"
+  # Brakeman analyzes our code for security vulnerabilities
+  spec.add_dependency "brakeman"
 
-  spec.add_development_dependency "rspec-rails", "~> 6.0.0"
-  spec.add_development_dependency "shoulda-matchers"
-  spec.add_development_dependency "factory_bot_rails"
-  spec.add_development_dependency "faker"
+  # bundler-audit checks our dependencies for vulnerabilities
+  spec.add_dependency "bundler-audit"
+
+  spec.add_dependency "activerecord-session_store", "~> 2.0"
+  spec.add_dependency "rufus-scheduler", "~> 3.8"
+  spec.add_dependency "devise"
+  spec.add_dependency "omniauth-keycloak", "~> 1.4"
+  spec.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
 end
