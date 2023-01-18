@@ -10,6 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # Keycloak will display its own error page when there is a failure to login.
   # :nocov:
   def failure
+    Rails.logger.error("Unable to authenticate user")
     redirect_to root_path
   end
   # :nocov:
