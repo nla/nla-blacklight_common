@@ -1,5 +1,26 @@
 ## [Unreleased]
 
+## [0.2.2](https://github.com/nla/blacklight-solrcloud-repository/compare/0.2.1...0.2.2) (2023-01-23)
+
+
+### Documentation
+
+* update README.md ([468631d](https://github.com/nla/blacklight-solrcloud-repository/commit/468631d7b337af245a3c1a9596daca8b2772ff97))
+* updates README.md ([b27e742](https://github.com/nla/blacklight-solrcloud-repository/commit/b27e742564bfa93ab4fe0a59f4adeba65cef0263))
+
+
+### Continuous Integration
+
+* add PAT to release workflow ([e29d142](https://github.com/nla/blacklight-solrcloud-repository/commit/e29d142890594ef3804619ea36402689c981bff0))
+* modify workflows ([12b7566](https://github.com/nla/blacklight-solrcloud-repository/commit/12b75661ae3021aeb7587adb1a68d7dbf499e45f))
+
+
+### Miscellaneous
+
+* merge changes from upstream ([d899e33](https://github.com/nla/blacklight-solrcloud-repository/commit/d899e33fe567b147d04b7602294cd5fdae4dca04))
+* upgrade to Ruby 3.2.0 ([fd6125f](https://github.com/nla/blacklight-solrcloud-repository/commit/fd6125f37266d650847a3af2d70a2069afe381e9))
+* upgrades dependencies to address security vulnerabilities ([e14987a](https://github.com/nla/blacklight-solrcloud-repository/commit/e14987ade0116128cbd49d0b376031be3e947a1f))
+
 ## [0.2.1](https://github.com/nla/blacklight-solrcloud-repository/compare/0.2.0...0.2.1) (2022-12-06)
 
 
