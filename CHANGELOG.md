@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/nla/catalogue-patrons/compare/1.0.0...1.0.1) (2023-01-23)
+
+
+### Miscellaneous
+
+* upgrade to Ruby 3.2.0 ([0629505](https://github.com/nla/catalogue-patrons/commit/06295052f1fa478ced87f3cc1d80cf095215ae88))
+
 ## 1.0.0 (2023-01-18)
 
 
