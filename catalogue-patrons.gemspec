@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
     Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   end
 
-  spec.add_dependency "rails", ">= 7.0.4"
+  spec.add_dependency "rails", "~> 7.0.4"
 
   # All runtime config comes from the UNIX environment
   # but we use dotenv to store that in files for development and testing
