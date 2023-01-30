@@ -1,0 +1,7 @@
+Description:
+    Copies migrations into the host application
+
+Example:
+    bin/rails generate catalogue:patrons:install
+
+    This will copy migrations that don't already exist into the `db/patrons_migrate` directory
