@@ -2,7 +2,7 @@
 
 require "bcrypt"
 
-class User < ApplicationRecord
+class User < PatronRecord
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
 

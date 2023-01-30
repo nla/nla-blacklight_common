@@ -2,7 +2,7 @@
 
 set -e
 
-set RAILS_ENV=test
+export RAILS_ENV=test
 
 echo "[ bin/ci ] Clearing log and temp files"
 bin/rails app:log:clear app:tmp:clear

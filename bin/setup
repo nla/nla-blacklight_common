@@ -9,6 +9,12 @@ def setup
   system! 'bundle config --local path "vendor/bundle"'
   system! "bundle check || bundle install"
 
+  log "Dropping & recreating the development database"
+  # Note that the very first time this runs, db:reset
+  # will fail, but this failure is fixed by
+  # doing a db:migrate
+  system! "bin/rails db:reset || bin/rails db:migrate"
+
   log "All set up."
   log ""
   log "To see commonly-needed commands, run:"

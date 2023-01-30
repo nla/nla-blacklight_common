@@ -14,6 +14,7 @@ SimpleCov.start "rails" do
   end
 
   add_filter "lib/catalogue/patrons/engine.rb"
+  add_filter "lib/generators/"
 
   add_filter "app/controllers/users/omniauth_callbacks_controller.rb"
 
