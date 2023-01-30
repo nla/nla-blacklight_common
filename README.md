@@ -5,11 +5,13 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
 
-Common authentication logic for Blacklight and ArcLight patrons.
+Common authentication logic for Blacklight and ArcLight patrons. 
+
+Allows users and sessions to be stored in a separate database from the host application's database.
 
 ## Usage
 This is an "unmounted" Rails engine. Models and actions are in the same scope as the host 
-application it's added to.
+application it's integrated into.
 
 ### Configuration
 This engine requires the following environment variables to be defined in the Blacklight/ArcLight 
@@ -28,17 +30,22 @@ host application:
 ### Scheduled tasks
 This engine uses [activerecord-session_store](https://github.com/rails/activerecord-session_store)
 to store a user's session in the database rather than in a cookie. This allows more control around 
-terminating a user session.
+terminating a user session, as well as improved security.
 
-There is a scheduled task that runs once a day (and 15 mins after a fresh deployment) to trim
-sessions older than 30 days from the database. This task is scheduled using
+This also overrides the `db:sessions:trim` and `db:sessions:clear` tasks to use the
+`CatalogueSession` class that connects to the "patrons" table.
+
+There is a scheduled task that runs `db:sessions:trim` once a day (and 15 mins after a fresh
+deployment) to trim sessions older than 30 days from the database. This task is scheduled using
 [rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) instead of cron and configured in
 `config/initializers/scheduler.rb`.
 
-🚨 Since `rufus-scheduler` is an in-process, in-memory scheduler, so it will only run tasks while 
+🚨 Since `rufus-scheduler` is an in-process, in-memory scheduler, it will only run tasks while 
 the host application is running.
 
 ## Installation
+
+### Gemfile
 Add this line to your host application's Gemfile:
 
 ```ruby
@@ -58,9 +65,9 @@ $ bundle
 ### Database configuration
 Modify the host application's `config/database.yml` file to 
 [support multiple databases](https://guides.rubyonrails.org/active_record_multiple_databases.html).
-There is a `config/database.yml.sample` file that can be used as an example.
+There is a `config/database.yml.sample` file that can be used as a guide.
 
-Mostly it involves redefining your main database connection as the "primary" in every environment
+Mostly it involves redefining your main database connection as the "primary" for every environment
 definition in the file, then adding a "patrons" connection to every environment.
 
 ### Migrations

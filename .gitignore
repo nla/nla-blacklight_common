@@ -8,7 +8,6 @@
 /spec/dummy/tmp/
 /spec/dummy/db/*_schema.rb
 /spec/dummy/db/patrons_migrate
-/sepc/dummy/db/sessions_migrate
 
 # Ignore .idea files
 /.idea
