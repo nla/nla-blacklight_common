@@ -14,7 +14,8 @@ application it's integrated into.
 ### Configuration
 This gem requires the following environment variables to be defined in the Blacklight/ArcLight host application:
 
-* `DATABASE_URL` - Users will be persisted to this database
+* `DATABASE_URL` - Primary application database
+* `PATRONS_DB_URL` - User and sessions database
 * `GETALIBRARYCARD_BASE_URL` - Base URL of the Get A Library Card authentication endpoint
 * `GETALIBRARYCARD_AUTH_PATH` - Path to the authentication endpoint
 * `GETALIBRARYCARD_PATRON_DETAILS_PATH` - Path to the patron details endpoint
@@ -40,12 +41,20 @@ And then execute:
 $ bundle
 ```
 
+### Configuration
+
+Modify the host application's `config/database.yml` file to [support multiple databases](https://guides.rubyonrails.org/active_record_multiple_databases.html).
+There is a `config/database.yml.sample` file that can be used as an example.
+
+Mostly it involves redefining your main database connection as the "primary" in every environment
+definition in the file, then adding a "patrons" connection to every environment.
+
 ### Migrations
 
 Migrations need to be copied into the host application from this engine using the following command:
 
 ```bash
-$ rails catalogue_patrons_engine:install:migrations
+$ rails g catalogue:patrons:install
 ```
 
 🚨 This command needs to be performed whenever new migrations are added to this engine and will only
