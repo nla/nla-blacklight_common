@@ -9,10 +9,11 @@ Common authentication logic for Blacklight and ArcLight patrons.
 
 ## Usage
 This is an "unmounted" Rails engine. Models and actions are in the same scope as the host 
-application it's integrated into.
+application it's added to.
 
 ### Configuration
-This gem requires the following environment variables to be defined in the Blacklight/ArcLight host application:
+This engine requires the following environment variables to be defined in the Blacklight/ArcLight 
+host application:
 
 * `DATABASE_URL` - Primary application database
 * `PATRONS_DB_URL` - User and sessions database
@@ -23,6 +24,19 @@ This gem requires the following environment variables to be defined in the Black
 * `KEYCLOAK_SECRET` - Keycloak client secret
 * `KEYCLOAK_URL` - Keycloak OIDC authentication URL
 * `KEYCLOAK_REALM` - Keycloak realm for catalogue
+
+### Scheduled tasks
+This engine uses [activerecord-session_store](https://github.com/rails/activerecord-session_store)
+to store a user's session in the database rather than in a cookie. This allows more control around 
+terminating a user session.
+
+There is a scheduled task that runs once a day (and 15 mins after a fresh deployment) to trim
+sessions older than 30 days from the database. This task is scheduled using
+[rufus-scheduler](https://github.com/jmettraux/rufus-scheduler) instead of cron and configured in
+`config/initializers/scheduler.rb`.
+
+🚨 Since `rufus-scheduler` is an in-process, in-memory scheduler, so it will only run tasks while 
+the host application is running.
 
 ## Installation
 Add this line to your host application's Gemfile:
@@ -41,16 +55,15 @@ And then execute:
 $ bundle
 ```
 
-### Configuration
-
-Modify the host application's `config/database.yml` file to [support multiple databases](https://guides.rubyonrails.org/active_record_multiple_databases.html).
+### Database configuration
+Modify the host application's `config/database.yml` file to 
+[support multiple databases](https://guides.rubyonrails.org/active_record_multiple_databases.html).
 There is a `config/database.yml.sample` file that can be used as an example.
 
 Mostly it involves redefining your main database connection as the "primary" in every environment
 definition in the file, then adding a "patrons" connection to every environment.
 
 ### Migrations
-
 Migrations need to be copied into the host application from this engine using the following command:
 
 ```bash
@@ -73,14 +86,17 @@ The most important prefixes you should have in mind are:
 
 * `fix:` which represents bug fixes, and correlates to a SemVer patch.
 * `feat:` which represents a new feature, and correlates to a SemVer minor.
-* `feat!:`, or `fix!:`, `refactor!:`, etc., which represent a breaking change (indicated by the !) and will result in a SemVer major.
+* `feat!:`, or `fix!:`, `refactor!:`, etc., which represent a breaking change (indicated by the !)
+and will result in a SemVer major.
 
 Releases are automated via GitHub workflows. See more in the ["Releases"](#releases) section below.
 
 ### Setup
-`bin/setup` will configure Bundler to install gems into the `vendor/bundle` directory and install all dependencies.
+`bin/setup` will configure Bundler to install gems into the `vendor/bundle` directory and install
+all dependencies.
 
-🚨 Installing gems into `vendor/bundle` serves to isolate the versions of gems used in this project from other Ruby projects on your development machine.
+🚨 Installing gems into `vendor/bundle` serves to isolate the versions of gems used in this project
+from other Ruby projects on your development machine.
 
 ### Testing
 There is a `bin/ci` script that will run specs, perform linting and security analysis.
@@ -92,9 +108,9 @@ whenever the following two events occur:
 
 ### Releases
 Releases are automated via the `release.yml` GitHub workflow. This uses Google's
-[release-please action](https://github.com/google-github-actions/release-please-action) to create pull
-requests when changes are pushed to main. It will bump the version automatically and create a release
-when the pull request is merged. Read more about how
+[release-please action](https://github.com/google-github-actions/release-please-action) to create
+pull requests when changes are pushed to main. It will bump the version automatically and create a
+release when the pull request is merged. Read more about how
 [release-please](https://github.com/googleapis/release-please) works.
 
 Pull requests merged to `main` will also trigger the `release.yml` workflow and update an existing 
@@ -103,4 +119,5 @@ release branch and pull-request.
 🚨 `CHANGELOG.md` is automatically created/updated for each release based on the commit messages.
 
 ## License
-The gem is available as open source under the terms of the [Apache 2 License](https://opensource.org/licenses/Apache-2.0).
+The gem is available as open source under the terms of the
+[Apache 2 License](https://opensource.org/licenses/Apache-2.0).
