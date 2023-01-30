@@ -1,7 +1,7 @@
 # catalogue-patrons
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nla/catalogue-patrons/verify.yml?branch=main&logo=github)
-![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/nla/catalogue-patrons?include_prereleases)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nla/catalogue-patrons/verify.yml?branch=main&logo=github)](https://github.com/nla/catalogue-patrons/actions/workflows/verify.yml)
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/nla/catalogue-patrons?include_prereleases)](https://github.com/nla/catalogue-patrons/releases/latest)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
 
