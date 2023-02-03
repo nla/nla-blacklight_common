@@ -9,15 +9,14 @@ class User < PatronRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :getalibrarycard_authenticatable, :timeoutable,
-    :omniauthable, omniauth_providers: %i[keycloakopenid]
+    :omniauthable, omniauth_providers: %i[staff_spl staff_sol]
 
   attr_accessor :username, :password
 
-  def self.from_omniauth(auth)
+  def self.from_keycloak(auth)
     user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
     # We don't really care about the password since auth is via Get a Library Card or Keycloak,
     # so we're just putting a dummy value here.
-    user.password = Devise.friendly_token(20)
     user.email = auth.info.email
     user.name_given = auth.info.first_name
     user.name_family = auth.info.last_name

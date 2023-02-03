@@ -292,11 +292,11 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :keycloak_openid,
-    ENV.fetch("KEYCLOAK_CLIENT", "catalogue"),
-    ENV.fetch("KEYCLOAK_SECRET", "default secret"),
-    client_options: {site: ENV.fetch("KEYCLOAK_URL", "http://localhost:9090"), realm: ENV.fetch("KEYCLOAK_REALM", "shire")},
-    strategy_class: OmniAuth::Strategies::KeycloakOpenId
+  # config.omniauth :keycloak_openid,
+  #   ENV.fetch("KEYCLOAK_CLIENT", "catalogue"),
+  #   ENV.fetch("KEYCLOAK_SECRET", "default secret"),
+  #   client_options: {site: ENV.fetch("KEYCLOAK_URL", "http://localhost:9090"), realm: ENV.fetch("KEYCLOAK_REALM", "shire")},
+  #   strategy_class: OmniAuth::Strategies::KeycloakOpenId
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

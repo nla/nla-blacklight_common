@@ -22,7 +22,7 @@ RSpec.describe User do
     subject(:kc_user) do
       create(:user, :staff)
 
-      described_class.from_omniauth(auth_hash)
+      described_class.from_keycloak(auth_hash)
     end
 
     let(:file) { IO.read("spec/files/auth/auth_hash.json") }
