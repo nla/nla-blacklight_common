@@ -4,6 +4,9 @@
 
 <%- if devise_mapping.omniauthable? %>
   <div class="mt-5">
-    <%= link_to "Staff Log In", user_keycloakopenid_omniauth_authorize_path, method: :post %>
+    <ul class="list-unstyled">
+      <li><%= link_to "Staff Login (SOL)", user_staff_sol_omniauth_authorize_path, method: :post %></li>
+      <li><%= link_to "Staff Login (SPL)", user_staff_spl_omniauth_authorize_path, method: :post %></li>
+    </ul>
   </div>
 <% end %>

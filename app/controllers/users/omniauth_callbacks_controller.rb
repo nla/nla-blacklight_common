@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def keycloakopenid
+  def staff_sol
     Rails.logger.debug(request.env["omniauth.auth"])
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    @user = User.from_keycloak(request.env["omniauth.auth"])
+    sign_in_and_redirect @user, event: :authentication
+  end
+
+  def staff_spl
+    Rails.logger.debug(request.env["omniauth.auth"])
+    @user = User.from_keycloak(request.env["omniauth.auth"])
     sign_in_and_redirect @user, event: :authentication
   end
 
