@@ -6,14 +6,11 @@ module Catalogue
     require "omniauth-keycloak"
     require "omniauth/rails_csrf_protection"
 
-    begin
-      require "factory_bot_rails"
-      require "dotenv-rails"
-    rescue LoadError
-    end
-
     class Engine < ::Rails::Engine
       if %w[development test].include? ENV["RAILS_ENV"]
+        require "factory_bot_rails"
+        require "dotenv-rails"
+
         Dotenv::Railtie.load
       end
 
