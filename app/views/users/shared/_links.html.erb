@@ -5,8 +5,10 @@
 <%- if devise_mapping.omniauthable? %>
   <div class="mt-5">
     <ul class="list-unstyled">
-      <li><%= link_to "Staff Login (SOL)", user_staff_sol_omniauth_authorize_path, method: :post %></li>
-      <li><%= link_to "Staff Login (SPL)", user_staff_spl_omniauth_authorize_path, method: :post %></li>
+      <li>Log in with:</li>
+      <li><%= button_to "Staff SOL", user_staff_sol_omniauth_authorize_path, class: "btn btn-link p-0 text-capitalize", data: { turbo: false } %></li>
+      <li><%= button_to "Staff SPL", user_staff_spl_omniauth_authorize_path, class: "btn btn-link p-0 text-capitalize", data: { turbo: false } %></li>
+      <li><%= button_to "Staff Shared", user_staff_shared_omniauth_authorize_path, class: "btn btn-link p-0 text-capitalize", data: { turbo: false } %></li>
     </ul>
   </div>
 <% end %>

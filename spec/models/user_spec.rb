@@ -41,22 +41,44 @@ RSpec.describe User do
     end
   end
 
-  describe "#from_omniauth" do
+  describe "#from_keycloak" do
     subject(:kc_user) do
       create(:user, :staff)
 
       described_class.from_keycloak(auth_hash)
     end
 
-    let(:file) { IO.read("spec/files/auth/auth_hash.json") }
-    let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
+    describe "SOL" do
+      let(:file) { IO.read("spec/files/auth/staff_sol_auth_hash.json") }
+      let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
 
-    it "returns a User from Keycloak credentials" do
-      expect(kc_user.patron_id).not_to be_nil
-      expect(kc_user.voyager_id).not_to be_nil
-      expect(kc_user.email).to eq "staff@nla.gov.au"
-      expect(kc_user.name_given).to eq "Staff"
-      expect(kc_user.name_family).to eq "User"
+      it "returns a User from Keycloak credentials" do
+        expect(kc_user.email).to eq "ybattad@nla.gov.au"
+        expect(kc_user.name_given).to eq "Yetrina"
+        expect(kc_user.name_family).to eq "SOL"
+      end
+    end
+
+    describe "SPL" do
+      let(:file) { IO.read("spec/files/auth/staff_spl_auth_hash.json") }
+      let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
+
+      it "returns a User from Keycloak credentials" do
+        expect(kc_user.email).to eq "ybattad@nla.gov.au"
+        expect(kc_user.name_given).to eq "Yetrina"
+        expect(kc_user.name_family).to eq "SPL"
+      end
+    end
+
+    describe "Shared" do
+      let(:file) { IO.read("spec/files/auth/staff_shared_auth_hash.json") }
+      let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
+
+      it "returns a User from Keycloak credentials" do
+        expect(kc_user.email).to eq "ybattad@nla.gov.au"
+        expect(kc_user.name_given).to eq "Yetrina"
+        expect(kc_user.name_family).to eq "Shared"
+      end
     end
   end
 end
