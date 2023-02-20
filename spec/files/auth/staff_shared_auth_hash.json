@@ -1,0 +1,62 @@
+{
+  "provider": "staff_shared",
+  "uid": "adeffe0d-cd77-45dc-a5fe-1cb4289299a8",
+  "info": {
+    "name": "Yetrina Shared",
+    "email": "ybattad@nla.gov.au",
+    "first_name": "Yetrina",
+    "last_name": "Shared"
+  },
+  "credentials": {
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIza3R6VDN0T0d4Yl8xOGVtQWtWRFdBdXQtZDFvX2owS1VKc0lKMDdJQnkwIn0.eyJleHAiOjE2NzY4ODA0MDEsImlhdCI6MTY3Njg4MDEwMSwiYXV0aF90aW1lIjoxNjc2ODgwMTAxLCJqdGkiOiIxODg0OGE1OC1jMmFhLTQzZGQtOTQ5YS04NDk3ZGM4ZjMwZDIiLCJpc3MiOiJodHRwOi8vMC4wLjAuMDo5MDkwL2F1dGgvcmVhbG1zL3N0YWZmX3NoYXJlZCIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhZGVmZmUwZC1jZDc3LTQ1ZGMtYTVmZS0xY2I0Mjg5Mjk5YTgiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjYXRhbG9ndWUiLCJzZXNzaW9uX3N0YXRlIjoiMzkyMWY2NWMtOTVkNS00ZDI5LTgzZjktMzVlY2NiMjI3MGE2IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJsb2NhbGhvc3QiLCIwLjAuMC4wIiwiY2F0YWxvZ3VlLWRldmVsLm5sYS5nb3YuYXUiLCJkZWxvbmcubmxhLmdvdi5hdSJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zdGFmZl9zaGFyZWQiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiMzkyMWY2NWMtOTVkNS00ZDI5LTgzZjktMzVlY2NiMjI3MGE2IiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJuYW1lIjoiWWV0cmluYSBTaGFyZWQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ5YmF0dGFkX3NoYXJlZCIsImdpdmVuX25hbWUiOiJZZXRyaW5hIiwiZmFtaWx5X25hbWUiOiJTaGFyZWQiLCJlbWFpbCI6InliYXR0YWRAbmxhLmdvdi5hdSJ9.QgW3dKQVsBLS-9N9HM_IoxdgdjiNZKSzdnFknEb9KbX1ZfLJHtmt513ZFLYTcnA8YMeMtop7JIaOnODZ8mPEV6UUahiB1ipTPIryGEqYaKVPQIh2X60O3dT9hR7v6kdF63U_ljS3EKq05OTZlmPSWHFBbntGcC3z33KsDoo1Wgs1H2LpotwbuG2hpeTJ8hXR-QbQIYP-Wzc76_CeM5z2dXF7cU-OwG2ba4zDCJlv2ws3nmLDLoJBKIQNwaw5GpSdJX5229oTGD_9L4P3ud56wADH9hU06xZbOL0qfLdfq5Bi2EbXIBuTQTBte9oMHZ5tr5Jhws9T0jKpfGHlq45mQw",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIxMjRmY2E5MS02MjhiLTQ3NzMtOTY0NS0yNjZmOWEyMDJiZDEifQ.eyJleHAiOjE2NzY4ODE5MDEsImlhdCI6MTY3Njg4MDEwMSwianRpIjoiZWEyZjk1OGItMjY2Yy00YmJiLWJlMzMtYjhlYmE5YmY1Yzk2IiwiaXNzIjoiaHR0cDovLzAuMC4wLjA6OTA5MC9hdXRoL3JlYWxtcy9zdGFmZl9zaGFyZWQiLCJhdWQiOiJodHRwOi8vMC4wLjAuMDo5MDkwL2F1dGgvcmVhbG1zL3N0YWZmX3NoYXJlZCIsInN1YiI6ImFkZWZmZTBkLWNkNzctNDVkYy1hNWZlLTFjYjQyODkyOTlhOCIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJjYXRhbG9ndWUiLCJzZXNzaW9uX3N0YXRlIjoiMzkyMWY2NWMtOTVkNS00ZDI5LTgzZjktMzVlY2NiMjI3MGE2Iiwic2NvcGUiOiJlbWFpbCBwcm9maWxlIiwic2lkIjoiMzkyMWY2NWMtOTVkNS00ZDI5LTgzZjktMzVlY2NiMjI3MGE2In0.Z74aHd7evhWzp9TMe2a0iIghrqd6vmh-AJF4b6FReO8",
+    "expires_at": 1676880401,
+    "expires": true
+  },
+  "extra": {
+    "raw_info": {
+      "exp": 1676880401,
+      "iat": 1676880101,
+      "auth_time": 1676880101,
+      "jti": "18848a58-c2aa-43dd-949a-8497dc8f30d2",
+      "iss": "http://0.0.0.0:9090/auth/realms/staff_shared",
+      "aud": "account",
+      "sub": "adeffe0d-cd77-45dc-a5fe-1cb4289299a8",
+      "typ": "Bearer",
+      "azp": "catalogue",
+      "session_state": "3921f65c-95d5-4d29-83f9-35eccb2270a6",
+      "acr": "1",
+      "allowed-origins": [
+        "localhost",
+        "0.0.0.0",
+        "catalogue-devel.nla.gov.au",
+        "delong.nla.gov.au"
+      ],
+      "realm_access": {
+        "roles": [
+          "default-roles-staff_shared",
+          "offline_access",
+          "uma_authorization"
+        ]
+      },
+      "resource_access": {
+        "account": {
+          "roles": [
+            "manage-account",
+            "manage-account-links",
+            "view-profile"
+          ]
+        }
+      },
+      "scope": "email profile",
+      "sid": "3921f65c-95d5-4d29-83f9-35eccb2270a6",
+      "email_verified": false,
+      "name": "Yetrina Shared",
+      "preferred_username": "ybattad_shared",
+      "given_name": "Yetrina",
+      "family_name": "Shared",
+      "email": "ybattad@nla.gov.au"
+    },
+    "id_token": null
+  }
+}
