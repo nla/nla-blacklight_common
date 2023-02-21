@@ -41,7 +41,7 @@ class User < PatronRecord
     user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
     # We don't really care about the password since auth is via Get a Library Card or Keycloak,
     # so we're just putting a dummy value here.
-    user.email = auth.info.email
+    user.email = auth.info.email.present? ? auth.info.email : ""
     user.name_given = auth.info.first_name
     user.name_family = auth.info.last_name
 
