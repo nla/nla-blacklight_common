@@ -37,16 +37,16 @@ class User < PatronRecord
   attr_accessor :username, :password
 
   def self.from_keycloak(auth)
-    puts auth.to_json
-    user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
-    # We don't really care about the password since auth is via Get a Library Card or Keycloak,
-    # so we're just putting a dummy value here.
-    user.email = auth.info.email.present? ? auth.info.email : ""
-    user.name_given = auth.info.first_name
-    user.name_family = auth.info.last_name
+    find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|
+      # We don't really care about the password since auth is via Keycloak, so we're just
+      # putting a dummy value here.
+      user.encrypted_password = SecureRandom.hex(14)
 
-    user.save
-    user
+      # staff shared accounts may not have an email, first name or last name
+      user.email = auth.info.email.present? ? auth.info.email : ""
+      user.name_given = auth.info.first_name
+      user.name_family = auth.info.last_name
+    end
   end
 
   # Method added by Blacklight; Blacklight uses #to_s on your

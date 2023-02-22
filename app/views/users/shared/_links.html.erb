@@ -2,8 +2,8 @@
   <%= link_to t("auth.login"), new_session_path(resource_name) %><br />
 <% end %>
 
-<%- if ApplicationHelper.method_defined? :in_staff_subnet? %>
-  <%- if in_staff_subnet? && devise_mapping.omniauthable? %>
+<%- if ApplicationHelper.method_defined?(:in_staff_subnet?) %>
+  <%- if (Rails.env.development? || in_staff_subnet?) && devise_mapping.omniauthable? %>
     <div class="dropdown mt-5">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <%= t("auth.staff.login_button_text") %>
