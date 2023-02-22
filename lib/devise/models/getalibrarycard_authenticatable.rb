@@ -29,6 +29,9 @@ module Devise
           self.name_given = doc.xpath("//item[@name='nameGiven']").text
           self.name_family = doc.xpath("//item[@name='nameFamily']").text
           self.email = doc.xpath("//item[@name='email']").text
+
+          # We don't really care about the password since auth is via Get a Library Card,
+          # so we're just putting a dummy value here.
           self.encrypted_password = Devise::Encryptor.digest(self.class, Devise.friendly_token(20))
           save!
         end

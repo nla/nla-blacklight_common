@@ -48,36 +48,46 @@ RSpec.describe User do
       described_class.from_keycloak(auth_hash)
     end
 
-    describe "SOL" do
+    let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
+
+    context "when logging in as an SOL user", altering_database: true do
       let(:file) { IO.read("spec/files/auth/staff_sol_auth_hash.json") }
-      let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
 
       it "returns a User from Keycloak credentials" do
         expect(kc_user.email).to eq "ybattad@nla.gov.au"
         expect(kc_user.name_given).to eq "Yetrina"
         expect(kc_user.name_family).to eq "SOL"
+        expect(kc_user.encrypted_password).not_to be_nil
       end
     end
 
-    describe "SPL" do
+    context "when logging in as an SPL user", altering_database: true do
       let(:file) { IO.read("spec/files/auth/staff_spl_auth_hash.json") }
-      let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
 
       it "returns a User from Keycloak credentials" do
         expect(kc_user.email).to eq "ybattad@nla.gov.au"
         expect(kc_user.name_given).to eq "Yetrina"
         expect(kc_user.name_family).to eq "SPL"
+        expect(kc_user.encrypted_password).not_to be_nil
       end
     end
 
-    describe "Shared" do
+    context "when logging in as a Shared user", altering_database: true do
       let(:file) { IO.read("spec/files/auth/staff_shared_auth_hash.json") }
-      let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
 
       it "returns a User from Keycloak credentials" do
         expect(kc_user.email).to eq "ybattad@nla.gov.au"
         expect(kc_user.name_given).to eq "Yetrina"
         expect(kc_user.name_family).to eq "Shared"
+        expect(kc_user.encrypted_password).not_to be_nil
+      end
+    end
+
+    context "when logging in as a Shared user with no email", altering_database: true do
+      let(:file) { IO.read("spec/files/auth/staff_shared_auth_hash_no_email.json") }
+
+      it "sets email to an empty string" do
+        expect(kc_user.email).to eq ""
       end
     end
   end
