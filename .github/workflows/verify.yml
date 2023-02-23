@@ -30,6 +30,10 @@ jobs:
         run: |
           bundle exec rubocop --parallel
 
+      - name: Brakeman code scanning
+        run: |
+          bundle exec brakeman --format github --no-pager --no-exit-on-warn
+
       - name: Bundler Audit
         run: |
           bundle exec bundle audit check --update

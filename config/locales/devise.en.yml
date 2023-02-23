@@ -16,6 +16,7 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
+      expired: "Sorry, your patron account has expired. Please contact Reader Services on +61 (02) 6262 1266 to renew your account. We apologise for the inconvenience."
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"

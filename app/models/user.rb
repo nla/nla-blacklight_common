@@ -5,6 +5,7 @@
 # Table name: users
 #
 #  id                 :bigint           not null, primary key
+#  active             :boolean          default(TRUE), not null
 #  email              :string(255)      default(""), not null
 #  encrypted_password :string(255)      default(""), not null
 #  name_family        :string(255)
@@ -13,15 +14,13 @@
 #  uid                :string(255)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  folio_ext_sys_id   :string(255)
 #  folio_id           :string(255)
 #  patron_id          :bigint
 #  voyager_id         :bigint
 #
 # Indexes
 #
-#  index_users_on_folio_ext_sys_id  (folio_ext_sys_id) UNIQUE
-#  index_users_on_folio_id          (folio_id) UNIQUE
+#  index_users_on_folio_id  (folio_id) UNIQUE
 #
 require "bcrypt"
 
@@ -31,10 +30,10 @@ class User < PatronRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :getalibrarycard_authenticatable, :timeoutable,
+  devise :user_reg_authenticatable, :timeoutable,
     :omniauthable, omniauth_providers: %i[staff_spl staff_sol staff_shared]
 
-  attr_accessor :username, :password
+  attr_accessor :username, :password, :active
 
   def self.from_keycloak(auth)
     find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|

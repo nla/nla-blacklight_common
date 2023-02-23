@@ -20,7 +20,7 @@ RSpec.configure do |config|
 
     auth_mock = IO.read("spec/files/auth/authenticate.xml")
 
-    WebMock.stub_request(:post, /\S.nla.gov.au\/getalibrarycard\/authenticate.xml/)
+    WebMock.stub_request(:post, /.nla.gov.au\/getalibrarycard\/authenticate.xml/)
       .with(
         headers: {
           "Accept" => "*/*",
@@ -33,7 +33,7 @@ RSpec.configure do |config|
 
     details_mock = IO.read("spec/files/auth/user_details.xml")
 
-    WebMock.stub_request(:get, /\S.nla.gov.au\/getalibrarycard\/patrons\/details\/([0-9]*).xml/)
+    WebMock.stub_request(:get, /.nla.gov.au\/getalibrarycard\/patrons\/details\/([0-9]*).xml/)
       .with(
         headers: {
           "Accept" => "*/*",
@@ -42,5 +42,41 @@ RSpec.configure do |config|
         }
       )
       .to_return(status: 200, body: details_mock, headers: {})
+
+    success_auth_mock = IO.read("spec/files/auth/user_reg_success.json")
+
+    WebMock.stub_request(:get, /auth-test.nla.gov.au\/user-reg\/authenticate\?barcode=bltest&lastName=test/)
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+        }
+      )
+      .to_return(status: 200, body: success_auth_mock, headers: {})
+
+    inactive_auth_mock = IO.read("spec/files/auth/user_reg_success_inactive.json")
+
+    WebMock.stub_request(:get, /auth-test.nla.gov.au\/user-reg\/authenticate\?barcode=bltest&lastName=blacklight/)
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+        }
+      )
+      .to_return(status: 200, body: inactive_auth_mock, headers: {})
+
+    failed_auth_mock = IO.read("spec/files/auth/user_reg_failure.json")
+
+    WebMock.stub_request(:get, /auth-test.nla.gov.au\/user-reg\/authenticate\?barcode=0000&lastName=failure/)
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+        }
+      )
+      .to_return(status: 404, body: failed_auth_mock, headers: {})
   end
 end
