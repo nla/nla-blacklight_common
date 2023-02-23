@@ -33,7 +33,9 @@ class User < PatronRecord
   devise :user_reg_authenticatable, :timeoutable,
     :omniauthable, omniauth_providers: %i[staff_spl staff_sol staff_shared]
 
-  attr_accessor :username, :password, :active
+  attr_accessor :username, :password
+
+  self.ignored_columns = ["folio_ext_sys_id"]
 
   def self.from_keycloak(auth)
     find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|
