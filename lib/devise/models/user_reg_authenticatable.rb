@@ -48,16 +48,9 @@ module Devise
         Devise::Models.config(self, :pepper, :stretches)
 
         def find_for_user_reg_authentication(conditions)
-          # response = Faraday.new(url: ENV["PATRON_AUTH_URL"])
-          #   .post(url: ENV["PATRON_AUTH_ENDPOINT"],
-          #     body: JSON.generate(barcode: conditions[:username], lastName: conditions[:password]),
-          #     content_type: "application/json")
           request_body = JSON.generate(barcode: conditions[:username], lastName: conditions[:password])
           response = Faraday.new(url: ENV["PATRON_AUTH_URL"])
             .post(ENV["PATRON_AUTH_ENDPOINT"], request_body.to_s, "Content-Type" => "application/json")
-
-          # response = Faraday.new((ENV["PATRON_AUTH_URL"]).to_s)
-          #   .get("/user-reg/authenticate?barcode=#{conditions[:username]}&lastName=#{conditions[:password]}")
 
           if response.present? && response.status == 200
             auth_response = JSON.parse(response.body, object_class: OpenStruct)
