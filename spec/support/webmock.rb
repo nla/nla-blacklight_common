@@ -52,7 +52,7 @@ RSpec.configure do |config|
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Content-Type" => "application/json",
-          "User-Agent" => "catalogue-patrons/2.0.0"
+          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
         }
       )
       .to_return(status: 200, body: success_auth_mock, headers: {})
@@ -66,7 +66,7 @@ RSpec.configure do |config|
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Content-Type" => "application/json",
-          "User-Agent" => "catalogue-patrons/2.0.0"
+          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
         }
       )
       .to_return(status: 200, body: inactive_auth_mock, headers: {})
@@ -80,7 +80,7 @@ RSpec.configure do |config|
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Content-Type" => "application/json",
-          "User-Agent" => "catalogue-patrons/2.0.0"
+          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
         }
       )
       .to_return(status: 404, body: failed_auth_mock, headers: {})
