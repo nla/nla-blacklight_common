@@ -5,6 +5,7 @@
 # Table name: users
 #
 #  id                 :bigint           not null, primary key
+#  active             :boolean          default(TRUE), not null
 #  email              :string(255)      default(""), not null
 #  encrypted_password :string(255)      default(""), not null
 #  name_family        :string(255)
@@ -13,7 +14,6 @@
 #  uid                :string(255)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  folio_ext_sys_id   :string(255)
 #  folio_id           :string(255)
 #  patron_id          :bigint
 #  voyager_id         :bigint

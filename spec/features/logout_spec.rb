@@ -12,7 +12,7 @@ RSpec.describe "Logout" do
     visit root_path
     click_link "Log Out"
 
-    expect(page).to have_content("Signed out successfully.")
+    expect(page).to have_content(I18n.t("devise.sessions.signed_out"))
     expect(page).not_to have_content("blacklight test")
   end
 end
