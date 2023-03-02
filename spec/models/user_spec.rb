@@ -20,8 +20,7 @@
 #
 # Indexes
 #
-#  index_users_on_folio_ext_sys_id  (folio_ext_sys_id) UNIQUE
-#  index_users_on_folio_id          (folio_id) UNIQUE
+#  index_users_on_folio_id  (folio_id) UNIQUE
 #
 require "rails_helper"
 
