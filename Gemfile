@@ -10,6 +10,10 @@ gem "sprockets-rails"
 
 gem "puma", "~> 6.0"
 
+gem "jwt", "~> 2.7"
+
+gem "strong_migrations", "~> 1.4"
+
 group :development, :test do
   gem "blacklight", "~> 7.32"
 
@@ -22,6 +26,8 @@ group :development, :test do
   gem "shoulda-matchers"
   gem "factory_bot_rails"
   gem "faker"
+
+  gem "rails-ujs"
 end
 
 group :test do

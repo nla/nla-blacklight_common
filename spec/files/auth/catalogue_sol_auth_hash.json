@@ -1,5 +1,5 @@
 {
-  "provider": "staff_sol",
+  "provider": "catalogue_sol",
   "uid": "621d2d76-9061-497b-9c12-0c7d87cbe64c",
   "info": {
     "name": "Yetrina SOL",
@@ -19,7 +19,7 @@
       "iat": 1676879946,
       "auth_time": 1676879859,
       "jti": "8176c379-e31b-450f-92a3-8e6f61dd8d47",
-      "iss": "http://0.0.0.0:9090/auth/realms/staff_sol",
+      "iss": "http://0.0.0.0:9090/auth/realms/catalogue_sol",
       "aud": "account",
       "sub": "621d2d76-9061-497b-9c12-0c7d87cbe64c",
       "typ": "Bearer",
@@ -35,7 +35,7 @@
         "roles": [
           "offline_access",
           "uma_authorization",
-          "default-roles-staff_sol"
+          "default-roles-catalogue_sol"
         ]
       },
       "resource_access": {

@@ -1,5 +1,5 @@
 {
-  "provider": "staff_spl",
+  "provider": "catalogue_spl",
   "uid": "0662c332-e5ab-4953-9eeb-95d5dc44cb67",
   "info": {
     "name": "Yetrina SPL",
@@ -19,7 +19,7 @@
       "iat": 1676880020,
       "auth_time": 1676880020,
       "jti": "890cf5ce-8d2a-4cac-97d4-81abd597e5a5",
-      "iss": "http://0.0.0.0:9090/auth/realms/staff_spl",
+      "iss": "http://0.0.0.0:9090/auth/realms/catalogue_spl",
       "aud": "account",
       "sub": "0662c332-e5ab-4953-9eeb-95d5dc44cb67",
       "typ": "Bearer",
@@ -35,7 +35,7 @@
         "roles": [
           "offline_access",
           "uma_authorization",
-          "default-roles-staff_spl"
+          "default-roles-catalogue_spl"
         ]
       },
       "resource_access": {

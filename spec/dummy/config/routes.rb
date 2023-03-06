@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get "pages/home"
+  devise_scope(:user) do
+    get "pages/home"
+  end
 
   root "pages#home"
 end

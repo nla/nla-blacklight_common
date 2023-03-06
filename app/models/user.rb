@@ -31,7 +31,7 @@ class User < PatronRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :user_reg_authenticatable, :timeoutable,
-    :omniauthable, omniauth_providers: %i[staff_spl staff_sol staff_shared]
+    :omniauthable, omniauth_providers: %i[catalogue_sol catalogue_spl catalogue_shared]
 
   attr_accessor :username, :password
 
