@@ -22,7 +22,4 @@ SimpleCov.start "rails" do
   # these will be removed soon
   add_filter "lib/devise/models/getalibrarycard_authenticatable.rb"
   add_filter "lib/devise/strategies/getalibrarycard_authenticatable.rb"
-
-  # Filter out hack around Turbo + Devise issue
-  add_filter "app/controllers/turbo_devise_controller.rb"
 end

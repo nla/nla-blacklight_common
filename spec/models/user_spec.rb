@@ -20,8 +20,7 @@
 #
 # Indexes
 #
-#  index_users_on_folio_ext_sys_id  (folio_ext_sys_id) UNIQUE
-#  index_users_on_folio_id          (folio_id) UNIQUE
+#  index_users_on_folio_id  (folio_id) UNIQUE
 #
 require "rails_helper"
 
@@ -51,7 +50,7 @@ RSpec.describe User do
     let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
 
     context "when logging in as an SOL user", altering_database: true do
-      let(:file) { IO.read("spec/files/auth/staff_sol_auth_hash.json") }
+      let(:file) { IO.read("spec/files/auth/catalogue_sol_auth_hash.json") }
 
       it "returns a User from Keycloak credentials" do
         expect(kc_user.email).to eq "ybattad@nla.gov.au"
@@ -62,7 +61,7 @@ RSpec.describe User do
     end
 
     context "when logging in as an SPL user", altering_database: true do
-      let(:file) { IO.read("spec/files/auth/staff_spl_auth_hash.json") }
+      let(:file) { IO.read("spec/files/auth/catalogue_spl_auth_hash.json") }
 
       it "returns a User from Keycloak credentials" do
         expect(kc_user.email).to eq "ybattad@nla.gov.au"
@@ -73,7 +72,7 @@ RSpec.describe User do
     end
 
     context "when logging in as a Shared user", altering_database: true do
-      let(:file) { IO.read("spec/files/auth/staff_shared_auth_hash.json") }
+      let(:file) { IO.read("spec/files/auth/catalogue_shared_auth_hash.json") }
 
       it "returns a User from Keycloak credentials" do
         expect(kc_user.email).to eq "ybattad@nla.gov.au"
@@ -84,7 +83,7 @@ RSpec.describe User do
     end
 
     context "when logging in as a Shared user with no email", altering_database: true do
-      let(:file) { IO.read("spec/files/auth/staff_shared_auth_hash_no_email.json") }
+      let(:file) { IO.read("spec/files/auth/catalogue_shared_auth_hash_no_email.json") }
 
       it "sets email to an empty string" do
         expect(kc_user.email).to eq ""

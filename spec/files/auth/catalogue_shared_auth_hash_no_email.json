@@ -1,5 +1,5 @@
 {
-  "provider": "staff_shared",
+  "provider": "catalogue_shared",
   "uid": "adeffe0d-cd77-45dc-a5fe-1cb4289299a8",
   "info": {
     "name": "Yetrina Shared",
@@ -19,7 +19,7 @@
       "iat": 1677022011,
       "auth_time": 1677022011,
       "jti": "afba166a-28d5-4554-bbcc-84c2cd01343a",
-      "iss": "http://0.0.0.0:9090/auth/realms/staff_shared",
+      "iss": "http://0.0.0.0:9090/auth/realms/catalogue_shared",
       "aud": "account",
       "sub": "adeffe0d-cd77-45dc-a5fe-1cb4289299a8",
       "typ": "Bearer",
@@ -34,7 +34,7 @@
       ],
       "realm_access": {
         "roles": [
-          "default-roles-staff_shared",
+          "default-roles-catalogue_shared",
           "offline_access",
           "uma_authorization"
         ]

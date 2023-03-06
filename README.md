@@ -26,6 +26,16 @@ host application:
 * `KEYCLOAK_SECRET` - Keycloak client secret
 * `KEYCLOAK_URL` - Keycloak OIDC authentication URL
 * `KEYCLOAK_REALM` - Keycloak realm for catalogue
+* `KEYCLOAK_URL` - Keycloak OIDC authentication URL
+* `KC_SOL_CLIENT` - Staff Official Loan realm client
+* `KC_SOL_SECRET` - Staff Official Loan realm client secret
+* `KC_SOL_REALM` - Staff Official Loan realm name
+* `KC_SPL_CLIENT` - Staff Personal Loan realm client
+* `KC_SPL_SECRET` - Staff Personal Loan realm client secret
+* `KC_SPL_REALM` - Staff Personal Loan realm name
+* `KC_SHARED_CLIENT` - Staff Shared Account realm client 
+* `KC_SHARED_SECRET` - Staff Shared Account realm client secret
+* `KC_SHARED_REALM` - Staff Shared Account realm name
 
 ### Scheduled tasks
 This engine uses [activerecord-session_store](https://github.com/rails/activerecord-session_store)
