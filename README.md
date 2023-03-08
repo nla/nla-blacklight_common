@@ -22,11 +22,6 @@ host application:
 * `GETALIBRARYCARD_BASE_URL` - Base URL of the Get A Library Card authentication endpoint
 * `GETALIBRARYCARD_AUTH_PATH` - Path to the authentication endpoint
 * `GETALIBRARYCARD_PATRON_DETAILS_PATH` - Path to the patron details endpoint
-* `KEYCLOAK_CLIENT` - Keycloak client for staff login
-* `KEYCLOAK_SECRET` - Keycloak client secret
-* `KEYCLOAK_URL` - Keycloak OIDC authentication URL
-* `KEYCLOAK_REALM` - Keycloak realm for catalogue
-* `KEYCLOAK_URL` - Keycloak OIDC authentication URL
 * `KC_SOL_CLIENT` - Staff Official Loan realm client
 * `KC_SOL_SECRET` - Staff Official Loan realm client secret
 * `KC_SOL_REALM` - Staff Official Loan realm name
