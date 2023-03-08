@@ -1,5 +1,54 @@
 # Changelog
 
+## [3.0.0](https://github.com/nla/catalogue-patrons/compare/2.0.0...3.0.0) (2023-03-08)
+
+
+### Features
+
+* add config and links for staff shared Keycloak realm ([c9e217d](https://github.com/nla/catalogue-patrons/commit/c9e217d9a437d405cfc8eaab0f2e8b90428c824f))
+* add separate links to staff login realms ([5011201](https://github.com/nla/catalogue-patrons/commit/5011201d827a6038d8e4d2182625bfa8da1f86e0))
+* default staff email to empty string if not present ([962cedb](https://github.com/nla/catalogue-patrons/commit/962cedb4f02117890108dc65c19dcfd4c6031607))
+* implement patron login via UserReg ([4a118dc](https://github.com/nla/catalogue-patrons/commit/4a118dcde7cdf05a4ae850a61cb4296627b3c2e8))
+* implement separate Keycloak realms for SOL and SPL login ([f385be1](https://github.com/nla/catalogue-patrons/commit/f385be13628619a43705132301174c3a372badaa))
+* implement staff backchannel logout ([409a61e](https://github.com/nla/catalogue-patrons/commit/409a61e2dc0742b69b2cd4caf0a00ca56248f03c))
+* only display staff login links in staff network ([25d8834](https://github.com/nla/catalogue-patrons/commit/25d8834625f89e3ba15e39e14cac32aa1f735cd9))
+* style staff login links and localise login text ([a1d3169](https://github.com/nla/catalogue-patrons/commit/a1d3169deb159e8ed86ccc87a5d1259e0d93fdd0))
+
+
+### Bug Fixes
+
+* fix install generator ([f3055cc](https://github.com/nla/catalogue-patrons/commit/f3055cc96834b99985e02fffb6b42d1c6c935638))
+* fixes overridden Devise localisation and password label ([5d2c2a6](https://github.com/nla/catalogue-patrons/commit/5d2c2a6b3ee297f175ea8f33d6aa1df66a426e37))
+* ignore "folio_ext_sys_id" pre-removal from db ([e3dff35](https://github.com/nla/catalogue-patrons/commit/e3dff356e985994edc5c62b5ce27aa8821be9006))
+
+
+### Code Refactoring
+
+* change patron auth endpoint ([a56fd3e](https://github.com/nla/catalogue-patrons/commit/a56fd3e43605bd81c0aba1fc5f4a867f676efc6e))
+* refactor Keycloak integration and add tests ([8af8628](https://github.com/nla/catalogue-patrons/commit/8af8628e554cb0bc879d24a01e8c7dae3f28f132))
+
+
+### Tests
+
+* add feature spec for staff login ([55ad8d2](https://github.com/nla/catalogue-patrons/commit/55ad8d2a9c6dffc02dfa65fe397906d90d7c58dd))
+* ignore GALC auth strategy in test coverage ([1b5929b](https://github.com/nla/catalogue-patrons/commit/1b5929b58937bea5b39872d4f331c6e05fda19c9))
+* refactor mocks for auth requests ([e6ef656](https://github.com/nla/catalogue-patrons/commit/e6ef65620e7282cf8b4a25d29664e6e84e24cb7b))
+
+
+### Documentation
+
+* update model annotations ([a512fcb](https://github.com/nla/catalogue-patrons/commit/a512fcba89e98f5f6017f78be58e5ac9eaa2dec8))
+* update README.md ([cf3e281](https://github.com/nla/catalogue-patrons/commit/cf3e281436b0dc234fdc45371d57acc5d42196d2))
+
+
+### Miscellaneous
+
+* add migration to remove folio_ext_sys_id column ([527e9c2](https://github.com/nla/catalogue-patrons/commit/527e9c2d9173105275501bb4d63a063032673c43))
+* annotate models with annotate gem ([15a3310](https://github.com/nla/catalogue-patrons/commit/15a3310447917ed2c05348a995ef18cfc2f51dfc))
+* clean up Devise turbo compatibility code ([39f19a6](https://github.com/nla/catalogue-patrons/commit/39f19a64bebb374172b4b389d82101202125603a))
+* cleanup commented code ([43167ee](https://github.com/nla/catalogue-patrons/commit/43167ee96813298936a8ad80f3d10ab6e4e74bb2))
+* release 3.0.0 ([494c432](https://github.com/nla/catalogue-patrons/commit/494c4329099a02a0adcef32f50184e316182f1f9))
+
 ## [2.0.0](https://github.com/nla/catalogue-patrons/compare/1.0.1...2.0.0) (2023-01-30)
 
 
