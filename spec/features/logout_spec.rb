@@ -3,11 +3,11 @@
 require "rails_helper"
 
 RSpec.describe "Logout" do
-  # rubocop:disable RSpec/AnyInstance
   before do
-    allow_any_instance_of(ApplicationHelper).to receive(:in_staff_subnet?).and_return(false)
+    # rubocop:disable RSpec/AnyInstance
+    allow_any_instance_of(PatronHelper).to receive(:user_location).and_return(:offsite)
+    # rubocop:enable RSpec/AnyInstance
   end
-  # rubocop:enable RSpec/AnyInstance
 
   it "destroys the user session" do
     visit new_user_session_path

@@ -7,6 +7,7 @@
 /spec/dummy/storage/
 /spec/dummy/tmp/
 /spec/dummy/db/*_schema.rb
+/spec/dummy/db/migrate
 /spec/dummy/db/patrons_migrate
 
 # Ignore .idea files
