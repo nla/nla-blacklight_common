@@ -6,6 +6,10 @@ module Catalogue
     require "omniauth-keycloak"
     require "omniauth/rails_csrf_protection"
 
+    require "flipper"
+    require "flipper-redis"
+    require "flipper-ui"
+
     class Engine < ::Rails::Engine
       if %w[development test].include? ENV["RAILS_ENV"]
         require "factory_bot_rails"
