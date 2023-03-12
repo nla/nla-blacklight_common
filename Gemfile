@@ -14,6 +14,10 @@ gem "jwt", "~> 2.7"
 
 gem "strong_migrations", "~> 1.4"
 
+# gem "flipper"
+# gem "flipper-active_record"
+# gem "flipper-ui"
+
 group :development, :test do
   gem "blacklight", "~> 7.32"
 

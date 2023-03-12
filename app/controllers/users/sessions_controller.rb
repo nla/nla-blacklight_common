@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
+  before_action :login_enabled
 
   skip_before_action :verify_authenticity_token, only: [:devise_logout]
 
@@ -41,5 +42,9 @@ class Users::SessionsController < Devise::SessionsController
 
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [user: [:username, :password]])
+  end
+
+  def login_enabled
+    redirect_to :not_found unless Flipper.enabled? :authentication
   end
 end
