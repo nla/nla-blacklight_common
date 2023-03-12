@@ -2,17 +2,15 @@
   <%= link_to t("auth.login"), new_session_path(:user) %><br />
 <% end %>
 
-<%- if ApplicationHelper.method_defined?(:in_staff_subnet?) %>
-  <%- if (Rails.env.development? || in_staff_subnet?) && devise_mapping.omniauthable? %>
-    <div class="dropdown mt-5">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= t("auth.staff.login_button_text") %>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <%= button_to t("auth.staff.sol_login"), user_catalogue_sol_omniauth_authorize_path, class: "dropdown-item", data: { turbo: false } %>
-        <%= button_to t("auth.staff.spl_login"), user_catalogue_spl_omniauth_authorize_path, class: "dropdown-item", data: { turbo: false } %>
-        <%= button_to t("auth.staff.shared_login"), user_catalogue_shared_omniauth_authorize_path, class: "dropdown-item", data: { turbo: false } %>
-      </div>
+<%- if (Rails.env.development? || user_location == :staff) && devise_mapping.omniauthable? %>
+  <div class="dropdown mt-5">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <%= t("auth.staff.login_button_text") %>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <%= button_to t("auth.staff.sol_login"), user_catalogue_sol_omniauth_authorize_path, class: "dropdown-item", data: { turbo: false } %>
+      <%= button_to t("auth.staff.spl_login"), user_catalogue_spl_omniauth_authorize_path, class: "dropdown-item", data: { turbo: false } %>
+      <%= button_to t("auth.staff.shared_login"), user_catalogue_shared_omniauth_authorize_path, class: "dropdown-item", data: { turbo: false } %>
     </div>
-  <% end %>
+  </div>
 <% end %>

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  before_action :login_enabled?
   before_action :configure_sign_in_params, only: [:create]
 
   skip_before_action :verify_authenticity_token, only: [:devise_logout]
@@ -42,12 +41,5 @@ class Users::SessionsController < Devise::SessionsController
 
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [user: [:username, :password]])
-  end
-
-  def login_enabled?
-    # TODO: Move common functionality into a library
-    unless defined?(Flipper).nil?
-      redirect_to "/404" unless Flipper.enabled? :authentication
-    end
   end
 end

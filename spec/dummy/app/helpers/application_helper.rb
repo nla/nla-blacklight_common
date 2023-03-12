@@ -15,9 +15,4 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-
-  # this should be implemented in the consuming application's ApplicationHelper
-  def in_staff_subnet?
-    raise NotImplementedError
-  end
 end
