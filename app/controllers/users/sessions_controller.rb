@@ -54,6 +54,6 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def login_enabled
-    redirect_to :not_found unless Flipper.enabled? :authentication
+    redirect_to "/404" unless Flipper.enabled? :authentication
   end
 end
