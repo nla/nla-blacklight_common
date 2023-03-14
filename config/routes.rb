@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   }
 
   devise_scope(:user) do
-    post "/backchannel_logout", to: "users/sessions#devise_logout", as: :backchannel_logout
+    post "/backchannel_logout", to: "users/sessions#backchannel_logout", as: :backchannel_logout
   end
 end

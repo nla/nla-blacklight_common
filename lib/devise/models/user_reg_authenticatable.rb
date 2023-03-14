@@ -24,6 +24,12 @@ module Devise
         (!self[:active]) ? :expired : super
       end
 
+      def authenticatable_salt
+        # Make the Keycloak session ID part of the authentication salt.
+        # See https://makandracards.com/makandra/53562-devise-invalidating-all-sessions-for-a-user
+        "#{super}#{self[:session_token]}"
+      end
+
       def after_user_reg_authentication
         # TODO maybe fetch things from FOLIO and setup session variables?
 
