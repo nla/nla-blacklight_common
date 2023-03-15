@@ -11,6 +11,7 @@
 #  name_family        :string(255)
 #  name_given         :string(255)
 #  provider           :string(255)
+#  session_token      :string(255)
 #  uid                :string(255)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -33,12 +34,10 @@ class User < PatronRecord
   devise :user_reg_authenticatable, :timeoutable,
     :omniauthable, omniauth_providers: %i[catalogue_sol catalogue_spl catalogue_shared]
 
-  attr_accessor :username, :password
-
-  self.ignored_columns = ["folio_ext_sys_id"]
+  attr_accessor :username, :password, :session_token
 
   def self.from_keycloak(auth)
-    find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|
+    user = find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|
       # We don't really care about the password since auth is via Keycloak, so we're just
       # putting a dummy value here.
       user.encrypted_password = SecureRandom.hex(14)
@@ -48,6 +47,8 @@ class User < PatronRecord
       user.name_given = auth.info.first_name
       user.name_family = auth.info.last_name
     end
+    user.update_column(:session_token, auth.extra.raw_info.sid)
+    user.reload
   end
 
   # Method added by Blacklight; Blacklight uses #to_s on your

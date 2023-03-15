@@ -24,6 +24,12 @@ module Devise
         (!self[:active]) ? :expired : super
       end
 
+      def authenticatable_salt
+        # Make the Keycloak session ID part of the authentication salt.
+        # See https://makandracards.com/makandra/53562-devise-invalidating-all-sessions-for-a-user
+        "#{super}#{self[:session_token]}"
+      end
+
       def after_user_reg_authentication
         # TODO maybe fetch things from FOLIO and setup session variables?
 
@@ -35,22 +41,17 @@ module Devise
 
       protected
 
-      # Hashes the password using bcrypt. Custom hash functions should override
-      # this method to apply their own algorithm.
-      #
-      # See https://github.com/heartcombo/devise-encryptable for examples
-      # of other hashing engines.
-      def password_digest(password)
-        Devise::Encryptor.digest(self.class, password)
-      end
-
       module ClassMethods
         Devise::Models.config(self, :pepper, :stretches)
 
         def find_for_user_reg_authentication(conditions)
           request_body = JSON.generate(barcode: conditions[:username], lastName: conditions[:password])
-          response = Faraday.new(url: ENV["PATRON_AUTH_URL"])
-            .post(ENV["PATRON_AUTH_ENDPOINT"], request_body.to_s, "Content-Type" => "application/json")
+
+          conn = Faraday.new(url: ENV["PATRON_AUTH_URL"])
+          response = conn.post ENV["PATRON_AUTH_ENDPOINT"] do |req|
+            req.headers[:content_type] = "application/json"
+            req.body = request_body.to_s
+          end
 
           if response.present? && response.status == 200
             auth_response = JSON.parse(response.body, object_class: OpenStruct)

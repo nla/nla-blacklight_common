@@ -11,6 +11,7 @@
 #  name_family        :string(255)
 #  name_given         :string(255)
 #  provider           :string(255)
+#  session_token      :string(255)
 #  uid                :string(255)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -37,6 +38,7 @@ FactoryBot.define do
       name_given { "Staff" }
       name_family { "User" }
       email { "staff@nla.gov.au" }
+      session_token { SecureRandom.hex }
     end
 
     created_at { Time.current }
