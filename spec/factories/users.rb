@@ -38,6 +38,7 @@ FactoryBot.define do
       name_given { "Staff" }
       name_family { "User" }
       email { "staff@nla.gov.au" }
+      session_token { SecureRandom.hex }
     end
 
     created_at { Time.current }

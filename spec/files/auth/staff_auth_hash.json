@@ -1,0 +1,59 @@
+{
+  "provider": "catalogue_sol",
+  "uid": "276d0a25-e8a2-47ff-b63d-8d414c270f9c",
+  "info": {
+    "name": "Staff User",
+    "email": "staff@nla.gov.au",
+    "first_name": "Staff",
+    "last_name": "User"
+  },
+  "credentials": {
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2Nzg4MzkwMzAsImlhdCI6MTY3ODgzODczMCwiYXV0aF90aW1lIjoxNjc4ODM4NzMwLCJqdGkiOiJmNjkyYjNlNy1mYzhmLTQ3NDQtOTcyZC04ZWYwYjk2NWYzNWEiLCJpc3MiOiJodHRwOi8vMC4wLjAuMDo5MDkwL2F1dGgvcmVhbG1zL2NhdGFsb2d1ZV9zb2wiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMjc2ZDBhMjUtZThhMi00N2ZmLWI2M2QtOGQ0MTRjMjcwZjljIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiY2F0YWxvZ3VlIiwic2Vzc2lvbl9zdGF0ZSI6IjIzOWViODdhLTIxZjMtNGM2OC1hNjczLTY2MTU4NjM3MWE1NyIsImFsbG93ZWQtb3JpZ2lucyI6WyIwLjAuMC4wOjMwMCIsImxvY2FsaG9zdDozMDAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiZGVmYXVsdC1yb2xlcy1zdGFmZl9zb2wiXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiMjM5ZWI4N2EtMjFmMy00YzY4LWE2NzMtNjYxNTg2MzcxYTU3IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJTdGFmZiBVc2VyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic3RhZmYiLCJnaXZlbl9uYW1lIjoiU3RhZmYiLCJmYW1pbHlfbmFtZSI6IlVzZXIiLCJlbWFpbCI6InN0YWZmQG5sYS5nb3YuYXUifQ.YWQOYO35LD8xgENaDWTKhWEZcoGStXMIvwfpQZshbmY",
+    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzM2I3NTBjOS01ODRlLTRiYWMtODA3YS00NjRjYzk2YWQzOWIifQ.eyJleHAiOjE2Nzg4NDA1MzAsImlhdCI6MTY3ODgzODczMCwianRpIjoiNTkzMTIxNTUtOGUxNC00ZmZiLWJiMzgtYmQxMWRjYTIyNmZkIiwiaXNzIjoiaHR0cDovLzAuMC4wLjA6OTA5MC9hdXRoL3JlYWxtcy9jYXRhbG9ndWVfc29sIiwiYXVkIjoiaHR0cDovLzAuMC4wLjA6OTA5MC9hdXRoL3JlYWxtcy9jYXRhbG9ndWVfc29sIiwic3ViIjoiMjc2ZDBhMjUtZThhMi00N2ZmLWI2M2QtOGQ0MTRjMjcwZjljIiwidHlwIjoiUmVmcmVzaCIsImF6cCI6ImNhdGFsb2d1ZSIsInNlc3Npb25fc3RhdGUiOiIyMzllYjg3YS0yMWYzLTRjNjgtYTY3My02NjE1ODYzNzFhNTciLCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiMjM5ZWI4N2EtMjFmMy00YzY4LWE2NzMtNjYxNTg2MzcxYTU3In0.mfQgojDfPAMxKK3uZwGgUe3vKLku0G_PfEGTUv5iUnA",
+    "expires_at": 1678839030,
+    "expires": true
+  },
+  "extra": {
+    "raw_info": {
+      "exp": 1678839030,
+      "iat": 1678838730,
+      "auth_time": 1678838730,
+      "jti": "f692b3e7-fc8f-4744-972d-8ef0b965f35a",
+      "iss": "http://0.0.0.0:9090/auth/realms/catalogue_sol",
+      "aud": "account",
+      "sub": "276d0a25-e8a2-47ff-b63d-8d414c270f9c",
+      "typ": "Bearer",
+      "azp": "catalogue",
+      "session_state": "239eb87a-21f3-4c68-a673-661586371a57",
+      "allowed-origins": [
+        "0.0.0.0:300",
+        "localhost:3000"
+      ],
+      "realm_access": {
+        "roles": [
+          "offline_access",
+          "uma_authorization",
+          "default-roles-staff_sol"
+        ]
+      },
+      "resource_access": {
+        "account": {
+          "roles": [
+            "manage-account",
+            "manage-account-links",
+            "view-profile"
+          ]
+        }
+      },
+      "scope": "openid email profile",
+      "sid": "239eb87a-21f3-4c68-a673-661586371a57",
+      "email_verified": true,
+      "name": "Staff User",
+      "preferred_username": "staff",
+      "given_name": "Staff",
+      "family_name": "User",
+      "email": "staff@nla.gov.au"
+    },
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2Nzg4MzkwMzAsImlhdCI6MTY3ODgzODczMCwiYXV0aF90aW1lIjoxNjc4ODM4NzMwLCJqdGkiOiJmOGNkOThlZC1kMzZmLTQxYTYtODFmYi1lOGIwN2Q5ODUwYTkiLCJpc3MiOiJodHRwOi8vMC4wLjAuMDo5MDkwL2F1dGgvcmVhbG1zL2NhdGFsb2d1ZV9zb2wiLCJhdWQiOiJjYXRhbG9ndWUiLCJzdWIiOiIyNzZkMGEyNS1lOGEyLTQ3ZmYtYjYzZC04ZDQxNGMyNzBmOWMiLCJ0eXAiOiJJRCIsImF6cCI6ImNhdGFsb2d1ZSIsInNlc3Npb25fc3RhdGUiOiIyMzllYjg3YS0yMWYzLTRjNjgtYTY3My02NjE1ODYzNzFhNTciLCJhdF9oYXNoIjoiel8zNWQ5blFyQml5a1MwakwybTRfdyIsInNpZCI6IjIzOWViODdhLTIxZjMtNGM2OC1hNjczLTY2MTU4NjM3MWE1NyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiU3RhZmYgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6InN0YWZmIiwiZ2l2ZW5fbmFtZSI6IlN0YWZmIiwiZmFtaWx5X25hbWUiOiJVc2VyIiwiZW1haWwiOiJzdGFmZkBubGEuZ292LmF1In0.2Q8SfyL9p4xPe-tQbQIS9XT1QRbJZuVUARED_ff8v0o"
+  }
+}

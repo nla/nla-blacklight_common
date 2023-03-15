@@ -21,10 +21,22 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  def backchannel_logout
+    logout_token = params["logout_token"]
+    jwt = JWT.decode(logout_token, nil, false)
+    session_id = jwt[0]["sid"]
+
+    # There is no user in context when this POST request from Keycloak is intercepted by Rails,
+    # so we need to find the User with a matching Keycloak session in #session_token.
+    user = User.find_by(session_token: session_id)
+    user.update_column(:session_token, SecureRandom.hex)
+  end
+
+  protected
+
   def devise_logout
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
     set_flash_message! :notice, :signed_out if signed_out
-    yield if block_given?
     respond_to_on_destroy
   end
 
@@ -36,18 +48,6 @@ class Users::SessionsController < Devise::SessionsController
     set_flash_message! :notice, :signed_out if signed_out
     redirect_to("#{iss}/protocol/openid-connect/logout?id_token_hint=#{id_token}&post_logout_redirect_uri=#{root_url}", allow_other_host: true)
   end
-
-  def backchannel_logout
-    logout_token = params["logout_token"]
-    jwt = JWT.decode(logout_token, nil, false)
-    session_id = jwt[0]["sid"]
-
-    # There is no user in context when this POST request from Keycloak is intercepted by Rails,
-    # so we need to find the User with a matching Keycloak session in #session_token.
-    User.find_by(session_token: session_id)&.update_column(:session_token, SecureRandom.hex)
-  end
-
-  protected
 
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [user: [:username, :password]])
