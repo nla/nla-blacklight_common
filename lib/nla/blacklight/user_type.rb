@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 require "singleton"
-require_relative "whitelist"
+require "nla/blacklight/whitelist"
 
 module Nla
   module Blacklight
     class UserType
       include Singleton
-      include Whitelist
+      include ::Nla::Blacklight::Whitelist
 
       def type(request)
         if in_local_subnet? request
