@@ -12,11 +12,11 @@ RSpec.describe "Login" do
   it "creates a new session for the user" do
     visit root_path
     click_link "Login"
-    expect(page).to have_content("Log in")
+    expect(page).to have_content("Login")
 
     fill_in "user_username", with: "bltest"
     fill_in "user_password", with: "test"
-    click_button "Log in"
+    click_button "Login"
 
     expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
     expect(page).to have_content("blacklight test")
@@ -36,7 +36,7 @@ RSpec.describe "Login" do
 
       fill_in "user_username", with: "bltest"
       fill_in "user_password", with: "blacklight"
-      click_button "Log in"
+      click_button "Login"
 
       expect(page).to have_content(I18n.t("devise.failure.expired"))
       expect(page).to have_content("Log in")
@@ -51,17 +51,17 @@ RSpec.describe "Login" do
 
       fill_in "user_username", with: "0000"
       fill_in "user_password", with: "failure"
-      click_button "Log in"
+      click_button "Login"
 
       expect(page).to have_link("Ask a Librarian", href: ENV["ASK_LIBRARIAN_URL"])
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Login")
     end
   end
 
   context "when user does not enter a username or password" do
     it "displays an error message" do
       visit new_user_session_path
-      click_button "Log in"
+      click_button "Login"
 
       expect(page).to have_link("Ask a Librarian", href: ENV["ASK_LIBRARIAN_URL"])
     end

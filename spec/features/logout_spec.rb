@@ -13,7 +13,7 @@ RSpec.describe "Logout" do
     visit new_user_session_path
     fill_in "user_username", with: "bltest"
     fill_in "user_password", with: "test"
-    click_button "Log in"
+    click_button "Login"
 
     visit root_path
     click_link "Log Out"
