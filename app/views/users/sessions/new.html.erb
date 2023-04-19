@@ -11,6 +11,8 @@
     <%= f.password_field :password, autocomplete: "off",class: "form-control col-md-4" %>
   </div>
 
+  <p><%= t("devise.registrations.register", url: ENV["NATIONAL_LIBRARY_CARD_URL"]).html_safe %></p>
+
   <div class="actions">
     <%= f.submit "Log in", class: "btn btn-primary" %>
   </div>
