@@ -13,7 +13,7 @@ RSpec.describe "Staff login" do
     it "display login links" do
       visit root_path
       click_link "Login"
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Login")
 
       expect(page).not_to have_content(I18n.t("auth.staff.sol_login"))
     end
@@ -29,7 +29,7 @@ RSpec.describe "Staff login" do
     it "display login links" do
       visit root_path
       click_link "Login"
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Login")
 
       expect(page).not_to have_content(I18n.t("auth.staff.sol_login"))
     end
@@ -45,7 +45,7 @@ RSpec.describe "Staff login" do
     it "display login links" do
       visit root_path
       click_link "Login"
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Login")
 
       expect(page).to have_content(I18n.t("auth.staff.sol_login"))
     end

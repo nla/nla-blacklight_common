@@ -1,6 +1,6 @@
 en:
   auth:
-    login: "Log in"
+    login: "Login"
     staff:
       login_button_text: "Staff Login"
       sol_login: "Staff Official Loan"

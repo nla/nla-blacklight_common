@@ -32,14 +32,14 @@ RSpec.describe "Login" do
     it "displays an error message" do
       visit root_path
       click_link "Login"
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Login")
 
       fill_in "user_username", with: "bltest"
       fill_in "user_password", with: "blacklight"
       click_button "Login"
 
       expect(page).to have_content(I18n.t("devise.failure.expired"))
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Login")
     end
   end
 
@@ -47,7 +47,7 @@ RSpec.describe "Login" do
     it "displays an error message" do
       visit root_path
       click_link "Login"
-      expect(page).to have_content("Log in")
+      expect(page).to have_content("Login")
 
       fill_in "user_username", with: "0000"
       fill_in "user_password", with: "failure"
