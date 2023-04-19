@@ -1,6 +1,7 @@
 require:
   - standard
   - rubocop-rspec
+  - rubocop-capybara
 
 inherit_gem:
   standard: config/base.yml
