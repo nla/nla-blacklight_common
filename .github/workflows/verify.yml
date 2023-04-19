@@ -55,6 +55,16 @@ jobs:
       GETALIBRARYCARD_BASE_URL: "https://example.nla.gov.au"
       GETALIBRARYCARD_AUTH_PATH: "/getalibrarycard/authenticate.xml/%s/%s"
       GETALIBRARYCARD_PATRON_DETAILS_PATH: "/getalibrarycard/patrons/details/%s.xml"
+      REDIS_URL: redis://redis:6379
+    services:
+      redis:
+        image: redis
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
