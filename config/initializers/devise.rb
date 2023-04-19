@@ -1,5 +1,35 @@
 # frozen_string_literal: true
 
+class CatalogueFailureApp < Devise::FailureApp
+  def recall
+    header_info = if relative_url_root?
+      base_path = Pathname.new(relative_url_root)
+      full_path = Pathname.new(attempted_path)
+
+      {"SCRIPT_NAME" => relative_url_root,
+       "PATH_INFO" => "/" + full_path.relative_path_from(base_path).to_s}
+    else
+      {"PATH_INFO" => attempted_path}
+    end
+
+    header_info.each do |var, value|
+      if request.respond_to?(:set_header)
+        request.set_header(var, value)
+      else
+        request.env[var] = value
+      end
+    end
+
+    message = I18n.t("devise.failure.no_credentials", url: ENV["ASK_LIBRARIAN_URL"]).html_safe
+    flash.now[:alert] = i18n_message(message) if is_flashing_format?
+    self.response = recall_app(warden_options[:recall]).call(request.env).tap { |response|
+      response[0] = Rack::Utils.status_code(
+        response[0].in?(300..399) ? Devise.responder.redirect_status : Devise.responder.error_status
+      )
+    }
+  end
+end
+
 Devise.add_module(:getalibrarycard_authenticatable, {
   strategy: true,
   controller: :sessions,
@@ -60,7 +90,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [:username, :password]
+  config.authentication_keys = {username: true, password: true}
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -291,10 +321,10 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  # config.warden do |manager|
-  #   manager.intercept_401 = false
-  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
-  # end
+  config.warden do |manager|
+    manager.failure_app = CatalogueFailureApp
+    manager.default_strategies(scope: :user).unshift :user_reg_authenticatable
+  end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine

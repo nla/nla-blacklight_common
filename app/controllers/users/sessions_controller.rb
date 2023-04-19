@@ -8,6 +8,9 @@ class Users::SessionsController < Devise::SessionsController
 
   def create
     super
+    # if params[:user][:username].blank? || params[:user][:password].blank?
+    #   flash[:alert] = t("devise.failure.no_credentials", url: ENV["ASK_LIBRARIAN_URL"]).html_safe
+    # end
   end
 
   def destroy

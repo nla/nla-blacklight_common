@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Login in" do
+RSpec.describe "Login" do
   before do
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(PatronHelper).to receive(:user_location).and_return(:offsite)
@@ -20,6 +20,12 @@ RSpec.describe "Login in" do
 
     expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
     expect(page).to have_content("blacklight test")
+  end
+
+  it "displays a registration link" do
+    visit new_user_session_path
+
+    expect(page).to have_link("here", href: ENV["NATIONAL_LIBRARY_CARD_URL"])
   end
 
   context "when user is inactive" do
@@ -47,8 +53,17 @@ RSpec.describe "Login in" do
       fill_in "user_password", with: "failure"
       click_button "Log in"
 
-      expect(page).to have_content(I18n.t("devise.failure.invalid"))
+      expect(page).to have_link("Ask a Librarian", href: ENV["ASK_LIBRARIAN_URL"])
       expect(page).to have_content("Log in")
+    end
+  end
+
+  context "when user does not enter a username or password" do
+    it "displays an error message" do
+      visit new_user_session_path
+      click_button "Log in"
+
+      expect(page).to have_link("Ask a Librarian", href: ENV["ASK_LIBRARIAN_URL"])
     end
   end
 end
