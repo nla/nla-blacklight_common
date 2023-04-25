@@ -1,5 +1,54 @@
 # Changelog
 
+## [3.1.0](https://github.com/nla/catalogue-patrons/compare/3.0.0...3.1.0) (2023-04-19)
+
+
+### Features
+
+* add session_token to user and refactor backchannel logout ([32d11b3](https://github.com/nla/catalogue-patrons/commit/32d11b3a67462c8c9a0ffab570f0dfaae26fbea1))
+* move user location and type logic from blacklight ([0b060de](https://github.com/nla/catalogue-patrons/commit/0b060de00f090c6ba112cfc0b4750539529c87e4))
+* re-implement feature flags ([2cfa3b1](https://github.com/nla/catalogue-patrons/commit/2cfa3b11e6f45670e1de5a2010fc0a1c3ef0453e))
+* update public patron login error messages ([665e6c2](https://github.com/nla/catalogue-patrons/commit/665e6c2d805ef7dd6ad2ba813d0f1fadb595deb8))
+
+
+### Bug Fixes
+
+* change "Log in" to "Login" ([27772fe](https://github.com/nla/catalogue-patrons/commit/27772fec959a55932687f9421e78ea068c9eee72))
+* change "Log in" to "Login" ([2d683be](https://github.com/nla/catalogue-patrons/commit/2d683be3bd117f9f9c124ef64327d6146b7f0e04))
+* correct typos in registration text ([22a5e16](https://github.com/nla/catalogue-patrons/commit/22a5e161ac497560d6bc8a5de66541d438f98d28))
+* fix resolution of modules ([00a3864](https://github.com/nla/catalogue-patrons/commit/00a3864a561ce2812440639d1765af4ab8723bee))
+* move flipper-ui into finding-aids scope ([38d7ea6](https://github.com/nla/catalogue-patrons/commit/38d7ea652f0c0efc4ccce336edd7aa1756d0667e))
+
+
+### Reverts
+
+* move system login and feat flag tests back to features ([a55665c](https://github.com/nla/catalogue-patrons/commit/a55665c5e789990763c39004fa56ae053e2678bc))
+
+
+### Tests
+
+* add tests for authentication feature flag ([7f70814](https://github.com/nla/catalogue-patrons/commit/7f708140aeed156243043925b688508c00b4f55f))
+* add tests for staff and backchannel logout ([91923ee](https://github.com/nla/catalogue-patrons/commit/91923ee1656ec77d88e9c922ba54c1b093d6a9de))
+
+
+### Continuous Integration
+
+* configure redis container for verify workflow ([a65098f](https://github.com/nla/catalogue-patrons/commit/a65098fb9d950a29928e1f472ba60fac9fe079b9))
+
+
+### Build System
+
+* update bundler version in Gemfile.lock ([fa8326a](https://github.com/nla/catalogue-patrons/commit/fa8326a046279f97a52b9fc4488dada31ea8a35f))
+
+
+### Miscellaneous
+
+* place user routes behind feature flag ([32fe116](https://github.com/nla/catalogue-patrons/commit/32fe1161e04594ea3d6f7a092f04e33eaeca9bcd))
+* remove commented code ([5043a1c](https://github.com/nla/catalogue-patrons/commit/5043a1c548495996ce0048a3504bb455526912c3))
+* update dependencies ([458f0da](https://github.com/nla/catalogue-patrons/commit/458f0dab0081ce1c0ff233478572ce016524d713))
+* update rubocop config ([39e1e69](https://github.com/nla/catalogue-patrons/commit/39e1e69fc8a8bf5bf1a2aef4c102072a5e378079))
+* upgrade dependencies ([8a723da](https://github.com/nla/catalogue-patrons/commit/8a723dac812a4b73b1bed74671cd6933fe2aab05))
+
 ## [3.0.0](https://github.com/nla/catalogue-patrons/compare/2.0.0...3.0.0) (2023-03-08)
 
 
