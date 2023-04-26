@@ -22,16 +22,19 @@
 # Indexes
 #
 #  index_users_on_folio_id  (folio_id) UNIQUE
-#
+
+require "securerandom"
+
 FactoryBot.define do
   factory :user do
     sequence(:email) { |n| "test-#{n.to_s.rjust(3, "0")}@example.com" }
     password { "123456" }
-    patron_id { 1 }
-    voyager_id { 1 }
+    folio_id { SecureRandom.uuid }
+    name_given { "Test" }
+    name_family { "User" }
 
     trait :staff do
-      provider { "keycloakopenid" }
+      provider { "catalogue_sol" }
       uid { "603e26dd-b2d4-4a88-ad9d-406eaec31463" }
       patron_id { nil }
       voyager_id { nil }

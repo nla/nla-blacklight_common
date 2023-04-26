@@ -14,10 +14,6 @@ gem "jwt", "~> 2.7"
 
 gem "strong_migrations", "~> 1.4"
 
-# gem "flipper"
-# gem "flipper-active_record"
-# gem "flipper-ui"
-
 group :development, :test do
   gem "blacklight", "~> 7.32"
 
@@ -39,7 +35,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "database_cleaner-active_record"
   gem "rails-controller-testing", "~> 1.0", ">= 1.0.5"
   gem "webmock"
 
