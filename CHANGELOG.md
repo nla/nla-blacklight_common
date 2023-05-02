@@ -1,5 +1,27 @@
 ## [Unreleased]
 
+## [0.2.3](https://github.com/nla/blacklight-solrcloud-repository/compare/0.2.2...0.2.3) (2023-05-02)
+
+
+### Miscellaneous
+
+* upgrade Rails to 7.0.4.2 ([4c426b7](https://github.com/nla/blacklight-solrcloud-repository/commit/4c426b7cbfd889ee03eb0017e039372b33ead673))
+
+
+### Documentation
+
+* update README.md badge links ([6be178f](https://github.com/nla/blacklight-solrcloud-repository/commit/6be178f6ea85eb0d2409f9faaa162f945adf3908))
+
+
+### Code Refactoring
+
+* update deps, connect only to leader nodes and require error class ([6f1ffa1](https://github.com/nla/blacklight-solrcloud-repository/commit/6f1ffa1923b8f21d4ed313af3d11f6932247abfb))
+
+
+### Tests
+
+* update test ([21f0417](https://github.com/nla/blacklight-solrcloud-repository/commit/21f041713660c9b26b57a6d460ca0033050de636))
+
 ## [0.2.2](https://github.com/nla/blacklight-solrcloud-repository/compare/0.2.1...0.2.2) (2023-01-23)
 
 
