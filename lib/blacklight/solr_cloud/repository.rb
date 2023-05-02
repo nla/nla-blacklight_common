@@ -2,6 +2,8 @@ require "zk"
 require "rsolr"
 require "blacklight"
 
+require "blacklight/solr_cloud/not_enough_nodes"
+
 module Blacklight
   module SolrCloud
     class Repository < Blacklight::Solr::Repository
@@ -93,7 +95,7 @@ module Blacklight
       end
 
       def active_node?(node, live_nodes)
-        live_nodes[node["node_name"]] && node["state"] == "active"
+        live_nodes[node["node_name"]] && node["state"] == "active" && node["leader"] == "true"
       end
     end
   end
