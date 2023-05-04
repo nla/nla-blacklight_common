@@ -59,6 +59,11 @@ RSpec.describe User do
         expect(kc_user.name_family).to eq "SOL"
         expect(kc_user.encrypted_password).not_to be_nil
       end
+
+      it "indicates the type of account" do
+        expect(kc_user).not_to be_nil
+        expect(kc_user.to_s).to eq "Yetrina SOL (SOL)"
+      end
     end
 
     context "when logging in as an SPL user", altering_database: true do
@@ -70,6 +75,11 @@ RSpec.describe User do
         expect(kc_user.name_family).to eq "SPL"
         expect(kc_user.encrypted_password).not_to be_nil
       end
+
+      it "indicates the type of account" do
+        expect(kc_user).not_to be_nil
+        expect(kc_user.to_s).to eq "Yetrina SPL (SPL)"
+      end
     end
 
     context "when logging in as a Shared user", altering_database: true do
@@ -80,6 +90,11 @@ RSpec.describe User do
         expect(kc_user.name_given).to eq "Yetrina"
         expect(kc_user.name_family).to eq "Shared"
         expect(kc_user.encrypted_password).not_to be_nil
+      end
+
+      it "indicates the type of account" do
+        expect(kc_user).not_to be_nil
+        expect(kc_user.to_s).to eq "Yetrina Shared (Shared)"
       end
     end
 

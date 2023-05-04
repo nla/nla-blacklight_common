@@ -57,6 +57,17 @@ class User < PatronsRecord
   # user class to get a user-displayable login/identifier for
   # the account.
   def to_s
-    "#{name_given} #{name_family}"
+    name = []
+    name << "#{name_given} #{name_family}"
+    if provider.present?
+      if provider == "catalogue_sol"
+        name << "(SOL)"
+      elsif provider == "catalogue_spl"
+        name << "(SPL)"
+      elsif provider == "catalogue_shared"
+        name << "(Shared)"
+      end
+    end
+    name.join(" ")
   end
 end
