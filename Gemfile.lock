@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    blacklight-solrcloud-repository (0.2.2)
+    blacklight-solrcloud-repository (0.2.3)
       blacklight (~> 7.30)
       rsolr
       zk (~> 1.10)
