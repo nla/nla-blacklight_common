@@ -16,6 +16,8 @@ RSpec.describe "Staff login" do
       expect(page).to have_content("Login")
 
       expect(page).not_to have_content(I18n.t("auth.staff.sol_login"))
+      expect(page).not_to have_content(I18n.t("auth.staff.spl_login"))
+      expect(page).not_to have_content(I18n.t("auth.staff.shared_login"))
     end
   end
 
@@ -32,6 +34,8 @@ RSpec.describe "Staff login" do
       expect(page).to have_content("Login")
 
       expect(page).not_to have_content(I18n.t("auth.staff.sol_login"))
+      expect(page).not_to have_content(I18n.t("auth.staff.spl_login"))
+      expect(page).not_to have_content(I18n.t("auth.staff.shared_login"))
     end
   end
 
@@ -48,6 +52,8 @@ RSpec.describe "Staff login" do
       expect(page).to have_content("Login")
 
       expect(page).to have_content(I18n.t("auth.staff.sol_login"))
+      expect(page).to have_content(I18n.t("auth.staff.spl_login"))
+      expect(page).to have_content(I18n.t("auth.staff.shared_login"))
     end
   end
 end
