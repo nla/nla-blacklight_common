@@ -1,5 +1,34 @@
 # Changelog
 
+## [3.2.0](https://github.com/nla/catalogue-patrons/compare/3.1.0...3.2.0) (2023-05-22)
+
+
+### Features
+
+* add indicator of type of staff account to username ([d71ab93](https://github.com/nla/catalogue-patrons/commit/d71ab93d1b3573cadd3943cd484f0bf69d3866de))
+* create user account page for logged in patrons ([4fe27b2](https://github.com/nla/catalogue-patrons/commit/4fe27b2292576947a9e5b3d06cb44a5f32b06025))
+
+
+### Bug Fixes
+
+* changes login password field to text field ([5689e10](https://github.com/nla/catalogue-patrons/commit/5689e10dc97c31c448d5d01a07299561baf91c4f))
+
+
+### Miscellaneous
+
+* upgrade dependencies ([dd25365](https://github.com/nla/catalogue-patrons/commit/dd25365881dcc540e281a10553f491d3e37f7916))
+
+
+### Tests
+
+* add bookmark and searches migrations for dummy app ([4987f8b](https://github.com/nla/catalogue-patrons/commit/4987f8b516115935ae91c36927110e861d462126))
+
+
+### Code Refactoring
+
+* refactors Whitelist class into a Rails model ([21af20a](https://github.com/nla/catalogue-patrons/commit/21af20a88d0d38e85127cb0a688457d0e563d201))
+* rename Staff Shared link to Team Official Loan ([0d7148a](https://github.com/nla/catalogue-patrons/commit/0d7148ad7b9db9ace2590ea6e127ade3e7084b07))
+
 ## [3.1.0](https://github.com/nla/catalogue-patrons/compare/3.0.0...3.1.0) (2023-04-19)
 
 
