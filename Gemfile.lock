@@ -92,9 +92,7 @@ GEM
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
     aes_key_wrap (1.1.0)
-    annotate (3.2.0)
-      activerecord (>= 3.2, < 8.0)
-      rake (>= 10.4, < 14.0)
+    annotaterb (4.2.0)
     ast (2.4.2)
     bcrypt (3.1.18)
     bindata (2.4.15)
@@ -444,7 +442,7 @@ PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
-  annotate
+  annotaterb
   blacklight (~> 7.32)
   capybara
   catalogue-patrons!

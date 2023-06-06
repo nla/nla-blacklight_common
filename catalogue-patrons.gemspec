@@ -47,5 +47,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "flipper-redis"
   spec.add_dependency "flipper-ui"
 
-  spec.add_development_dependency "annotate"
+  spec.add_development_dependency "annotaterb"
 end

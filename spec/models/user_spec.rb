@@ -5,7 +5,7 @@
 # Table name: users
 #
 #  id                 :bigint           not null, primary key
-#  active             :boolean          default(TRUE), not null
+#  active             :boolean          default("1"), not null
 #  email              :string(255)      default(""), not null
 #  encrypted_password :string(255)      default(""), not null
 #  name_family        :string(255)
