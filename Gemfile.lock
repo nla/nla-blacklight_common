@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    catalogue-patrons (3.2.0)
+    nla-blacklight_common (0.1.0)
       activerecord-session_store (~> 2.0)
       annotaterb
       brakeman
@@ -154,7 +154,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
-    faraday (2.7.5)
+    faraday (2.7.6)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-follow_redirects (0.3.0)
@@ -446,12 +446,12 @@ PLATFORMS
 DEPENDENCIES
   blacklight (~> 7.32)
   capybara
-  catalogue-patrons!
   debug
   factory_bot_rails
   faker
   jwt (~> 2.7)
   mysql2
+  nla-blacklight_common!
   puma (~> 6.0)
   rails-controller-testing (~> 1.0, >= 1.0.5)
   rails-ujs
@@ -469,4 +469,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   2.4.12
+   2.4.13

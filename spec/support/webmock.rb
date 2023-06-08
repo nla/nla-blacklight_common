@@ -13,7 +13,7 @@ RSpec.configure do |config|
         headers: {
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+          "User-Agent" => "catalogue/#{Nla::BlacklightCommon::VERSION}"
         }
       )
       .to_return(status: 200, body: "", headers: {})
@@ -26,7 +26,7 @@ RSpec.configure do |config|
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Content-Length" => "0",
-          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+          "User-Agent" => "catalogue/#{Nla::BlacklightCommon::VERSION}"
         }
       )
       .to_return(status: 200, body: auth_mock, headers: {})
@@ -38,7 +38,7 @@ RSpec.configure do |config|
         headers: {
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
-          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+          "User-Agent" => "catalogue/#{Nla::BlacklightCommon::VERSION}"
         }
       )
       .to_return(status: 200, body: details_mock, headers: {})
@@ -52,7 +52,7 @@ RSpec.configure do |config|
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Content-Type" => "application/json",
-          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+          "User-Agent" => "catalogue/#{Nla::BlacklightCommon::VERSION}"
         }
       )
       .to_return(status: 200, body: success_auth_mock, headers: {})
@@ -66,7 +66,7 @@ RSpec.configure do |config|
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Content-Type" => "application/json",
-          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+          "User-Agent" => "catalogue/#{Nla::BlacklightCommon::VERSION}"
         }
       )
       .to_return(status: 200, body: inactive_auth_mock, headers: {})
@@ -80,7 +80,7 @@ RSpec.configure do |config|
           "Accept" => "*/*",
           "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
           "Content-Type" => "application/json",
-          "User-Agent" => "catalogue-patrons/#{Catalogue::Patrons::VERSION}"
+          "User-Agent" => "catalogue/#{Nla::BlacklightCommon::VERSION}"
         }
       )
       .to_return(status: 404, body: failed_auth_mock, headers: {})

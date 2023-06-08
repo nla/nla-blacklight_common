@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.GH_TOKEN }}
           release-type: ruby
-          package-name: catalogue-patrons
+          package-name: nla-blacklight_common
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
           include-v-in-tag: false
@@ -34,4 +34,4 @@ jobs:
               {"type":"build","section":"Build System","hidden":false},
               {"type":"ci","section":"Continuous Integration","hidden":false}
             ]
-          version-file: "lib/catalogue/patrons/version.rb"
+          version-file: "lib/nla/blacklight_common/version.rb"

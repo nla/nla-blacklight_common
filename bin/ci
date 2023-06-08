@@ -8,10 +8,10 @@ echo "[ bin/ci ] Clearing log and temp files"
 bin/rails app:log:clear app:tmp:clear
 
 echo "[ bin/ci ] Preparing database"
-bin/rails db:reset || bin/rails db:migrate
+bin/rails db:reset || bin/rails db:prepare
 
 echo "[ bin/ci ] Linting source"
-bundle exec rubocop -A
+bundle exec rubocop -A --parallel
 
 echo "[ bin/ci ] Running RSpec tests"
 bundle exec rspec

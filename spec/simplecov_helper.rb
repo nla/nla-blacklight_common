@@ -1,3 +1,4 @@
+require "simplecov"
 require "simplecov-html"
 require "simplecov_json_formatter"
 
@@ -7,13 +8,13 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
 ])
 
 SimpleCov.start "rails" do
-  enable_coverage :branch
+  # enable_coverage :branch
 
   add_filter do |source_file|
     source_file.lines.count < 10
   end
 
-  add_filter "lib/catalogue/patrons/engine.rb"
+  add_filter "lib/nla/blacklight_common/engine.rb"
   add_filter "lib/generators/"
   add_filter "lib/tasks/"
 
