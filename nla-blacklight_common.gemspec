@@ -27,6 +27,10 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 7.0.4"
 
+  # blacklight
+  spec.add_dependency "rsolr"
+  spec.add_dependency "zk", "~> 1.10"
+
   # All runtime config comes from the UNIX environment
   # but we use dotenv to store that in files for development and testing
   spec.add_dependency "dotenv-rails"
@@ -37,15 +41,18 @@ Gem::Specification.new do |spec|
   # bundler-audit checks our dependencies for vulnerabilities
   spec.add_dependency "bundler-audit"
 
+  # authentication and sessions
   spec.add_dependency "activerecord-session_store", "~> 2.0"
   spec.add_dependency "rufus-scheduler", "~> 3.8"
   spec.add_dependency "devise"
   spec.add_dependency "omniauth-keycloak", "~> 1.4"
   spec.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
 
+  # feature flags
   spec.add_dependency "flipper"
   spec.add_dependency "flipper-redis"
   spec.add_dependency "flipper-ui"
 
+  # utilities
   spec.add_dependency "annotaterb"
 end

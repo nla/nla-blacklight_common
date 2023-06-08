@@ -13,12 +13,18 @@ bin/rails db:reset || bin/rails db:prepare
 echo "[ bin/ci ] Linting source"
 bundle exec rubocop -A --parallel
 
-echo "[ bin/ci ] Running RSpec tests"
-bundle exec rspec
-
 echo "[ bin/ci ] Analysing Ruby gems for"
 echo "[ bin/ci ] security vulnerabilities"
 bundle exec bundle audit check --update
+
+echo "[ bin/ci ] Preparing Zookeeper + SolrCloud cluster"
+podman-compose -f ./solr/docker-compose.yml up -d
+
+echo "[ bin/ci ] Running RSpec tests"
+bundle exec rspec
+
+echo "[ bin/ci ] Pulling down Zookeeper + SolrCloud cluster"
+podman-compose -f ./solr/docker-compose.yml down --volumes
 
 unset RAILS_ENV
 

@@ -16,10 +16,38 @@ require "simplecov_helper"
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+module Helpers
+  def delete_with_children(zk, path)
+    zk.children(path).each do |node|
+      delete_with_children(zk, File.join(path, node))
+    end
+    zk.delete(path)
+  rescue ZK::Exceptions::NoNode
+    # don't care if it already exists or not.
+  end
+
+  def wait_until(timeout = 10)
+    started_on = Time.current
+    result = false
+    loop do
+      result = yield
+      break if result || started_on < timeout.second.ago
+      Thread.pass
+    end
+    raise "Timed out" unless result
+  end
+
+  def load_marc_from_file(id)
+    IO.read("spec/files/marc/#{id}.marcxml")
+  end
+end
+
 require "active_record"
 ActiveRecord::Migrator.migrations_paths = "spec/dummy/db/migrate"
 
 RSpec.configure do |config|
+  config.include Helpers
+
   config.filter_run_excluding :ci_ignore unless ENV.fetch("CI", false) == false
 
   # rspec-expectations config goes here. You can use an alternate
@@ -67,4 +95,26 @@ RSpec.configure do |config|
   config.order = :random
 
   Kernel.srand config.seed
+end
+
+RSpec::Matchers.define :be_one_of do |expected|
+  match do |actual|
+    expected.include?(actual)
+  end
+end
+
+RSpec::Matchers.define :become_soon do |expected|
+  match do |actual|
+    wait_until do
+      actual.call == expected
+    end
+  rescue
+    false
+  else
+    true
+  end
+
+  def supports_block_expectations?
+    true
+  end
 end

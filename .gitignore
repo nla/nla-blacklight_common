@@ -1,3 +1,4 @@
+.DS_Store
 /.bundle/
 /doc/
 /log/*.log
@@ -8,6 +9,7 @@
 /spec/dummy/tmp/
 /spec/dummy/db/*_schema.rb
 /spec/dummy/db/patrons_migrate
+/spec/reports/
 
 # Ignore .idea files
 /.idea
@@ -15,8 +17,15 @@
 # rspec failure tracking
 .rspec_status
 
-# Ignore vendor/bundle
+# Ignore bundler config.
+/.bundle
 /vendor/bundle
+
+# Ignore Rubocop cache
+/.cache
+
+# Ignore Ruby Advisory DB
+/.local
 
 # The .env file is used for both dev and test
 # and creates more problems than it solves
