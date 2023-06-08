@@ -1,0 +1,28 @@
+require:
+  - standard
+  - rubocop-rspec
+  - rubocop-capybara
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+    - db/**/*
+    - bin/**/*
+    - tmp/**/*
+    - spec/dummy/**/*
+
+RSpec:
+  Enabled: true
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+Bundler/DuplicatedGem:
+  Enabled: false

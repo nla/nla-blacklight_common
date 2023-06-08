@@ -1,0 +1,18 @@
+<ul>
+<% if current_user %>
+  <li>
+    <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+  </li>
+  <% unless current_user.to_s.blank? %>
+    <li>
+      <%= link_to current_user, account_path %>
+    </li>
+  <% end %>
+<% else %>
+  <% if Flipper.enabled? :authentication %>
+  <li>
+    <%= link_to t("login"), new_user_session_path %>
+  </li>
+  <% end %>
+<% end %>
+</ul>

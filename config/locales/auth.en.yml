@@ -1,0 +1,8 @@
+en:
+  auth:
+    login: "Login"
+    staff:
+      login_button_text: "Staff Login"
+      sol_login: "Staff Official Loan"
+      spl_login: "Staff Personal Loan"
+      shared_login: "Team Official Loan"

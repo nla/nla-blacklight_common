@@ -1,0 +1,95 @@
+# This workflow runs the unit and system tests, as well as static code analysis
+# and dependecy vulnerability checks.
+#
+# It uses the default MySQL database included in the runner (usually ubuntu-latest).
+name: "Tests and code quality"
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  linters:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-lint
+      cancel-in-progress: true
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Install gems
+        run: |
+          bundle install
+
+      - name: RuboCop linting
+        run: |
+          bundle exec rubocop --parallel
+
+      - name: Brakeman code scanning
+        run: |
+          bundle exec brakeman --format github --no-pager --no-exit-on-warn
+
+      - name: Bundler Audit
+        run: |
+          bundle exec bundle audit check --update
+
+  tests:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-test
+      cancel-in-progress: true
+    name: Tests
+    runs-on: ubuntu-latest
+    env:
+      CI: true
+      DB_DATABASE: dummy_test
+      DB_USER: root
+      DB_PASSWORD: root
+      RAILS_ENV: test
+      DATABASE_URL: "mysql2://root:root@localhost:3306/dummy_test"
+      PATRONS_DB_URL: "mysql2://root:root@localhost:3306/dummy_test"
+      GETALIBRARYCARD_BASE_URL: "https://example.nla.gov.au"
+      GETALIBRARYCARD_AUTH_PATH: "/getalibrarycard/authenticate.xml/%s/%s"
+      GETALIBRARYCARD_PATRON_DETAILS_PATH: "/getalibrarycard/patrons/details/%s.xml"
+      REDIS_URL: redis://redis:6379
+    services:
+      redis:
+        image: redis
+        # Set health checks to wait until redis has started
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+
+      - name: Install gems
+        run: |
+          bundle install
+
+      - name: Set up MySQL
+        run: |
+          pwd
+          sudo /etc/init.d/mysql start
+          mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+          bundle exec rails db:migrate
+
+      - name: RSpec tests
+        run: |
+          bundle exec rspec
+
+      - name: Simplecov Report
+        uses: aki77/simplecov-report-action@v1
+        with:
+          failedThreshold: 80
+          token: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ github.actor != 'dependabot[bot]' }}
