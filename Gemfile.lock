@@ -449,6 +449,7 @@ PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  annotaterb
   blacklight (~> 7.32)
   capybara
   debug

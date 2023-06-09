@@ -1,0 +1,60 @@
+# YOU SHOULD NOT BE TRIGGERING THIS WORKFLOW!
+# IF YOU ARE, THEN YOU'RE DOING TRUNK BASED DEVELOPMENT WRONG!!
+# Read this (again?): https://trunkbaseddevelopment.com/
+#
+# This workflow expects the release to be performed on a branch called `release` that is branched
+# from `main`. This is to accommodate having to perform weird things that aren't hotfixes to the
+# stable code in `main` branch that cannot be merged into `main`, but has to be released to
+# production anyway (Y U DO DISSSS?!!!11!????!).
+#
+# Ideally, developers should "fix forward" ON THE `main` BRANCH instead of reverting code, but
+# sometimes that is not possible. (agA1N, wHy YoU d0 Th15? MUST YOU DO THIS?!)
+#
+# Developers should create a working branch from the `release` branch with pull requests based
+# also against the `release` branch.
+#
+# Merging pull requests against the `release` branch will trigger this workflow to create a new
+# release pull request (if one doesn't already exist).
+#
+# When the release pull request is merged into `release`, it will automatically create and tag a new
+# release version.
+#
+# To get your changes back into `main` without buggering that up in the process, create a
+# "merge back" branch from `main` and merge the `release` branch into that one first. Fix any
+# collisions and broken tests that results from this. Once you're satisfied that your "merge back"
+# branch is stable and working, create a pull request to merge it into `main`.
+
+name: Release automation for when your release is buggered
+on:
+  push:
+    branches: [release]
+jobs:
+  release-please:
+    name: Create a new release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          default-branch: release
+          release-type: ruby
+          package-name: nla-blacklight_common
+          bump-minor-pre-major: true
+          bump-patch-for-minor-pre-major: true
+          include-v-in-tag: false
+          changelog-types: >-
+            [
+              {"type":"feat","section":"Features","hidden":false},
+              {"type":"fix","section":"Bug Fixes","hidden":false},
+              {"type":"perf","section":"Performance Improvements","hidden":false},
+              {"type":"revert","section":"Reverts","hidden":false},
+              {"type":"docs","section":"Documentation","hidden":false},
+              {"type":"style","section":"Styles","hidden":false},
+              {"type":"chore","section":"Miscellaneous","hidden":false},
+              {"type":"refactor","section":"Code Refactoring","hidden":false},
+              {"type":"test","section":"Tests","hidden":false},
+              {"type":"build","section":"Build System","hidden":false},
+              {"type":"ci","section":"Continuous Integration","hidden":false}
+            ]
+          version-file: "lib/nla/blacklight_common/version.rb"

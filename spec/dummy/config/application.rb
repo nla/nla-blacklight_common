@@ -19,6 +19,12 @@ require "action_cable/engine"
 Bundler.require(*Rails.groups)
 require "nla/blacklight_common"
 
+# Rails root path for the Dummy app is "/spec/dummy", so place your dotenv files in
+# "/spec/dummy/spec" instead of the project root to configure the Dummy app.
+if %w[development test].include? ENV["RAILS_ENV"]
+  Dotenv::Railtie.load
+end
+
 module Dummy
   class Application < Rails::Application
     config.load_defaults Rails::VERSION::STRING.to_f

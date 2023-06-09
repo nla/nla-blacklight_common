@@ -94,7 +94,7 @@ RSpec.describe User do
 
       it "indicates the type of account" do
         expect(kc_user).not_to be_nil
-        expect(kc_user.to_s).to eq "Yetrina Shared (Shared)"
+        expect(kc_user.to_s).to eq "Yetrina Shared (TOL)"
       end
     end
 
