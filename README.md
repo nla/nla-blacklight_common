@@ -1,7 +1,7 @@
 # Nla::BlacklightCommon
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nla/blacklight_common/verify.yml?branch=main&logo=github)](https://github.com/nla/blacklight_common/actions/workflows/verify.yml)
-[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/nla/blacklight_common?include_prereleases)](https://github.com/nla/blacklight_common/releases/latest)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/nla/nla-blacklight_common/verify.yml?branch=main&logo=github)](https://github.com/nla/nla-blacklight_common/actions/workflows/verify.yml)
+[![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/nla/nla-blacklight_common?include_prereleases)](https://github.com/nla/nla-blacklight_common/releases/latest)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
 Common functionality for Blacklight and ArcLight applications, primarily:
