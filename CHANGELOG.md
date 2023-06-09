@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/nla/nla-blacklight_common/compare/0.1.0...0.1.1) (2023-06-09)
+
+
+### Documentation
+
+* update badges on README.md ([eee0408](https://github.com/nla/nla-blacklight_common/commit/eee0408c6f8bf5a00f4131c09426330d685e1749))
+
 ## 0.1.0 (2023-06-09)
 
 
