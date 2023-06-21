@@ -7,7 +7,7 @@ module Nla
 
       def copy_patron_migrations
         if Dir.exist? "#{Nla::BlacklightCommon::Engine.root}/db/patrons_migrate"
-          Dir.foreach("#{Nla::Patrons::Engine.root}/db/patrons_migrate") do |file|
+          Dir.foreach("#{Nla::BlacklightCommon::Engine.root}/db/patrons_migrate") do |file|
             next if file == "." || file == ".."
             copy_patron_migration File.basename(file, ".*")
           end
