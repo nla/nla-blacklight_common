@@ -54,7 +54,8 @@
       "preferred_username": "ybattad",
       "given_name": "Yetrina",
       "family_name": "SOL",
-      "email": "ybattad@nla.gov.au"
+      "email": "ybattad@nla.gov.au",
+      "folio_id": "folio_id"
     },
     "id_token": null
   }

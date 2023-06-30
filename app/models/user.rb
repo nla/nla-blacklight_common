@@ -44,10 +44,18 @@ class User < PatronsRecord
       # putting a dummy value here.
       user.encrypted_password = SecureRandom.hex(14)
 
-      # staff shared accounts may not have an email, first name or last name
       user.email = auth.info.email.present? ? auth.info.email : ""
       user.name_given = auth.info.first_name
       user.name_family = auth.info.last_name
+
+      # if this Keycloak user has a FOLIO ID, store it
+      if auth.extra.raw_info.folio_id.present?
+        user.folio_id = auth.extra.raw_info.folio_id
+      end
+    end
+    # if the user was created before without storing the FOLIO ID, update it now
+    if auth.extra.raw_info.folio_id.present? && user.folio_id.blank?
+      user.update_column(:folio_id, auth.extra.raw_info.folio_id)
     end
     user.update_column(:session_token, auth.extra.raw_info.sid)
     user.reload
