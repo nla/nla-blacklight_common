@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.2](https://github.com/nla/nla-blacklight_common/compare/0.1.1...0.1.2) (2023-06-21)
+
+
+### Bug Fixes
+
+* reference correct engine in install generator ([a6a3726](https://github.com/nla/nla-blacklight_common/commit/a6a3726e9890e1a3f41cf8862fd79eda059dd26a))
+
+
+### Miscellaneous
+
+* upgrade dependencies ([924f047](https://github.com/nla/nla-blacklight_common/commit/924f0472ecaedd61567ff5a0109ea801e43818b4))
+
 ## [0.1.1](https://github.com/nla/nla-blacklight_common/compare/0.1.0...0.1.1) (2023-06-09)
 
 
