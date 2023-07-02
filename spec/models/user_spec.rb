@@ -58,6 +58,7 @@ RSpec.describe User do
         expect(kc_user.name_given).to eq "Yetrina"
         expect(kc_user.name_family).to eq "SOL"
         expect(kc_user.encrypted_password).not_to be_nil
+        expect(kc_user.folio_id).to eq "folio_id"
       end
 
       it "indicates the type of account" do
@@ -74,6 +75,7 @@ RSpec.describe User do
         expect(kc_user.name_given).to eq "Yetrina"
         expect(kc_user.name_family).to eq "SPL"
         expect(kc_user.encrypted_password).not_to be_nil
+        expect(kc_user.folio_id).to eq "folio_id"
       end
 
       it "indicates the type of account" do
@@ -90,6 +92,7 @@ RSpec.describe User do
         expect(kc_user.name_given).to eq "Yetrina"
         expect(kc_user.name_family).to eq "Shared"
         expect(kc_user.encrypted_password).not_to be_nil
+        expect(kc_user.folio_id).to eq "folio_id"
       end
 
       it "indicates the type of account" do
