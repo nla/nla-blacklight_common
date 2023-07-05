@@ -37,8 +37,6 @@ FactoryBot.define do
     trait :staff do
       provider { "catalogue_sol" }
       uid { "603e26dd-b2d4-4a88-ad9d-406eaec31463" }
-      patron_id { nil }
-      voyager_id { nil }
       name_given { "Staff" }
       name_family { "User" }
       email { "staff@nla.gov.au" }

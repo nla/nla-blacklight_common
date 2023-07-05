@@ -28,8 +28,6 @@ require "rails_helper"
 RSpec.describe User do
   subject(:user) do
     create(:user,
-      patron_id: 1,
-      voyager_id: 1,
       name_given: "Blacklight",
       name_family: "Test")
   end
