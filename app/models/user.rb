@@ -38,6 +38,10 @@ class User < PatronsRecord
 
   attr_accessor :username, :password, :session_token
 
+  # These are no longer used, but are from previous authentication with Get A Library Card.
+  # Ignoring them now, for safe removal of the columns from the database in a later migration.
+  self.ignored_columns = :patron_id, :voyager_id
+
   def self.from_keycloak(auth)
     user = find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|
       # We don't really care about the password since auth is via Keycloak, so we're just
@@ -45,19 +49,18 @@ class User < PatronsRecord
       user.encrypted_password = SecureRandom.hex(14)
 
       user.email = auth.info.email.present? ? auth.info.email : ""
-      user.name_given = auth.info.first_name
-      user.name_family = auth.info.last_name
-
-      # if this Keycloak user has a FOLIO ID, store it
-      if auth.extra.raw_info.folio_id.present?
-        user.folio_id = auth.extra.raw_info.folio_id
-      end
     end
-    # if the user was created before without storing the FOLIO ID, update it now
-    if auth.extra.raw_info.folio_id.present? && user.folio_id.blank?
+    # set/update values from Keycloak in case they've changed
+    user.update_column(:name_given, auth.info.first_name)
+    user.update_column(:name_family, auth.info.last_name)
+    if auth.extra.raw_info.folio_id.present?
       user.update_column(:folio_id, auth.extra.raw_info.folio_id)
     end
+
+    # this is required for backchannel logout
     user.update_column(:session_token, auth.extra.raw_info.sid)
+
+    # reload user with updated values from database
     user.reload
   end
 

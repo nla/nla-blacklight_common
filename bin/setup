@@ -13,7 +13,7 @@ def setup
   # Note that the very first time this runs, db:reset
   # will fail, but this failure is fixed by
   # doing a db:migrate
-  system! "bin/rails db:reset || bin/rails db:prepare"
+  system! "bin/rails db:reset || bin/rails db:migrate"
 
   log "All set up."
   log ""
