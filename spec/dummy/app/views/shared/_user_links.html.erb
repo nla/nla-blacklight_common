@@ -1,11 +1,13 @@
 <ul>
+  <li><%= link_to "Home", root_path, class: "#{active_link_class_path("/")}" %></li>
+  <li><%= link_to "About", about_path, class: "#{active_link_class_controller(%w[pages])}" %></li>
 <% if current_user %>
   <li>
     <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
   </li>
   <% unless current_user.to_s.blank? %>
     <li>
-      <%= link_to current_user, account_path %>
+      <%= link_to current_user, account_path, class: "#{active_link_class("accounts", "show")}" %>
     </li>
   <% end %>
 <% else %>
