@@ -84,5 +84,27 @@ RSpec.configure do |config|
         }
       )
       .to_return(status: 404, body: failed_auth_mock, headers: {})
+
+    single_message_mock = IO.read("spec/files/global_messages/single_message.json")
+
+    WebMock.stub_request(:get, /test.nla.gov.au\/catalogue-message\/(1|1234)/)
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      )
+      .to_return(status: 200, body: single_message_mock, headers: {"Content-Type" => "application/json"})
+
+    multi_message_mock = IO.read("spec/files/global_messages/multiple_messages.json")
+
+    WebMock.stub_request(:get, /test.nla.gov.au\/catalogue-message\/2/)
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      )
+      .to_return(status: 200, body: multi_message_mock, headers: {"Content-Type" => "application/json"})
   end
 end

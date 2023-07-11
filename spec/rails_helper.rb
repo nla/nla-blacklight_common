@@ -9,6 +9,7 @@ require "rspec/rails"
 require "webmock/rspec"
 require "capybara/rspec"
 require "factory_bot_rails"
+require "view_component/test_helpers"
 
 FactoryBot.definition_file_paths << File.expand_path("../spec/factories", __FILE__)
 
@@ -75,6 +76,7 @@ RSpec.configure do |config|
     Flipper.enable(:authentication)
   end
 
+  config.include ViewComponent::TestHelpers, type: :component
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Capybara::RSpecMatchers, type: :component
