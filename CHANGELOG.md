@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.1.3](https://github.com/nla/nla-blacklight_common/compare/0.1.2...0.1.3) (2023-07-12)
+
+
+### Features
+
+* add helpers to add "active" class to links ([c2fd4c1](https://github.com/nla/nla-blacklight_common/commit/c2fd4c1bf966a311661eb2b3d22188c331163ff8))
+
+
+### Bug Fixes
+
+* store staff FOLIO ID on login ([28d1e23](https://github.com/nla/nla-blacklight_common/commit/28d1e23a1eb5311362663fd950dbd18db14b1e77))
+* update change details from Keycloak on login ([da3bae4](https://github.com/nla/nla-blacklight_common/commit/da3bae447de2c06bab7cb70a51de4730c6882d7d))
+
+
+### Miscellaneous
+
+* update dependencies ([d8475df](https://github.com/nla/nla-blacklight_common/commit/d8475dfbd724181ec850a8676d8a944a47d4edfe))
+* upgrade to address CVE-2023-28362 ([96ffe16](https://github.com/nla/nla-blacklight_common/commit/96ffe164739918be7058d3729b13ce9ce45cadef))
+
 ## [0.1.2](https://github.com/nla/nla-blacklight_common/compare/0.1.1...0.1.2) (2023-06-21)
 
 
