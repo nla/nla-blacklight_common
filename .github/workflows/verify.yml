@@ -92,7 +92,7 @@ jobs:
 
       - name: RSpec tests
         run: |
-          bundle exec rspec
+          bundle exec rspec --format progress
 
       - name: Simplecov Report
         uses: aki77/simplecov-report-action@v1

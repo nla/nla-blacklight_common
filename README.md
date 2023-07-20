@@ -125,26 +125,14 @@ from other Ruby projects on your development machine.
 #### Containers
 
 🚨 Blacklight Solr adapter specs are executed against a local SolrCloud cluster.
-You will need [Podman](https://podman.io/) to create a container for this cluster using the
+You will need [Docker](https://www.docker.com/) to create a container for this cluster using the
 `docker-compose.yml` file in the `solr` directory.
-
-In order to run this cluster successfully, you'll need a Podman machine with at least 4GB of memory
-and 6GB of disk space.
-
-The Podman machine created below will be initialised with 2 CPUs and 6GB of memory and disk space.
-
-```bash
-podman machine init --cpus 2 --disk-size 6144 --memory 6144  # initialise a Podman machine
-podman machine start                                         # start the Podman machine
-podman-compose -f ./solr/docker-compose.yml up -d            # spin up a ZK + SolrCloud cluster
-podman-compose -f ./solr/docker-compose.yml down --volumes   # pull down the ZK + SolrCloud cluster
-```
 
 ### Testing
 There is a `bin/ci` script that will run specs, perform linting and security analysis.
 
 ⚠️ This script will automatically setup and tear down a SolrCloud cluster for the Blacklight Solr
-adapter specs. See the ["Containers"](#containers) section above for more information.
+adapter specs IF DOCKER IS INSTALLED. See the ["Containers"](#containers) section above for more information.
 
 There is a GitHub Actions workflow named `verify.yml` that lints and runs the RSpec test suite
 whenever the following two events occur:
