@@ -12,22 +12,22 @@ RSpec.describe "Authentication flag" do
     end
   end
 
-  context "when authentication feature is disabled" do
+  context "when authentication feature doesn't exist" do
     before do
       Flipper.disable(:authentication)
     end
 
-    it "does not display login link" do
+    it "displays the login link" do
       visit root_path
 
-      expect(page).not_to have_content("Login")
+      expect(page).to have_content("Login")
     end
 
     context "when navigating directly to login" do
-      it "redirects to the not found page" do
+      it "redirects to the login page" do
         visit new_user_session_path
 
-        expect(page).to have_content("The page you were looking for doesn't exist.")
+        expect(page).not_to have_content("The page you were looking for doesn't exist.")
       end
     end
   end
