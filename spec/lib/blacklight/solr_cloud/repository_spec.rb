@@ -64,7 +64,7 @@ RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
 
   it "retrieves leader node urls from zookeeper" do
     expect(repository.send(:determine_node_urls).sort).to eq(
-      %w[http://192.168.1.22:8983/solr/collection1 http://192.168.1.24:8983/solr/collection1].sort
+      %w[http://192.168.1.21:8983/solr/collection1 http://192.168.1.22:8983/solr/collection1 http://192.168.1.23:8983/solr/collection1 http://192.168.1.24:8983/solr/collection1].sort
     )
   end
 

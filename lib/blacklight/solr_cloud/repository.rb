@@ -10,6 +10,7 @@ module Blacklight
       include MonitorMixin
 
       ZNODE_LIVE_NODES = "/live_nodes".freeze
+      MAX_RETRIES = 3
 
       private
 
@@ -34,9 +35,18 @@ module Blacklight
       end
 
       def build_connection
-        all_urls = determine_node_urls
+        make_connection(0)
+      end
 
-        ::RSolr.connect(connection_config.merge(adapter: connection_config[:http_adapter], url: select_node(all_urls)))
+      def make_connection(tries)
+        synchronize do
+          all_urls = determine_node_urls
+
+          ::RSolr.connect(connection_config.merge(adapter: connection_config[:http_adapter], url: select_node(all_urls), timeout: 30, open_timeout: 30))
+        rescue
+          tries += 1
+          (tries > MAX_RETRIES) ? raise(Blacklight::SolrCloud::NotEnoughNodes) : make_connection(tries)
+        end
       end
 
       def determine_node_urls
@@ -95,7 +105,9 @@ module Blacklight
       end
 
       def active_node?(node, live_nodes)
-        live_nodes[node["node_name"]] && node["state"] == "active" && node["leader"] == "true"
+        synchronize do
+          live_nodes[node["node_name"]] && node["state"] == "active"
+        end
       end
     end
   end
