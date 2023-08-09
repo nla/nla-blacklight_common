@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.1.5](https://github.com/nla/nla-blacklight_common/compare/0.1.4...0.1.5) (2023-08-09)
+
+
+### Features
+
+* remove scheduler temporarily ([7b54a0d](https://github.com/nla/nla-blacklight_common/commit/7b54a0d07f5ec3e6096be7c12ffe251d8794e3c4))
+
+
+### Bug Fixes
+
+* make Solr connection timeout earlier ([80fe0e6](https://github.com/nla/nla-blacklight_common/commit/80fe0e6571ec7a7b48ce9d8a6d10c6fcd93f41fe))
+* rescue global message fetching timeout ([8bed297](https://github.com/nla/nla-blacklight_common/commit/8bed29750b31f667a4981a7e0752a13fe9e3638d))
+
+
+### Miscellaneous
+
+* upgrade dependencies ([cb68121](https://github.com/nla/nla-blacklight_common/commit/cb68121774f7244316e9f8a88b1f2cae02e12a10))
+
 ## [0.1.4](https://github.com/nla/nla-blacklight_common/compare/0.1.3...0.1.4) (2023-07-20)
 
 
