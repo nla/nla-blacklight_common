@@ -45,13 +45,6 @@
 #                     rails_direct_uploads POST     /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
-  mount Flipper::UI.app(Flipper) => "/feats", :constraints => StaffOnlyConstraint.new
-
-  # for non-local Arclight deployment
-  scope(path: "/finding-aids") do
-    mount Flipper::UI.app(Flipper) => "/feats", :constraints => StaffOnlyConstraint.new
-  end
-
   devise_for :users, controllers: {
     sessions: "users/sessions",
     omniauth_callbacks: "users/omniauth_callbacks"
