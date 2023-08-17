@@ -11,10 +11,10 @@ RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
 
   let(:connection_config) do
     {
-      "test" => {
-        "adapter" => "solr_cloud",
-        "url" => "http://127.0.0.1:8983/solr/blacklight"
-      }
+      adapter: "solr_cloud",
+      url: "http://127.0.0.1:8983/solr/blacklight",
+      zk_host: "localhost:2181",
+      collection: "collection1"
     }
   end
 
@@ -49,9 +49,6 @@ RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
     zk_in_solr.create("/collections/collection1/state.json",
       json,
       mode: :ephemeral)
-
-    stub_const("ENV", ENV.to_hash.merge("ZK_HOST" => "localhost:2181"))
-    stub_const("ENV", ENV.to_hash.merge("SOLR_COLLECTION" => "collection1"))
   end
 
   after do

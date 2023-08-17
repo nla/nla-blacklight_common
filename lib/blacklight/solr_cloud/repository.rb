@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "zk"
 require "rsolr"
 require "blacklight"
@@ -9,13 +11,18 @@ module Blacklight
     class Repository < Blacklight::Solr::Repository
       include MonitorMixin
 
-      ZNODE_LIVE_NODES = "/live_nodes".freeze
+      ZNODE_LIVE_NODES = "/live_nodes"
       MAX_RETRIES = 3
+      ACTIVE = "active"
 
       private
 
+      def zk
+        @zk ||= ZK.new(connection_config[:zk_host], {chroot: :do_nothing})
+      end
+
       def collection
-        ENV.fetch("SOLR_COLLECTION", "blacklight").to_s
+        @collection ||= connection_config[:collection]
       end
 
       def collection_state
@@ -36,10 +43,7 @@ module Blacklight
 
       def make_connection(tries)
         synchronize do
-          @zk = ZK.new(ENV.fetch("ZK_HOST", "localhost:2181").to_s, {chroot: :do_nothing})
-
           all_urls = determine_node_urls
-          @zk = nil # release the Zookeeper connection reference in memory
 
           ::RSolr.connect(connection_config.merge(adapter: connection_config[:http_adapter], url: select_node(all_urls), timeout: 30, open_timeout: 30))
         rescue
@@ -58,26 +62,22 @@ module Blacklight
           end
 
           # Close the Zookeeper connection since we don't need it anymore
-          @zk.close! unless @zk.closed?
+          zk.close! unless zk.closed?
 
           all_urls
         end
       end
 
-      def collection_state_znode_path(collection)
-        "/collections/#{collection}/state.json"
-      end
-
       def get_collection_state
         synchronize do
-          collection_state_json, _stat = @zk.get(collection_state_znode_path(collection), watch: false)
+          collection_state_json, _stat = zk.get("/collections/#{collection}/state.json", watch: false)
           ::JSON.parse(collection_state_json)[collection]
         end
       end
 
       def get_live_nodes
         synchronize do
-          @zk.children(ZNODE_LIVE_NODES, watch: false)
+          zk.children(ZNODE_LIVE_NODES, watch: false)
         end
       end
 
@@ -100,7 +100,7 @@ module Blacklight
 
       def active_node?(node, live_nodes)
         synchronize do
-          live_nodes.include?(node["node_name"]) && node["state"] == "active"
+          live_nodes.include?(node["node_name"]) && node["state"] == ACTIVE
         end
       end
     end
