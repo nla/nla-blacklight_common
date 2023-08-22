@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", "~> 7.0.4"
 
   # blacklight
+  spec.add_dependency "blacklight", ">= 8.0.0", "< 9"
   spec.add_dependency "rsolr"
   spec.add_dependency "zk", "~> 1.10"
 
