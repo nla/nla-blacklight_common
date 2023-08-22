@@ -41,25 +41,31 @@ class User < PatronsRecord
   self.ignored_columns = :patron_id, :voyager_id
 
   def self.from_keycloak(auth)
-    user = find_or_create_by!(provider: auth.provider, uid: auth.uid) do |user|
-      # We don't really care about the password since auth is via Keycloak, so we're just
-      # putting a dummy value here.
-      user.encrypted_password = SecureRandom.hex(14)
-
+    ActiveRecord::Base.transaction do
+      user = find_or_create_by!(folio_id: auth.extra.raw_info.folio_id) do |user|
+        # We don't really care about the password since auth is via Keycloak, so we're just
+        # putting a dummy value here.
+        user.encrypted_password = SecureRandom.hex(14)
+      end
+      # set/update values from Keycloak in case they've changed
       user.email = auth.info.email.present? ? auth.info.email : ""
-    end
-    # set/update values from Keycloak in case they've changed
-    user.update_column(:name_given, auth.info.first_name)
-    user.update_column(:name_family, auth.info.last_name)
-    if auth.extra.raw_info.folio_id.present?
-      user.update_column(:folio_id, auth.extra.raw_info.folio_id)
-    end
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name_given = auth.info.first_name
+      user.name_family = auth.info.last_name
+      user.active = if auth.extra.raw_info.folio_active.present?
+        ActiveRecord::Type::Boolean.new.cast(auth.extra.raw_info.folio_active)
+      else
+        true # default to true
+      end
 
-    # this is required for backchannel logout
-    user.update_column(:session_token, auth.extra.raw_info.sid)
+      # this is required for backchannel logout
+      user.session_token = auth.extra.raw_info.sid
 
-    # reload user with updated values from database
-    user.reload
+      # reload user with updated values from database
+      user.save!
+      user.reload
+    end
   end
 
   # Method added by Blacklight; Blacklight uses #to_s on your

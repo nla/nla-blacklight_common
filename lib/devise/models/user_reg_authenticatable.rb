@@ -56,16 +56,18 @@ module Devise
           if response.present? && response.status == 200
             auth_response = JSON.parse(response.body, object_class: OpenStruct)
 
-            user = find_for_authentication({folio_id: auth_response[:id]})
-            authenticated_user = user.presence || User.create!({
-              folio_id: auth_response[:id]
-            })
+            ActiveRecord::Base.transaction do
+              user = find_for_authentication({folio_id: auth_response[:id]})
+              authenticated_user = user.presence || User.create!({
+                folio_id: auth_response[:id]
+              })
 
-            authenticated_user[:name_family] = auth_response[:lastName]
-            authenticated_user[:name_given] = auth_response[:firstName]
-            authenticated_user[:active] = ActiveRecord::Type::Boolean.new.cast(auth_response[:active])
-            authenticated_user.save!
-            authenticated_user
+              authenticated_user[:name_family] = auth_response[:lastName]
+              authenticated_user[:name_given] = auth_response[:firstName]
+              authenticated_user[:active] = ActiveRecord::Type::Boolean.new.cast(auth_response[:active])
+              authenticated_user.save!
+              authenticated_user
+            end
           end
         end
       end
