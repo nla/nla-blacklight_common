@@ -13,7 +13,7 @@
 name: Release automation for hotfixes
 on:
   push:
-    branches: [hotfix]
+    branches: [hotfix/0.1.6]
 jobs:
   release-please:
     name: Create a new release
@@ -23,7 +23,7 @@ jobs:
         id: release
         with:
           token: ${{ secrets.GH_TOKEN }}
-          default-branch: hotfix
+          default-branch: hotfix/0.1.6
           release-type: ruby
           package-name: nla-blacklight_common
           bump-minor-pre-major: true
