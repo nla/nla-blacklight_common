@@ -71,11 +71,6 @@ RSpec.configure do |config|
     Rails.cache.clear
   end
 
-  config.before do
-    Flipper.instance = Flipper.new(Flipper::Adapters::Memory.new)
-    Flipper.enable(:authentication)
-  end
-
   config.include ViewComponent::TestHelpers, type: :component
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :request

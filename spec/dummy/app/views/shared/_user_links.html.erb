@@ -11,10 +11,8 @@
     </li>
   <% end %>
 <% else %>
-  <% if Flipper.enabled? :authentication %>
   <li>
     <%= link_to t("login"), new_user_session_path %>
   </li>
-  <% end %>
 <% end %>
 </ul>

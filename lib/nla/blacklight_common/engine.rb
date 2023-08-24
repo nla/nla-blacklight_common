@@ -1,14 +1,10 @@
 module Nla
   module BlacklightCommon
     require "activerecord/session_store"
-    require "rufus-scheduler"
     require "devise"
     require "omniauth-keycloak"
     require "omniauth/rails_csrf_protection"
-
-    require "flipper"
-    require "flipper-redis"
-    require "flipper-ui"
+    require "connection_pool"
 
     class Engine < ::Rails::Engine
       if %w[development test].include? ENV["RAILS_ENV"]
