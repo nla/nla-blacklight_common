@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.6](https://github.com/nla/nla-blacklight_common/compare/0.1.5...0.1.6) (2023-08-24)
+
+
+### Bug Fixes
+
+* remove feature flags ([2805ce7](https://github.com/nla/nla-blacklight_common/commit/2805ce7c1d133579bf31f58b7626393c1dbea876))
+
+
+### Miscellaneous
+
+* prepare hotfix ([92521b6](https://github.com/nla/nla-blacklight_common/commit/92521b65a09ca5c44939bb29b8d41ad22159859d))
+
 ## [0.1.5](https://github.com/nla/nla-blacklight_common/compare/0.1.4...0.1.5) (2023-08-09)
 
 
