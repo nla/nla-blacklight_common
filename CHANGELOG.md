@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.1.6](https://github.com/nla/nla-blacklight_common/compare/0.1.5...0.1.6) (2023-08-24)
+
+
+### Bug Fixes
+
+* merge user accounts when logging in via Staff/public forms ([f3ea738](https://github.com/nla/nla-blacklight_common/commit/f3ea738661ca84dc372b53cfa29c688cf9bdeb52))
+* reduce memory allocation and clean dependencies ([3dd23e9](https://github.com/nla/nla-blacklight_common/commit/3dd23e9cec8d880e96d1f19995e047e0cd080a67))
+* use blacklight config to define ZK host and collection ([b7952f0](https://github.com/nla/nla-blacklight_common/commit/b7952f06ad63fcd6e5e382088d519ef1a77d04ba))
+
+
+### Miscellaneous
+
+* merge changes from main branch ([fb4e493](https://github.com/nla/nla-blacklight_common/commit/fb4e493b5702a31ed94f9f0c21cd2b22602e2dbc))
+* upgrade dependencies ([669fd6d](https://github.com/nla/nla-blacklight_common/commit/669fd6d2ea38b661f68b03cfb240c018374e5e80))
+
+
+### Build System
+
+* **deps:** bump isbang/compose-action from 1.5.0 to 1.5.1 ([52605e8](https://github.com/nla/nla-blacklight_common/commit/52605e81c492a332f340a21a8fea7b78be6c5535))
+
 ## [0.1.5](https://github.com/nla/nla-blacklight_common/compare/0.1.4...0.1.5) (2023-08-09)
 
 
