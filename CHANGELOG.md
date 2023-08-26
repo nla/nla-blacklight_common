@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.7](https://github.com/nla/nla-blacklight_common/compare/0.1.6...0.1.7) (2023-08-26)
+
+
+### Miscellaneous
+
+* change session cookie security ([6b0b7ec](https://github.com/nla/nla-blacklight_common/commit/6b0b7ec019f84338770c6f14f77493261f32f63b))
+
 ## [0.1.6](https://github.com/nla/nla-blacklight_common/compare/0.1.5...0.1.6) (2023-08-24)
 
 
