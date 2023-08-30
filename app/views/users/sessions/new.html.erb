@@ -1,14 +1,14 @@
 <h1>Login</h1>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="mb-3">
+  <div class="mb-3 col-md-4">
     <%= f.label :username, "User ID" %>
-    <%= f.text_field :username, autofocus: true, autocomplete: "username",class: "form-control col-md-4" %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 col-md-4">
     <%= f.label :password, "Family Name" %>
-    <%= f.text_field :password, autocomplete: "off",class: "form-control col-md-4" %>
+    <%= f.text_field :password, autocomplete: "off", class: "form-control" %>
   </div>
 
   <p><%= t("devise.registrations.register", url: ENV["NATIONAL_LIBRARY_CARD_URL"]).html_safe %></p>
