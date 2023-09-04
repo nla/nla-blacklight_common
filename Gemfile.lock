@@ -13,7 +13,7 @@ PATH
       omniauth-keycloak (~> 1.4)
       omniauth-rails_csrf_protection (~> 1.0)
       rails (~> 7.0.4)
-      rsolr
+      rsolr (>= 1.0, < 3)
       zk (~> 1.10)
 
 GEM
