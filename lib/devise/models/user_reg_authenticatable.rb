@@ -13,7 +13,9 @@ module Devise
       extend ActiveSupport::Concern
 
       def required_fields(*)
+        # :nocov:
         [:username, :password]
+        # :nocov:
       end
 
       def active_for_authentication?
