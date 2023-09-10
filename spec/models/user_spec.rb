@@ -46,7 +46,7 @@ RSpec.describe User do
 
     let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
 
-    context "when logging in as an SOL user", :altering_database do
+    context "when logging in as an SOL user" do
       let(:file) { IO.read("spec/files/auth/catalogue_sol_auth_hash.json") }
 
       it "returns a User from Keycloak credentials" do
@@ -63,7 +63,7 @@ RSpec.describe User do
       end
     end
 
-    context "when logging in as an SPL user", :altering_database do
+    context "when logging in as an SPL user" do
       let(:file) { IO.read("spec/files/auth/catalogue_spl_auth_hash.json") }
 
       it "returns a User from Keycloak credentials" do
@@ -81,7 +81,7 @@ RSpec.describe User do
       end
     end
 
-    context "when logging in as a Shared user", :altering_database do
+    context "when logging in as a Shared user" do
       let(:file) { IO.read("spec/files/auth/catalogue_shared_auth_hash.json") }
 
       it "returns a User from Keycloak credentials" do
@@ -99,7 +99,7 @@ RSpec.describe User do
       end
     end
 
-    context "when logging in as a Shared user with no email", :altering_database do
+    context "when logging in as a Shared user with no email" do
       let(:file) { IO.read("spec/files/auth/catalogue_shared_auth_hash_no_email.json") }
 
       it "sets email to an empty string" do

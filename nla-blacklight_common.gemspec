@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
     Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
   end
 
-  spec.add_dependency "rails", "~> 7.0.4"
+  spec.add_dependency "rails", ">= 7.0", "< 7.1"
 
   # blacklight
   spec.add_dependency "blacklight", ">= 8.0.0", "< 9"
