@@ -12,7 +12,7 @@ PATH
       dotenv-rails
       omniauth-keycloak (~> 1.4)
       omniauth-rails_csrf_protection (~> 1.0)
-      rails (~> 7.0.4)
+      rails (>= 7.0, < 7.1)
       rsolr (>= 1.0, < 3)
       zk (~> 1.10)
 
