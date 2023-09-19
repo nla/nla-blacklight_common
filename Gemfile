@@ -17,8 +17,6 @@ gem "strong_migrations", "~> 1.4"
 gem "fuubar"
 
 group :development, :test do
-  gem "blacklight", "~> 7.32"
-
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "standard", require: false
   gem "rubocop-rails", require: false

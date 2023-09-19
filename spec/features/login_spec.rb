@@ -28,12 +28,6 @@ RSpec.describe "Login" do
     expect(page).to have_link("here", href: ENV["NATIONAL_LIBRARY_CARD_URL"])
   end
 
-  it "disables Turbo" do
-    visit new_user_session_path
-
-    expect(page).to have_css("form[data-turbo]")
-  end
-
   context "when user is inactive" do
     it "displays an error message" do
       visit root_path

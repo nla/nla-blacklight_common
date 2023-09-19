@@ -1,5 +1,6 @@
 module Nla
   module BlacklightCommon
+    require "blacklight"
     require "activerecord/session_store"
     require "devise"
     require "omniauth-keycloak"
