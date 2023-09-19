@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.1.8](https://github.com/nla/nla-blacklight_common/compare/0.1.7...0.1.8) (2023-09-19)
+
+
+### Tests
+
+* change rspec format to Fuubar ([f70c92e](https://github.com/nla/nla-blacklight_common/commit/f70c92e0eded1cc1a0e999365843301974fab6c5))
+
+
+### Build System
+
+* **deps:** bump actions/checkout from 3 to 4 ([02e8344](https://github.com/nla/nla-blacklight_common/commit/02e834472b540c2275497ec91fa3e2a0878a2760))
+
+
+### Continuous Integration
+
+* fix Gemfile.lock ([1847cdd](https://github.com/nla/nla-blacklight_common/commit/1847cdd7170cf0bd10bd7ae35f9613a82babd3a8))
+* modify verify workflow to cache gems ([d501fa6](https://github.com/nla/nla-blacklight_common/commit/d501fa654a87f90b5b506e267097f5a86104f5a5))
+
 ## [0.1.7](https://github.com/nla/nla-blacklight_common/compare/0.1.6...0.1.7) (2023-08-26)
 
 
