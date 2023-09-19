@@ -14,6 +14,8 @@ gem "jwt", "~> 2.7"
 
 gem "strong_migrations", "~> 1.4"
 
+gem "fuubar"
+
 group :development, :test do
   gem "blacklight", "~> 7.32"
 
