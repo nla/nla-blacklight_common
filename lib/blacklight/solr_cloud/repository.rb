@@ -41,6 +41,7 @@ module Blacklight
 
             url = all_urls.sample
             raise Blacklight::SolrCloud::NotEnoughNodes unless url
+            url
           end
 
           begin
