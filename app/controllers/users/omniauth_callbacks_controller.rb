@@ -22,6 +22,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     sign_in_and_redirect @user, event: :authentication
   end
 
+  def catalogue_patron
+    Rails.logger.debug(request.env["omniauth.auth"])
+    @user = User.from_keycloak_patron(request.env["omniauth.auth"])
+    store_keycloak_data(request.env["omniauth.auth"])
+    sign_in_and_redirect @user, event: :authentication
+  end
+
   # Keycloak will display its own error page when there is a failure to login.
   # :nocov:
   def failure

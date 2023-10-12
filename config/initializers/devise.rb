@@ -1,49 +1,5 @@
 # frozen_string_literal: true
 
-class CatalogueFailureApp < Devise::FailureApp
-  def recall
-    header_info = if relative_url_root?
-      base_path = Pathname.new(relative_url_root)
-      full_path = Pathname.new(attempted_path)
-
-      {"SCRIPT_NAME" => relative_url_root,
-       "PATH_INFO" => "/" + full_path.relative_path_from(base_path).to_s}
-    else
-      {"PATH_INFO" => attempted_path}
-    end
-
-    header_info.each do |var, value|
-      if request.respond_to?(:set_header)
-        request.set_header(var, value)
-      else
-        request.env[var] = value
-      end
-    end
-
-    message = I18n.t("devise.failure.no_credentials", url: ENV["ASK_LIBRARIAN_URL"]).html_safe
-    flash.now[:alert] = i18n_message(message) if is_flashing_format?
-    self.response = recall_app(warden_options[:recall]).call(request.env).tap { |response|
-      response[0] = Rack::Utils.status_code(
-        response[0].in?(300..399) ? Devise.responder.redirect_status : Devise.responder.error_status
-      )
-    }
-  end
-end
-
-Devise.add_module(:getalibrarycard_authenticatable, {
-  strategy: true,
-  controller: :sessions,
-  model: "devise/models/getalibrarycard_authenticatable",
-  route: :session
-})
-
-Devise.add_module(:user_reg_authenticatable, {
-  strategy: true,
-  controller: :sessions,
-  model: "devise/models/user_reg_authenticatable",
-  route: :session
-})
-
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -58,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '0c97e745c71f8e98a4795c38e08c1099147b591da8cd41ffcef1591b0d842f99e77f02b72e0cac0fe3c9d69bb9cbba43d4ccc6f6901089536ee1a48b953eba08'
+  # config.secret_key = 'b0381e2e65fbb4ae91e67940ada6f0798d37dfed9e0cc74f5aa16587f6c6f5a2cc41d7ab86d5908f5eb67e5c481bc9ab86b13f01fc63bf02803526a5268ede3b'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -90,7 +46,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = {username: true, password: true}
+  # config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -107,7 +63,7 @@ Devise.setup do |config|
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:username, :password]
+  config.strip_whitespace_keys = [:email]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -170,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'c9ee4c0658e1c6d2b8d347958245cfe5040389fcf78ed6a71db76ee4be52802ee17f3d6e18d4d431522ba2330b5d25a4a16b13680b5689ad61902c4b7b0fd000'
+  # config.pepper = 'a4d2d0b4d065678ac151abcc34342a4af2086f5b45ff704dc2bcef23efe9bc6b5a1bb8b85acffbadaafef827eec324e9748a6d0b811980a29b870c79ac7b7bd1'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -310,7 +266,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html, :turbo_stream]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  # config.sign_out_via = :delete
+  config.sign_out_via = :delete
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -321,10 +277,10 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  config.warden do |manager|
-    manager.failure_app = CatalogueFailureApp
-    manager.default_strategies(scope: :user).unshift :user_reg_authenticatable
-  end
+  # config.warden do |manager|
+  #   manager.intercept_401 = false
+  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
+  # end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
