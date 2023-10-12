@@ -1,5 +1,5 @@
 <h1>Login</h1>
 
-<%= button_to t("auth.patron_login"), user_catalogue_patron_omniauth_authorize_path, data: { turbo: false } %>
+<%= button_to t("auth.patron_login"), user_catalogue_patron_omniauth_authorize_path, class: "btn btn-primary", data: { turbo: false } %>
 
 <%= render "users/shared/links" %>
