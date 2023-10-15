@@ -25,13 +25,11 @@ RSpec.describe "Active link" do
       click_link "Login"
       expect(page).to have_content("Login")
 
-      fill_in "user_username", with: "bltest"
-      fill_in "user_password", with: "test"
-      click_button "Login"
+      click_button "Patron Login"
 
       visit account_path
 
-      expect(page).to have_css("a.active", text: "blacklight test")
+      expect(page).to have_css("a.active", text: "Blacklight Test")
     end
   end
 end

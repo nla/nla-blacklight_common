@@ -3,7 +3,7 @@
   <li><%= link_to "About", about_path, class: "#{active_link_class_controller(%w[pages])}" %></li>
 <% if current_user %>
   <li>
-    <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+    <%= link_to t('blacklight.header_links.logout'), destroy_user_session_url, method: :delete, data: { turbo_method: :delete } %>
   </li>
   <% unless current_user.to_s.blank? %>
     <li>
