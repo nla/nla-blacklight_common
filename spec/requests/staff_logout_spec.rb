@@ -9,8 +9,8 @@ RSpec.describe "Staff logout" do
   let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
 
   before do
-    staff = create(:user, :staff)
-    sign_in staff
+    patron = create(:user, :staff)
+    sign_in patron
   end
 
   it "redirects to Keycloak's logout URL" do
@@ -34,19 +34,19 @@ RSpec.describe "Staff logout" do
       jwt = JWT.decode(logout_token, nil, false)
       jwt[0]["sid"]
     end
-    let(:staff) do
+    let(:patron) do
       user = create(:user, :staff)
       user.update_column(:session_token, session_id)
       user.reload
     end
 
     before do
-      sign_in staff
+      sign_in patron
     end
 
     it "updates the session_token for the logged out user" do
       post "/backchannel_logout", params: {logout_token: logout_token}
-      expect(staff.session_token).not_to eq session_id
+      expect(patron.session_token).not_to eq session_id
     end
   end
 end
