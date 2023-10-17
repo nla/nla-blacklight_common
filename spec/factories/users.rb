@@ -28,11 +28,15 @@ FactoryBot.define do
   factory :user do
     sequence(:email) { |n| "test-#{n.to_s.rjust(3, "0")}@example.com" }
     password { "123456" }
-    uid { SecureRandom.uuid }
-    provider { "catalogue_patron" }
+    folio_id { SecureRandom.uuid }
     name_given { "Test" }
     name_family { "User" }
-    session_token { SecureRandom.hex }
+
+    if ENV["KC_PATRON_REALM"]
+      uid { SecureRandom.uuid }
+      provider { "catalogue_patron" }
+      session_token { SecureRandom.hex }
+    end
 
     trait :staff do
       provider { "catalogue_sol" }
@@ -40,6 +44,7 @@ FactoryBot.define do
       name_given { "Staff" }
       name_family { "User" }
       sequence(:email) { |n| "staff-#{n.to_s.rjust(3, "0")}@nla.gov.au" }
+      session_token { SecureRandom.hex }
     end
 
     created_at { Time.current }

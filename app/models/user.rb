@@ -31,7 +31,12 @@ class User < PatronsRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :timeoutable, :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
+  if ENV["KC_PATRON_REALM"]
+    devise :timeoutable, :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
+  else
+    devise :user_reg_authenticatable, :timeoutable,
+      :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
+  end
 
   attr_accessor :username, :password, :session_token
 
@@ -97,14 +102,17 @@ class User < PatronsRecord
   # the account.
   def to_s
     name = "#{name_given} #{name_family}"
-    if provider == "catalogue_sol"
-      "#{name} (SOL)"
-    elsif provider == "catalogue_spl"
-      "#{name} (SPL)"
-    elsif provider == "catalogue_shared"
-      "#{name} (TOL)"
-    else
-      name
+    if provider.present?
+      name = if provider == "catalogue_sol"
+        "#{name} (SOL)"
+      elsif provider == "catalogue_spl"
+        "#{name} (SPL)"
+      elsif provider == "catalogue_shared"
+        "#{name} (TOL)"
+      else
+        name
+      end
     end
+    name
   end
 end

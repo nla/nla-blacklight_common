@@ -51,8 +51,10 @@ Rails.application.routes.draw do
   }
 
   devise_scope(:user) do
-    get "sign_in", to: "users/sessions#new", as: :new_user_session
-    delete "sign_out", to: "users/sessions#destroy", as: :destroy_user_session
+    if ENV["KC_PATRON_REALM"]
+      get "sign_in", to: "users/sessions#new", as: :new_user_session
+      delete "sign_out", to: "users/sessions#destroy", as: :destroy_user_session
+    end
     post "/backchannel_logout", to: "users/sessions#backchannel_logout", as: :backchannel_logout
   end
 end
