@@ -90,7 +90,9 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = {username: true, password: true}
+  unless ENV["KC_PATRON_REALM"]
+    config.authentication_keys = {username: true, password: true}
+  end
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -107,7 +109,9 @@ Devise.setup do |config|
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:username, :password]
+  unless ENV["KC_PATRON_REALM"]
+    config.strip_whitespace_keys = [:username, :password]
+  end
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -321,9 +325,11 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  config.warden do |manager|
-    manager.failure_app = CatalogueFailureApp
-    manager.default_strategies(scope: :user).unshift :user_reg_authenticatable
+  unless ENV["KC_PATRON_REALM"]
+    config.warden do |manager|
+      manager.failure_app = CatalogueFailureApp
+      manager.default_strategies(scope: :user).unshift :user_reg_authenticatable
+    end
   end
 
   # ==> Mountable engine configurations
