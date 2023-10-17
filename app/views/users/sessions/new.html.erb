@@ -1,7 +1,7 @@
 <h1>Login</h1>
 
 <% if ENV["KC_PATRON_REALM"] %>
-  <%= button_to t("auth.patron_login"), user_catalogue_patron_omniauth_authorize_path, data: { turbo: false } %>
+  <%= button_to t("auth.patron_login"), user_catalogue_patron_omniauth_authorize_path, class: "btn btn-primary", data: { turbo: false } %>
 <% else %>
   <%= form_for(resource, as: resource_name, html: {'data-turbo' => "false"}, url: session_path(resource_name)) do |f| %>
     <div class="field form-group">
