@@ -16,7 +16,10 @@ class Users::SessionsController < Devise::SessionsController
       keycloak_logout
     else
       # There is no Keycloak session identifier, so destroy the Devise session.
+      # TODO: remove when patron auth migrates to Keycloak.
+      # :nocov:
       devise_logout
+      # :nocov:
     end
   end
 
@@ -33,11 +36,13 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
 
+  # :nocov:
   def devise_logout
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
     set_flash_message! :notice, :signed_out if signed_out
     respond_to_on_destroy
   end
+  # :nocov:
 
   def keycloak_logout
     iss = session[:iss]

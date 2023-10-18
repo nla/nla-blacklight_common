@@ -106,5 +106,14 @@ RSpec.configure do |config|
         }
       )
       .to_return(status: 200, body: multi_message_mock, headers: {"Content-Type" => "application/json"})
+
+    WebMock.stub_request(:post, /catservices.test\/catalogue-services\/folio\/user\/(.*)\/autorenew/)
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        }
+      )
+      .to_return(status: 200, body: '{"active": true}', headers: {"Content-Type" => "application/json"})
   end
 end
