@@ -86,15 +86,30 @@ class User < PatronsRecord
       user.name_given = auth.info.first_name
       user.name_family = auth.info.last_name
 
-      # TODO: send request to catalogue services to determine active state of user account in FOLIO
-
       # this is required for backchannel logout
       user.session_token = auth.extra.raw_info.sid
+
+      # set active state after auto renewal
+      user.active = UserService.new.auto_renew(user.folio_id)
 
       # reload user with updated values from database
       user.save!
       user.reload
     end
+  end
+
+  def active_for_authentication?
+    super && self[:active]
+  end
+
+  def inactive_message
+    (!self[:active]) ? :expired : super
+  end
+
+  def authenticatable_salt
+    # Make the Keycloak session ID part of the authentication salt.
+    # See https://makandracards.com/makandra/53562-devise-invalidating-all-sessions-for-a-user
+    "#{super}#{self[:session_token]}"
   end
 
   # Method added by Blacklight; Blacklight uses #to_s on your
