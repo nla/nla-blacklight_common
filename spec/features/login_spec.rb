@@ -24,7 +24,15 @@ RSpec.describe "Login" do
     it "displays the patron login button" do
       visit root_path
       click_link "Login"
+      expect(page).to have_content(I18n.t("auth.patron.login_text"))
       expect(page).to have_content(I18n.t("auth.patron.login_btn"))
+    end
+
+    it "displays the upgrade link" do
+      visit root_path
+      click_link "Login"
+      expect(page).to have_content(I18n.t("auth.patron.upgrade_text"))
+      expect(page).to have_content(I18n.t("auth.patron.upgrade_btn"))
     end
   end
 
