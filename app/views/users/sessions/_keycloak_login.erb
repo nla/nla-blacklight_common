@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="row mb-3 bg-white">
+        <div class="col pt-3">
+          <p><%= t("auth.patron.upgrade_text") %></p>
+          <p><%= link_to t("auth.patron.upgrade_btn"), ENV.fetch("PATRON_UPGRADE_URL", "#"), class: "btn btn-dark" %></p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <p><%= t("auth.patron.login_text") %></p>
+          <%= button_to t("auth.patron.login_btn"), user_catalogue_patron_omniauth_authorize_path, class: "btn btn-primary", data: { turbo: false } %>
+        </div>
+      </div>
+    </div>
+    <%- if Rails.env.development? || user_location == :staff %>
+    <div class="col-md-5 offset-md-2">
+      <div class="row mb-3">
+        <div class="col">
+          <p><%= t("auth.staff.sol_text") %></p>
+          <%= button_to t("auth.staff.sol_login"), user_catalogue_sol_omniauth_authorize_path, class: "btn btn-primary", data: { turbo: false } %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <p><%= t("auth.staff.spl_text") %></p>
+          <%= button_to t("auth.staff.spl_login"), user_catalogue_spl_omniauth_authorize_path, class: "btn btn-primary", data: { turbo: false } %>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <p><%= t("auth.staff.shared_text") %></p>
+          <%= button_to t("auth.staff.shared_login"), user_catalogue_shared_omniauth_authorize_path, class: "btn btn-primary", data: { turbo: false } %>
+        </div>
+      </div>
+    </div>
+    <%- end %>
+  </div>
+</div>
