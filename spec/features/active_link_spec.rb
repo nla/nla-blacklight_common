@@ -45,7 +45,7 @@ RSpec.describe "Active link" do
         click_link "Login"
         expect(page).to have_content("Login")
 
-        click_button "Patron Login"
+        click_button "Login"
 
         visit account_path
 
