@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <%- if (Rails.env.development? || user_location == :staff) && devise_mapping.omniauthable? %>
+    <%- if Rails.env.development? || user_location == :staff %>
     <div class="col-md-5 offset-md-2">
       <div class="row mb-3">
         <div class="col">
