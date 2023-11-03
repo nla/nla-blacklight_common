@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nla-blacklight_common (0.1.9)
+    nla-blacklight_common (0.1.10)
       activerecord-session_store (~> 2.0)
       annotaterb
       brakeman

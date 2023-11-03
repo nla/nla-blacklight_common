@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.10](https://github.com/nla/nla-blacklight_common/compare/0.1.9...0.1.10) (2023-11-02)
+
+
+### Code Refactoring
+
+* rewording of login page text ([365493b](https://github.com/nla/nla-blacklight_common/commit/365493b8db214a5a095a0ac4882af8a7e247dbbc))
+* use "btn-secondary" for staff login links ([505a56b](https://github.com/nla/nla-blacklight_common/commit/505a56ba3efe80166581c0502db1ccda38a3825b))
+
 ## [0.1.9](https://github.com/nla/nla-blacklight_common/compare/0.1.8...0.1.9) (2023-10-19)
 
 
