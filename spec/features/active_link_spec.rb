@@ -20,37 +20,21 @@ RSpec.describe "Active link" do
   end
 
   describe "#active_link_class" do
+    before do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with("KC_PATRON_REALM").and_return("patron_realm")
+    end
+
     it "returns active given the controller and action" do
       visit root_path
       click_link "Login"
       expect(page).to have_content("Login")
 
-      fill_in "user_username", with: "bltest"
-      fill_in "user_password", with: "test"
       click_button "Login"
 
       visit account_path
 
-      expect(page).to have_css("a.active", text: "blacklight test")
-    end
-
-    context "when Keycloak patron authentication is enabled" do
-      before do
-        allow(ENV).to receive(:[]).and_call_original
-        allow(ENV).to receive(:[]).with("KC_PATRON_REALM").and_return("patron_realm")
-      end
-
-      it "returns active given the controller and action" do
-        visit root_path
-        click_link "Login"
-        expect(page).to have_content("Login")
-
-        click_button "Login"
-
-        visit account_path
-
-        expect(page).to have_css("a.active", text: "Blacklight Test")
-      end
+      expect(page).to have_css("a.active", text: "Blacklight Test")
     end
   end
 end

@@ -32,11 +32,9 @@ FactoryBot.define do
     name_given { "Test" }
     name_family { "User" }
 
-    if ENV["KC_PATRON_REALM"]
-      uid { SecureRandom.uuid }
-      provider { "catalogue_patron" }
-      session_token { SecureRandom.hex }
-    end
+    uid { SecureRandom.uuid }
+    provider { "catalogue_patron" }
+    session_token { SecureRandom.hex }
 
     trait :staff do
       provider { "catalogue_sol" }

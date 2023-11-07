@@ -31,12 +31,7 @@ class User < PatronsRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  if ENV["KC_PATRON_REALM"]
-    devise :timeoutable, :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
-  else
-    devise :user_reg_authenticatable, :timeoutable,
-      :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
-  end
+  devise :timeoutable, :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
 
   attr_accessor :username, :password, :session_token
 
