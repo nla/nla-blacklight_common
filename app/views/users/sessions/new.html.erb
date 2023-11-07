@@ -1,25 +1,3 @@
 <h1>Login</h1>
 
-<% if ENV["KC_PATRON_REALM"] %>
-  <%= render "keycloak_login" %>
-<% else %>
-  <%= form_for(resource, as: resource_name, html: {'data-turbo' => "false"}, url: session_path(resource_name)) do |f| %>
-    <div class="field form-group">
-      <%= f.label :username, "User ID" %>
-      <%= f.text_field :username, autofocus: true, autocomplete: "username",class: "form-control col-md-4" %>
-    </div>
-
-    <div class="field form-group">
-      <%= f.label :password, "Family Name" %>
-      <%= f.text_field :password, autocomplete: "off",class: "form-control col-md-4" %>
-    </div>
-
-    <p><%= t("devise.registrations.register", url: ENV["NATIONAL_LIBRARY_CARD_URL"]).html_safe %></p>
-
-    <div class="actions">
-      <%= f.submit "Login", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-
-  <%= render "users/shared/links" %>
-<% end %>
+<%= render "keycloak_login" %>
