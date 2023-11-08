@@ -22,4 +22,12 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     strategy_class: OmniAuth::Strategies::KeycloakOpenId,
     authorize_params: {scope: "openid"},
     name: "catalogue_shared"
+
+  provider :keycloak_openid,
+    ENV.fetch("KC_PATRON_CLIENT", "patron"),
+    ENV.fetch("KC_PATRON_SECRET", "default secret"),
+    client_options: {site: ENV.fetch("KEYCLOAK_URL", "http://localhost:9090"), realm: ENV.fetch("KC_PATRON_REALM", "nla-patron")},
+    strategy_class: OmniAuth::Strategies::KeycloakOpenId,
+    authorize_params: {scope: "openid"},
+    name: "catalogue_patron"
 end

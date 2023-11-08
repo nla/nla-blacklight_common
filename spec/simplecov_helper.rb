@@ -23,4 +23,6 @@ SimpleCov.start "rails" do
   # these will be removed soon
   add_filter "lib/devise/models/getalibrarycard_authenticatable.rb"
   add_filter "lib/devise/strategies/getalibrarycard_authenticatable.rb"
+  add_filter "lib/devise/models/user_reg_authenticatable.rb"
+  add_filter "lib/devise/strategies/user_reg_authenticatable.rb"
 end

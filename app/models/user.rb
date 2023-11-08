@@ -31,8 +31,7 @@ class User < PatronsRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :user_reg_authenticatable, :timeoutable,
-    :omniauthable, omniauth_providers: %i[catalogue_sol catalogue_spl catalogue_shared]
+  devise :timeoutable, :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
 
   attr_accessor :username, :password, :session_token
 
@@ -68,6 +67,46 @@ class User < PatronsRecord
     end
   end
 
+  def self.from_keycloak_patron(auth)
+    ActiveRecord::Base.transaction do
+      user = find_or_create_by!(folio_id: auth.extra.raw_info.preferred_username) do |user|
+        # We don't really care about the password since auth is via Keycloak, so we're just
+        # putting a dummy value here.
+        user.encrypted_password = SecureRandom.hex(14)
+      end
+      # set/update values from Keycloak in case they've changed
+      user.email = auth.info.email.present? ? auth.info.email : ""
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name_given = auth.info.first_name
+      user.name_family = auth.info.last_name
+
+      # this is required for backchannel logout
+      user.session_token = auth.extra.raw_info.sid
+
+      # set active state after auto renewal
+      user.active = UserService.new.auto_renew(user.folio_id)
+
+      # reload user with updated values from database
+      user.save!
+      user.reload
+    end
+  end
+
+  def active_for_authentication?
+    super && self[:active]
+  end
+
+  def inactive_message
+    (!self[:active]) ? :expired : super
+  end
+
+  def authenticatable_salt
+    # Make the Keycloak session ID part of the authentication salt.
+    # See https://makandracards.com/makandra/53562-devise-invalidating-all-sessions-for-a-user
+    "#{super}#{self[:session_token]}"
+  end
+
   # Method added by Blacklight; Blacklight uses #to_s on your
   # user class to get a user-displayable login/identifier for
   # the account.
@@ -80,6 +119,8 @@ class User < PatronsRecord
         "#{name} (SPL)"
       elsif provider == "catalogue_shared"
         "#{name} (TOL)"
+      else
+        name
       end
     end
     name

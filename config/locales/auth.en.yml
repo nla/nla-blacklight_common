@@ -3,6 +3,14 @@ en:
     login: "Login"
     staff:
       login_button_text: "Staff Login"
+      sol_text: "Staff Official Loan (SOL) is for staff members who require access to the collection for the purposes of their work."
       sol_login: "Staff Official Loan"
+      spl_text: "Staff Personal Loan (SPL) entitles staff to borrow up to two (2) items for one calendar month. These item can be removed from the Library."
       spl_login: "Staff Personal Loan"
+      shared_text: "Team Official Loan (TOL) is for Library teams who require access to the collection for work-related purposes for extended periods, or by multiple staff."
       shared_login: "Team Official Loan"
+    patron:
+      upgrade_text: "Already have a Library card but don’t yet have an email and password login? As of 20 November 2023 library logins require an email address and password."
+      upgrade_btn: "Upgrade Login"
+      login_text: "Login with your email and password to request material and access eResources."
+      login_btn: "Login"

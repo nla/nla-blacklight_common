@@ -32,12 +32,16 @@ FactoryBot.define do
     name_given { "Test" }
     name_family { "User" }
 
+    uid { SecureRandom.uuid }
+    provider { "catalogue_patron" }
+    session_token { SecureRandom.hex }
+
     trait :staff do
       provider { "catalogue_sol" }
       uid { "603e26dd-b2d4-4a88-ad9d-406eaec31463" }
       name_given { "Staff" }
       name_family { "User" }
-      email { "staff@nla.gov.au" }
+      sequence(:email) { |n| "staff-#{n.to_s.rjust(3, "0")}@nla.gov.au" }
       session_token { SecureRandom.hex }
     end
 

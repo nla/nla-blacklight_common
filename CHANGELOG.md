@@ -1,5 +1,48 @@
 # Changelog
 
+## [0.1.10](https://github.com/nla/nla-blacklight_common/compare/0.1.9...0.1.10) (2023-11-02)
+
+
+### Code Refactoring
+
+* rewording of login page text ([365493b](https://github.com/nla/nla-blacklight_common/commit/365493b8db214a5a095a0ac4882af8a7e247dbbc))
+* use "btn-secondary" for staff login links ([505a56b](https://github.com/nla/nla-blacklight_common/commit/505a56ba3efe80166581c0502db1ccda38a3825b))
+
+## [0.1.9](https://github.com/nla/nla-blacklight_common/compare/0.1.8...0.1.9) (2023-10-19)
+
+
+### Features
+
+* call auto-renew on patron login ([27050c8](https://github.com/nla/nla-blacklight_common/commit/27050c86ffa91d8a78b6478bfd59cb03559e70fc))
+* change patron login to Keycloak via OmniAuth ([aae3900](https://github.com/nla/nla-blacklight_common/commit/aae39003095049f3a681b2ae4e20eeec4b60b7c8))
+* patron keycloak login page ([bcbd057](https://github.com/nla/nla-blacklight_common/commit/bcbd05704a2a045232286b1ce65edf0562745c00))
+
+
+### Bug Fixes
+
+* fix session destruction and patron login style ([bdc42a9](https://github.com/nla/nla-blacklight_common/commit/bdc42a9d7ec42e53bbd577939b224b9586a59cdb))
+* remove omniauth check for Keycloak login page ([d985edb](https://github.com/nla/nla-blacklight_common/commit/d985edb334d7f0cd0fdda4ce4189f539f66a6aee))
+* restyle patron login button ([b9f38b2](https://github.com/nla/nla-blacklight_common/commit/b9f38b299625800db6d87e765847b19ccb9494a8))
+
+
+### Miscellaneous
+
+* merge feature flag changes ([dac96ed](https://github.com/nla/nla-blacklight_common/commit/dac96ed1221110f42f39ec4e6ec4e235d037b09a))
+* update dependencies ([71eea98](https://github.com/nla/nla-blacklight_common/commit/71eea98f4dd051800d2875b0f39f91236647f89a))
+* update dependency versions ([25e5a8f](https://github.com/nla/nla-blacklight_common/commit/25e5a8f924ffbc743cd102aa9b82c7e4b6dcdc43))
+
+
+### Code Refactoring
+
+* refactor to use KC_PATRON_REALM as a feature flag ([f66cf16](https://github.com/nla/nla-blacklight_common/commit/f66cf1666ea8624adea734ad96b2d3daf5a3b74c))
+
+
+### Tests
+
+* add test for patron login upgrade link ([4fd5dd8](https://github.com/nla/nla-blacklight_common/commit/4fd5dd8579ba5e73b92f19bb8d5e9dd5d950d7b3))
+* fix test broken by merge ([d44e169](https://github.com/nla/nla-blacklight_common/commit/d44e16937c57ff8698440bd7dcb16e281d6ee37b))
+* fix tests config for OmniAuth ([24c53d8](https://github.com/nla/nla-blacklight_common/commit/24c53d8e924338c94f0499481d4b4810c0de0313))
+
 ## [0.1.8](https://github.com/nla/nla-blacklight_common/compare/0.1.7...0.1.8) (2023-09-19)
 
 
