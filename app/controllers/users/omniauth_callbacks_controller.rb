@@ -40,7 +40,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def store_keycloak_data(auth)
-    # store the "id_token" for backchannel logout
+    # store the "iss" and id_token" for backchannel logout
     session[:id_token] = auth.extra.id_token
     session[:iss] = auth.extra.raw_info.iss
   end
