@@ -33,7 +33,7 @@ class User < PatronsRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :timeoutable, :omniauthable, omniauth_providers: %i[catalogue_patron catalogue_sol catalogue_spl catalogue_shared]
 
-  attr_accessor :username, :password, :session_token
+  attr_accessor :username, :password
 
   # These are no longer used, but are from previous authentication with Get A Library Card.
   # Ignoring them now, for safe removal of the columns from the database in a later migration.

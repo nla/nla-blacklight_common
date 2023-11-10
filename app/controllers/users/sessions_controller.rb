@@ -33,7 +33,9 @@ class Users::SessionsController < Devise::SessionsController
     if session_id.present?
       user = User.find_by(session_token: session_id)
       if user.present?
-        user.update_column(:session_token, SecureRandom.hex)
+        user.session_token = SecureRandom.hex
+        user.save!
+        user.reload
       else
         Rails.logger.error "Keycloak backchannel logout: failed to terminate session #{session_id}"
       end
