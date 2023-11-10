@@ -36,7 +36,8 @@ RSpec.describe "Logout" do
     end
     let(:patron) do
       user = create(:user, :staff)
-      user.update_column(:session_token, session_id)
+      user.session_token = session_id
+      user.save!
       user.reload
     end
 
@@ -46,6 +47,7 @@ RSpec.describe "Logout" do
 
     it "updates the session_token for the logged out user" do
       post "/backchannel_logout", params: {logout_token: logout_token}
+      patron.reload
       expect(patron.session_token).not_to eq session_id
     end
   end
