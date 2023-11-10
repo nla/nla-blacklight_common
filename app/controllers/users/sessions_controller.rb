@@ -35,11 +35,11 @@ class Users::SessionsController < Devise::SessionsController
       if user.present?
         user.update_column(:session_token, SecureRandom.hex)
       else
-        Rails.log.error "Keycloak backchannel logout: failed to terminate session #{session_id}"
+        Rails.logger.error "Keycloak backchannel logout: failed to terminate session #{session_id}"
       end
     else
       sub = jwt[0]["sub"]
-      Rails.log.error "Keycloak backchannel logout: no session ID in logout token for #{sub}"
+      Rails.logger.error "Keycloak backchannel logout: no session ID in logout token for #{sub}"
     end
   end
 
