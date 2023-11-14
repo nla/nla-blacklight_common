@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  before_action :configure_sign_in_params, only: [:create]
+  before_action :set_cache_headers
 
   skip_before_action :verify_authenticity_token, only: [:backchannel_logout]
 
@@ -43,9 +43,17 @@ class Users::SessionsController < Devise::SessionsController
       sub = jwt[0]["sub"]
       Rails.logger.error "Keycloak backchannel logout: no session ID in logout token for #{sub}"
     end
+
+    head :no_content
   end
 
   protected
+
+  def set_cache_headers
+    response.headers["Cache-Control"] = "no-cache, no-store"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Mon, 01 Jan 1990 00:00:00 GMT"
+  end
 
   # :nocov:
   def devise_logout
