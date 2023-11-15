@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.1.11](https://github.com/nla/nla-blacklight_common/compare/0.1.10...0.1.11) (2023-11-15)
+
+
+### Bug Fixes
+
+* call Keycloak logout endpoint if user inactive ([16ceb66](https://github.com/nla/nla-blacklight_common/commit/16ceb66b789e717691ac8bbe5fd6618a99fe224f))
+* change login alert wording ([bb4f77e](https://github.com/nla/nla-blacklight_common/commit/bb4f77eef4ebb90e315051238e6a863877ecec24))
+* fix typo ([779dd0f](https://github.com/nla/nla-blacklight_common/commit/779dd0f49e22cf908a01f4d736b474f47060adf5))
+* only reset session if matching session found ([f55895e](https://github.com/nla/nla-blacklight_common/commit/f55895ee5e0f8b26710f4d86153a49de81287c9b))
+
+
+### Miscellaneous
+
+* remove keycloak patron login flag ([b6eca1d](https://github.com/nla/nla-blacklight_common/commit/b6eca1dd6a8bd3d252654303aa5e19336d327f34))
+
+
+### Tests
+
+* fix logout tests and dummy app logout ([31acb04](https://github.com/nla/nla-blacklight_common/commit/31acb040bbba9986f22b2302abce4b01805649c4))
+
 ## [0.1.10](https://github.com/nla/nla-blacklight_common/compare/0.1.9...0.1.10) (2023-11-02)
 
 
