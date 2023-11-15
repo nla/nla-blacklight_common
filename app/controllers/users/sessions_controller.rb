@@ -16,7 +16,6 @@ class Users::SessionsController < Devise::SessionsController
       keycloak_logout
     else
       # There is no Keycloak session identifier, so destroy the Devise session.
-      # TODO: remove when patron auth migrates to Keycloak.
       # :nocov:
       devise_logout
       # :nocov:
@@ -43,6 +42,18 @@ class Users::SessionsController < Devise::SessionsController
       sub = jwt[0]["sub"]
       Rails.logger.error "Keycloak backchannel logout: no session ID in logout token for #{sub}"
     end
+  end
+
+  def expired_keycloak_logout
+    iss = session[:iss]
+    id_token = session[:id_token]
+
+    # ensure user is logged out of Devise
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+
+    # this forces Keycloak logout to be called
+    set_flash_message! :notice, :expired, {scope: "devise.failure"}
+    redirect_to("#{iss}/protocol/openid-connect/logout?id_token_hint=#{id_token}&post_logout_redirect_uri=#{root_url}", allow_other_host: true)
   end
 
   protected
