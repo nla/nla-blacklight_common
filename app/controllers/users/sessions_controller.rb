@@ -11,12 +11,11 @@ class Users::SessionsController < Devise::SessionsController
 
   def destroy
     if session[:iss].present?
-      # Keycloak logout. Keycloak will send a POST to "/devise_logout" to perform a
-      # backchannel logout that terminates the Devise session.
+      # After Keycloak logout, Keycloak will send a POST to "/backchannel_logout" to
+      # randomly set the session_token to a new value.
       keycloak_logout
     else
       # There is no Keycloak session identifier, so destroy the Devise session.
-      # TODO: remove when patron auth migrates to Keycloak.
       # :nocov:
       devise_logout
       # :nocov:
@@ -30,8 +29,31 @@ class Users::SessionsController < Devise::SessionsController
 
     # There is no user in context when this POST request from Keycloak is intercepted by Rails,
     # so we need to find the User with a matching Keycloak session in #session_token.
-    user = User.find_by(session_token: session_id)
-    user.update_column(:session_token, SecureRandom.hex)
+    if session_id.present?
+      user = User.find_by(session_token: session_id)
+      if user.present?
+        user.session_token = SecureRandom.hex
+        user.save!
+        user.reload
+      else
+        Rails.logger.error "Keycloak backchannel logout: failed to terminate session #{session_id}"
+      end
+    else
+      sub = jwt[0]["sub"]
+      Rails.logger.error "Keycloak backchannel logout: no session ID in logout token for #{sub}"
+    end
+  end
+
+  def expired_keycloak_logout
+    iss = session[:iss]
+    id_token = session[:id_token]
+
+    # ensure user is logged out of Devise
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+
+    # this forces Keycloak logout to be called
+    set_flash_message! :notice, :expired, {scope: "devise.failure"}
+    redirect_to("#{iss}/protocol/openid-connect/logout?id_token_hint=#{id_token}&post_logout_redirect_uri=#{root_url}", allow_other_host: true)
   end
 
   protected

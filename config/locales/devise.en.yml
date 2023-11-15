@@ -14,7 +14,7 @@ en:
       last_attempt: "You have one more attempt before your account is locked."
       not_found_in_database: "Invalid User ID or Family Name"
       timeout: "Your session has expired. Please login to continue requesting collection material."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      unauthenticated: "You need to login or join us before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
       expired: "Sorry, your patron account has expired. Please contact Reader Services on +61 (02) 6262 1266 to renew your account. We apologise for the inconvenience."
       no_credentials: "Please enter login details. Contact <a href=\"%{url}\">Ask a Librarian</a> if you need help."
