@@ -40,6 +40,10 @@ class User < PatronsRecord
   self.ignored_columns = :patron_id, :voyager_id
 
   def self.from_keycloak(auth)
+    unless auth.extra.raw_info.folio_id.present?
+      raise StandardError.new "Unable to authenticate user: no folio_id in authentication hash"
+    end
+
     ActiveRecord::Base.transaction do
       user = find_or_create_by!(folio_id: auth.extra.raw_info.folio_id) do |user|
         # We don't really care about the password since auth is via Keycloak, so we're just

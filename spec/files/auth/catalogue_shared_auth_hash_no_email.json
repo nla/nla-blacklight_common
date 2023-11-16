@@ -54,7 +54,8 @@
       "name": "Yetrina Shared",
       "preferred_username": "ybattad_shared",
       "given_name": "Yetrina",
-      "family_name": "Shared"
+      "family_name": "Shared",
+      "folio_id": "folio_id"
     },
     "id_token": null
   }
