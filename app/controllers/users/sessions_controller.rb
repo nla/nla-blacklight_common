@@ -17,6 +17,8 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  # This endpoint is for Keycloak to invalidate sessions terminated from within Keycloak's admin UI.
+  # It DOES NOT check for the authenticity token.
   def backchannel_logout
     logout_token = params["logout_token"]
     jwt = JWT.decode(logout_token, nil, false)
