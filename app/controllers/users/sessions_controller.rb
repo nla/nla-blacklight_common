@@ -3,14 +3,13 @@
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
 
-  skip_before_action :verify_authenticity_token, only: [:destroy, :backchannel_logout]
+  skip_before_action :verify_authenticity_token, only: [:backchannel_logout]
 
   def create
     super
   end
 
-  # This endpoint is also redirected to by EBSCO from eResources to logout the user at /ebsco_logout.
-  # It DOES NOT check for the authenticity token.
+  # This route can also be redirected to by external applications to logout the user via /logout.
   def destroy
     if session[:iss].present?
       # After Keycloak logout, Keycloak will send a POST to "/backchannel_logout" to

@@ -15,6 +15,7 @@
 #  user_catalogue_shared_omniauth_callback GET|POST /users/auth/catalogue_shared/callback(.:format)                                                   users/omniauth_callbacks#catalogue_shared
 #                         new_user_session GET      /sign_in(.:format)                                                                                users/sessions#new
 #                     destroy_user_session DELETE   /sign_out(.:format)                                                                               users/sessions#destroy
+#                                   logout GET      /logout(.:format)                                                                                 users/sessions#destroy
 #                  expired_keycloak_logout GET      /expired_keycloak_logout(.:format)                                                                users/sessions#expired_keycloak_logout
 #                       backchannel_logout POST     /backchannel_logout(.:format)                                                                     users/sessions#backchannel_logout
 #            rails_postmark_inbound_emails POST     /rails/action_mailbox/postmark/inbound_emails(.:format)                                           action_mailbox/ingresses/postmark/inbound_emails#create
@@ -54,7 +55,7 @@ Rails.application.routes.draw do
   devise_scope(:user) do
     get "sign_in", to: "users/sessions#new", as: :new_user_session
     delete "sign_out", to: "users/sessions#destroy", as: :destroy_user_session
-    get "ebsco_logout", to: "users/sessions#destroy", as: :ebsco_logout
+    get "logout", to: "users/sessions#destroy", as: :logout
     get "expired_keycloak_logout", to: "users/sessions#expired_keycloak_logout", as: :expired_keycloak_logout
     post "backchannel_logout", to: "users/sessions#backchannel_logout", as: :backchannel_logout
   end

@@ -28,6 +28,23 @@ RSpec.describe "Logout" do
     expect(request).to redirect_to("#{iss}/protocol/openid-connect/logout?id_token_hint=#{id_token}&post_logout_redirect_uri=#{root_url}")
   end
 
+  context "when navigated to /logout" do
+    it "redirects to Keycloak's logout URL" do
+      id_token = auth_hash.extra.id_token
+      iss = auth_hash.extra.raw_info.iss
+
+      session = {iss: iss, id_token: id_token}
+
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(::Users::SessionsController).to receive(:session).and_return(session)
+      # rubocop:enable RSpec/AnyInstance
+
+      get logout_url
+      expect(flash[:notice]).to eq I18n.t("devise.sessions.signed_out")
+      expect(request).to redirect_to("#{iss}/protocol/openid-connect/logout?id_token_hint=#{id_token}&post_logout_redirect_uri=#{root_url}")
+    end
+  end
+
   context "when Keycloak performs backchannel logout" do
     let(:logout_token) { IO.read("spec/files/auth/logout_token.txt") }
     let(:session_id) do
