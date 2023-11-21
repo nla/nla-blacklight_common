@@ -9,6 +9,7 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
+  # This route can also be redirected to by external applications to logout the user via /logout.
   def destroy
     if session[:iss].present?
       # After Keycloak logout, Keycloak will send a POST to "/backchannel_logout" to
@@ -22,6 +23,8 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  # This endpoint is for Keycloak to invalidate sessions terminated from within Keycloak's admin UI.
+  # It DOES NOT check for the authenticity token.
   def backchannel_logout
     logout_token = params["logout_token"]
     jwt = JWT.decode(logout_token, nil, false)

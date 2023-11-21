@@ -2,30 +2,42 @@
 
 require "rails_helper"
 
-RSpec.describe "Logout" do
-  include Devise::Test::IntegrationHelpers
-
+RSpec.shared_context "with active session" do
   let(:file) { IO.read("spec/files/auth/staff_auth_hash.json") }
   let(:auth_hash) { OmniAuth::AuthHash.new(JSON.parse(file)) }
+  let(:id_token) { auth_hash.extra.id_token }
+  let(:iss) { auth_hash.extra.raw_info.iss }
+  let(:session) do
+    {iss: iss, id_token: id_token}
+  end
 
   before do
     patron = create(:user, :staff)
     sign_in patron
-  end
-
-  it "redirects to Keycloak's logout URL" do
-    id_token = auth_hash.extra.id_token
-    iss = auth_hash.extra.raw_info.iss
-
-    session = {iss: iss, id_token: id_token}
 
     # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(::Users::SessionsController).to receive(:session).and_return(session)
     # rubocop:enable RSpec/AnyInstance
+  end
+end
 
-    delete destroy_user_session_path
+RSpec.shared_examples "logged out" do |action: :delete, path: "destroy_user_session_path"|
+  it "logs out the user" do
+    process(action, send(path))
     expect(flash[:notice]).to eq I18n.t("devise.sessions.signed_out")
     expect(request).to redirect_to("#{iss}/protocol/openid-connect/logout?id_token_hint=#{id_token}&post_logout_redirect_uri=#{root_url}")
+  end
+end
+
+RSpec.describe "Logout" do
+  include Devise::Test::IntegrationHelpers
+
+  include_context "with active session"
+
+  it_behaves_like "logged out"
+
+  context "when navigated to /logout" do
+    it_behaves_like "logged out", action: :get, path: :logout_url
   end
 
   context "when Keycloak performs backchannel logout" do
