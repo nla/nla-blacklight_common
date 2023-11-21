@@ -3,12 +3,14 @@
 class Users::SessionsController < Devise::SessionsController
   before_action :configure_sign_in_params, only: [:create]
 
-  skip_before_action :verify_authenticity_token, only: [:backchannel_logout]
+  skip_before_action :verify_authenticity_token, only: [:destroy, :backchannel_logout]
 
   def create
     super
   end
 
+  # This endpoint is also redirected to by EBSCO from eResources to logout the user at /ebsco_logout.
+  # It DOES NOT check for the authenticity token.
   def destroy
     if session[:iss].present?
       # After Keycloak logout, Keycloak will send a POST to "/backchannel_logout" to
@@ -22,6 +24,8 @@ class Users::SessionsController < Devise::SessionsController
     end
   end
 
+  # This endpoint is for Keycloak to invalidate sessions terminated from within Keycloak's admin UI.
+  # It DOES NOT check for the authenticity token.
   def backchannel_logout
     logout_token = params["logout_token"]
     jwt = JWT.decode(logout_token, nil, false)
