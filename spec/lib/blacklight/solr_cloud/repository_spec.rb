@@ -4,7 +4,6 @@ require "spec_helper"
 
 require "zk"
 require "blacklight/solr_cloud/repository"
-require "blacklight/solr_cloud/not_enough_nodes"
 
 RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
   subject(:repository) { described_class.new blacklight_config }
@@ -59,12 +58,6 @@ RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
     expect(Nla::BlacklightCommon::VERSION).not_to be_nil
   end
 
-  # it "retrieves node urls from zookeeper" do
-  #   expect(repository.send(:determine_node_urls).sort).to eq(
-  #     %w[http://192.168.1.21:8983/solr/collection1 http://192.168.1.22:8983/solr/collection1 http://192.168.1.23:8983/solr/collection1 http://192.168.1.24:8983/solr/collection1].sort
-  #   )
-  # end
-
   it "configures the RSolr client with one of the active nodes in the select request" do
     expect(uri.host).to be_one_of(%w[192.168.1.21 192.168.1.22 192.168.1.23 192.168.1.24])
     expect(uri.path).to eq("/solr/collection1/")
@@ -76,5 +69,21 @@ RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
     expect do
       repository.connection
     end.to raise_error(Blacklight::SolrCloud::NotEnoughNodes, /There are not enough nodes to handle the request./)
+  end
+
+  it "chooses another node when leader node is down" do
+    zk_in_solr.set("/collections/collection1/state.json",
+      IO.read("spec/files/solr_repository/collection1_leader_down.json"))
+
+    expect(uri.host).to be_one_of(%w[192.168.1.21 192.168.1.23 192.168.1.24])
+    expect(uri.path).to eq("/solr/collection1/")
+  end
+
+  it "chooses another node when replica node is down" do
+    zk_in_solr.set("/collections/collection1/state.json",
+      IO.read("spec/files/solr_repository/collection1_replica_down.json"))
+
+    expect(uri.host).to be_one_of(%w[192.168.1.22 192.168.1.23 192.168.1.24])
+    expect(uri.path).to eq("/solr/collection1/")
   end
 end

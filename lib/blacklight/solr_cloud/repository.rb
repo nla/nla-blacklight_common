@@ -3,11 +3,16 @@
 require "zk"
 require "rsolr"
 require "blacklight"
-
-require "blacklight/solr_cloud/not_enough_nodes"
+require "faraday"
 
 module Blacklight
   module SolrCloud
+    class NotEnoughNodes < RuntimeError
+      def to_s
+        "There are not enough nodes to handle the request."
+      end
+    end
+
     class Repository < Blacklight::Solr::Repository
       include MonitorMixin
 
@@ -21,7 +26,7 @@ module Blacklight
         make_connection(0)
       end
 
-      def make_connection(tries, failed_urls = [])
+      def make_connection(tries)
         synchronize do
           url = ZK.open(connection_config[:zk_host], {chroot: :do_nothing}) do |zk|
             collection_state_json, _stat = zk.get("/collections/#{connection_config[:collection]}/state.json", watch: false)
@@ -36,7 +41,7 @@ module Blacklight
             all_urls = []
             all_nodes.flatten&.each do |node|
               next unless live_nodes.include?(node["node_name"]) && node["state"] == ACTIVE
-              all_urls << "#{node["base_url"]}/#{connection_config[:collection]}" if failed_urls.exclude? node["base_url"]
+              all_urls << "#{node["base_url"]}/#{connection_config[:collection]}"
             end
 
             url = all_urls.sample
@@ -49,8 +54,7 @@ module Blacklight
             client.presence
           rescue
             tries += 1
-            failed_urls << url
-            (tries > MAX_RETRIES) ? raise(Blacklight::SolrCloud::NotEnoughNodes) : make_connection(tries, failed_urls)
+            (tries > MAX_RETRIES) ? raise(Blacklight::SolrCloud::NotEnoughNodes) : make_connection(tries)
           end
         end
       end
