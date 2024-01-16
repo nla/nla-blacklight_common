@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.12](https://github.com/nla/nla-blacklight_common/compare/0.1.11...0.1.12) (2023-11-21)
+
+
+### Bug Fixes
+
+* add logout endpoint for ebsco ([33540d7](https://github.com/nla/nla-blacklight_common/commit/33540d7bc768bcc7497717ab5dd581efbcc880fa))
+
+
+### Code Refactoring
+
+* refactor logout tests to use shared context and examples ([731bd7f](https://github.com/nla/nla-blacklight_common/commit/731bd7fed79f982c9dc0053bb7c264bde34f2b2a))
+* rename ebsco logout to /logout and add test ([12995a8](https://github.com/nla/nla-blacklight_common/commit/12995a89252db8036ce3acee8d23a83b832900d2))
+
 ## [0.1.11](https://github.com/nla/nla-blacklight_common/compare/0.1.10...0.1.11) (2023-11-15)
 
 
