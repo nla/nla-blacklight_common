@@ -52,7 +52,8 @@
       "preferred_username": "staff",
       "given_name": "Staff",
       "family_name": "User",
-      "email": "staff@nla.gov.au"
+      "email": "staff@nla.gov.au",
+      "folio_id": "folio_id"
     },
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2Nzg4MzkwMzAsImlhdCI6MTY3ODgzODczMCwiYXV0aF90aW1lIjoxNjc4ODM4NzMwLCJqdGkiOiJmOGNkOThlZC1kMzZmLTQxYTYtODFmYi1lOGIwN2Q5ODUwYTkiLCJpc3MiOiJodHRwOi8vMC4wLjAuMDo5MDkwL2F1dGgvcmVhbG1zL2NhdGFsb2d1ZV9zb2wiLCJhdWQiOiJjYXRhbG9ndWUiLCJzdWIiOiIyNzZkMGEyNS1lOGEyLTQ3ZmYtYjYzZC04ZDQxNGMyNzBmOWMiLCJ0eXAiOiJJRCIsImF6cCI6ImNhdGFsb2d1ZSIsInNlc3Npb25fc3RhdGUiOiIyMzllYjg3YS0yMWYzLTRjNjgtYTY3My02NjE1ODYzNzFhNTciLCJhdF9oYXNoIjoiel8zNWQ5blFyQml5a1MwakwybTRfdyIsInNpZCI6IjIzOWViODdhLTIxZjMtNGM2OC1hNjczLTY2MTU4NjM3MWE1NyIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiU3RhZmYgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6InN0YWZmIiwiZ2l2ZW5fbmFtZSI6IlN0YWZmIiwiZmFtaWx5X25hbWUiOiJVc2VyIiwiZW1haWwiOiJzdGFmZkBubGEuZ292LmF1In0.2Q8SfyL9p4xPe-tQbQIS9XT1QRbJZuVUARED_ff8v0o"
   }

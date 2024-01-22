@@ -55,7 +55,8 @@
       "given_name": "Yetrina",
       "family_name": "SPL",
       "email": "ybattad@nla.gov.au",
-      "folio_id": "folio_id"
+      "folio_id": "folio_id",
+      "folio_active": "true"
     },
     "id_token": null
   }

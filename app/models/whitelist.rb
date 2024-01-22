@@ -42,13 +42,11 @@ class Whitelist
   end
 
   def client_in_subnets(request, subnets)
-    subnets.each do |subnet|
-      if client_in_subnet(request, subnet)
-        return true
-      end
-    end
+    client_ip = get_client_ip request
 
-    false
+    subnets.any? do |subnet|
+      IPAddr.new(subnet).include?(client_ip)
+    end
   end
 
   def get_client_ip(request)
@@ -56,29 +54,13 @@ class Whitelist
 
     # Theoretically this shouldn't happen, because #remote_ip should get the real IP address,
     # but I've carried it over from the original VuFind code.
+    # :nocov:
     if client_ip.include? ","
       client_ip = client_ip.split(",")
       client_ip = client_ip.last
     end
+    # :nocov:
 
     client_ip
-  end
-
-  def client_in_subnet(request, subnet)
-    client_ip = get_client_ip request
-
-    client_ranges = client_ip.split(".")
-    subnet_ranges = subnet.split(".")
-
-    match = false
-    4.times { |i|
-      if subnet_ranges[i] == "0" || client_ranges[i] == subnet_ranges[i]
-        match = true
-      else
-        return false
-      end
-    }
-
-    match
   end
 end

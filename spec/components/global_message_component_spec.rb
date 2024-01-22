@@ -27,4 +27,23 @@ RSpec.describe GlobalMessageComponent, type: :component do
       expect(page).to have_content("Blacklight beta message 2")
     end
   end
+
+  context "when unable to fetch message" do
+    before do
+      WebMock.stub_request(:get, /test.nla.gov.au\/catalogue-message\/1/)
+        .with(
+          headers: {
+            "Accept" => "*/*",
+            "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+          }
+        )
+        .to_raise(StandardError)
+    end
+
+    it "returns nil" do
+      render_inline(described_class.new)
+
+      expect(page).not_to have_css("div.alert")
+    end
+  end
 end

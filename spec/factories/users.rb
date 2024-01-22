@@ -45,6 +45,25 @@ FactoryBot.define do
       session_token { SecureRandom.hex }
     end
 
+    trait :patron do
+      provider { "catalogue_patron" }
+      uid { "603e26dd-b2d4-4a88-ad9d-406eaec31463" }
+      name_given { "Staff" }
+      name_family { "User" }
+      sequence(:email) { |n| "patron-#{n.to_s.rjust(3, "0")}@nla.gov.au" }
+      session_token { SecureRandom.hex }
+    end
+
+    trait :inactive_patron do
+      provider { "catalogue_patron" }
+      uid { "603e26dd-b2d4-4a88-ad9d-406eaec31463" }
+      name_given { "Blacklight" }
+      name_family { "Test" }
+      sequence(:email) { |n| "patron-#{n.to_s.rjust(3, "0")}@nla.gov.au" }
+      session_token { SecureRandom.hex }
+      active { false }
+    end
+
     created_at { Time.current }
     updated_at { Time.current }
   end

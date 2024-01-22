@@ -4,7 +4,7 @@
 
 <%- if (Rails.env.development? || user_location == :staff) && devise_mapping.omniauthable? %>
   <div class="dropdown mt-5">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <%= t("auth.staff.login_button_text") %>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -24,5 +24,6 @@ class GlobalMessageComponent < ViewComponent::Base
     end
   rescue => e
     Rails.logger.error "Error fetching global messages: #{e.message}"
+    nil
   end
 end
