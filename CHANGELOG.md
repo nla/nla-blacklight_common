@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.13](https://github.com/nla/nla-blacklight_common/compare/0.1.12...0.1.13) (2024-01-22)
+
+
+### Bug Fixes
+
+* upgrade vulnerable dependencies ([0da807f](https://github.com/nla/nla-blacklight_common/commit/0da807fbd28fa83c79b8068114a2d037dc8ca47a))
+
+
+### Code Refactoring
+
+* refactor repository connection and add test for down leader ([94d7a4f](https://github.com/nla/nla-blacklight_common/commit/94d7a4f2eed7ae6773b235a06a4fc9c8debd1355))
+
 ## [0.1.12](https://github.com/nla/nla-blacklight_common/compare/0.1.11...0.1.12) (2023-11-21)
 
 
