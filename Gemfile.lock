@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nla-blacklight_common (0.1.12)
+    nla-blacklight_common (0.1.13)
       activerecord-session_store (~> 2.0)
       annotaterb
       blacklight (>= 8.0.0, < 9)
