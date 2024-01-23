@@ -5,7 +5,7 @@ require "rsolr"
 require "blacklight"
 require "faraday"
 
-module Blacklight
+module Nla
   module SolrCloud
     class NotEnoughNodes < RuntimeError
       def to_s
@@ -19,6 +19,17 @@ module Blacklight
       ZNODE_LIVE_NODES = "/live_nodes"
       MAX_RETRIES = 3
       ACTIVE = "active"
+
+      def find(id, params = {})
+        doc_params = params.reverse_merge(blacklight_config.default_document_solr_params)
+          .reverse_merge(qt: blacklight_config.document_solr_request_handler)
+          .merge(blacklight_config.document_unique_id_param => "id:#{id}")
+
+        solr_response = send_and_receive blacklight_config.document_solr_path || blacklight_config.solr_path, doc_params
+        raise Blacklight::Exceptions::RecordNotFound if solr_response&.documents&.empty?
+
+        solr_response
+      end
 
       private
 
@@ -45,7 +56,7 @@ module Blacklight
             end
 
             url = all_urls.sample
-            raise Blacklight::SolrCloud::NotEnoughNodes unless url
+            raise Nla::SolrCloud::NotEnoughNodes unless url
             url
           end
 
@@ -54,7 +65,7 @@ module Blacklight
             client.presence
           rescue
             tries += 1
-            (tries > MAX_RETRIES) ? raise(Blacklight::SolrCloud::NotEnoughNodes) : make_connection(tries)
+            (tries > MAX_RETRIES) ? raise(Nla::SolrCloud::NotEnoughNodes) : make_connection(tries)
           end
         end
       end
