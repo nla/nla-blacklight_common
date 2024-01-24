@@ -3,9 +3,9 @@
 require "spec_helper"
 
 require "zk"
-require "blacklight/solr_cloud/repository"
+require "nla/solr_cloud/repository"
 
-RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
+RSpec.describe Nla::SolrCloud::Repository, type: :api do
   subject(:repository) { described_class.new blacklight_config }
 
   let(:connection_config) do
@@ -68,7 +68,7 @@ RSpec.describe Blacklight::SolrCloud::Repository, type: :api do
       IO.read("spec/files/solr_repository/collection1_all_nodes_down.json"))
     expect do
       repository.connection
-    end.to raise_error(Blacklight::SolrCloud::NotEnoughNodes, /There are not enough nodes to handle the request./)
+    end.to raise_error(Nla::SolrCloud::NotEnoughNodes, /There are not enough nodes to handle the request./)
   end
 
   it "chooses another node when leader node is down" do
