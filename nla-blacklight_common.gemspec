@@ -1,6 +1,6 @@
 require_relative "lib/nla/blacklight_common/version"
 
-ruby_version = File.read(File.join(__dir__, ".ruby-version"))
+ruby_version = "3.2.2"
 
 Gem::Specification.new do |spec|
   spec.name = "nla-blacklight_common"
