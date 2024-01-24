@@ -444,15 +444,15 @@ DEPENDENCIES
   mysql2
   nla-blacklight_common!
   puma (~> 6.0)
-  rails-controller-testing (~> 1.0, >= 1.0.5)
+  rails-controller-testing
   rails-ujs
   rspec-rails (~> 6.0)
   rubocop-rails
   rubocop-rspec
-  selenium-webdriver (~> 4.11)
+  selenium-webdriver
   shoulda-matchers
-  simplecov (~> 0.21.2)
-  simplecov-json (~> 0.2.3)
+  simplecov
+  simplecov-json
   sprockets-rails
   standard
   strong_migrations (~> 1.4)
