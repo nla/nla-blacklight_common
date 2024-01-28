@@ -33,10 +33,10 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver", "~> 4.11"
-  gem "rails-controller-testing", "~> 1.0", ">= 1.0.5"
+  gem "selenium-webdriver"
+  gem "rails-controller-testing"
   gem "webmock"
 
-  gem "simplecov", "~> 0.21.2"
-  gem "simplecov-json", "~> 0.2.3"
+  gem "simplecov"
+  gem "simplecov-json"
 end

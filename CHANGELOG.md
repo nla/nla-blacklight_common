@@ -1,5 +1,91 @@
 # Changelog
 
+## [0.1.0](https://github.com/yetti/nla-blacklight_common/compare/v0.1.5...v0.1.0) (2024-01-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* separate configuration of users and sessions database
+* update Ruby version
+
+### Features
+
+* add concern to reset Blacklight/Arclight search session ([0dd3ffe](https://github.com/yetti/nla-blacklight_common/commit/0dd3ffe3d65516416ba6b4cf0268aea1fc3d7ee0))
+* add config and links for staff shared Keycloak realm ([c9e217d](https://github.com/yetti/nla-blacklight_common/commit/c9e217d9a437d405cfc8eaab0f2e8b90428c824f))
+* add helpers to add "active" class to links ([c2fd4c1](https://github.com/yetti/nla-blacklight_common/commit/c2fd4c1bf966a311661eb2b3d22188c331163ff8))
+* add indicator of type of staff account to username ([d71ab93](https://github.com/yetti/nla-blacklight_common/commit/d71ab93d1b3573cadd3943cd484f0bf69d3866de))
+* add separate links to staff login realms ([5011201](https://github.com/yetti/nla-blacklight_common/commit/5011201d827a6038d8e4d2182625bfa8da1f86e0))
+* add session_token to user and refactor backchannel logout ([32d11b3](https://github.com/yetti/nla-blacklight_common/commit/32d11b3a67462c8c9a0ffab570f0dfaae26fbea1))
+* call auto-renew on patron login ([27050c8](https://github.com/yetti/nla-blacklight_common/commit/27050c86ffa91d8a78b6478bfd59cb03559e70fc))
+* change patron login to Keycloak via OmniAuth ([aae3900](https://github.com/yetti/nla-blacklight_common/commit/aae39003095049f3a681b2ae4e20eeec4b60b7c8))
+* create user account page for logged in patrons ([4fe27b2](https://github.com/yetti/nla-blacklight_common/commit/4fe27b2292576947a9e5b3d06cb44a5f32b06025))
+* default staff email to empty string if not present ([962cedb](https://github.com/yetti/nla-blacklight_common/commit/962cedb4f02117890108dc65c19dcfd4c6031607))
+* exclude failed urls when retrying Solr urls ([4585bef](https://github.com/yetti/nla-blacklight_common/commit/4585bef8dd85f80109ca031013bd355c64fee739))
+* implement patron login via UserReg ([4a118dc](https://github.com/yetti/nla-blacklight_common/commit/4a118dcde7cdf05a4ae850a61cb4296627b3c2e8))
+* implement separate Keycloak realms for SOL and SPL login ([f385be1](https://github.com/yetti/nla-blacklight_common/commit/f385be13628619a43705132301174c3a372badaa))
+* implement staff backchannel logout ([409a61e](https://github.com/yetti/nla-blacklight_common/commit/409a61e2dc0742b69b2cd4caf0a00ca56248f03c))
+* increase security of session cookie ([c060c6c](https://github.com/yetti/nla-blacklight_common/commit/c060c6ca06bc2cd91b14318784a1ca94bda65068))
+* migrate logic and tests ([0d36f70](https://github.com/yetti/nla-blacklight_common/commit/0d36f70c27f42672e0762d0ea1b24b706e474b61))
+* move GlobalMessageComponent from nla-blacklight ([70eaf3f](https://github.com/yetti/nla-blacklight_common/commit/70eaf3f839212febafbcb696dcca248c77934c68))
+* move user location and type logic from blacklight ([0b060de](https://github.com/yetti/nla-blacklight_common/commit/0b060de00f090c6ba112cfc0b4750539529c87e4))
+* only display staff login links in staff network ([25d8834](https://github.com/yetti/nla-blacklight_common/commit/25d8834625f89e3ba15e39e14cac32aa1f735cd9))
+* overrides "db:sessions" trim and clear tasks ([8154f6f](https://github.com/yetti/nla-blacklight_common/commit/8154f6f9b5d583a8b9efbeb664dd1224b3bcf893))
+* patron keycloak login page ([bcbd057](https://github.com/yetti/nla-blacklight_common/commit/bcbd05704a2a045232286b1ce65edf0562745c00))
+* re-implement feature flags ([2cfa3b1](https://github.com/yetti/nla-blacklight_common/commit/2cfa3b11e6f45670e1de5a2010fc0a1c3ef0453e))
+* refactor SolrCloud repository class ([504736e](https://github.com/yetti/nla-blacklight_common/commit/504736e790d44ac02db0c4c83a292085b14bffc7))
+* remove scheduler temporarily ([7b54a0d](https://github.com/yetti/nla-blacklight_common/commit/7b54a0d07f5ec3e6096be7c12ffe251d8794e3c4))
+* rewording of session timeout message ([84287df](https://github.com/yetti/nla-blacklight_common/commit/84287df5aaaa72aa8d12dc58e4e48cd61fb94bd3))
+* separate configuration of users and sessions database ([4f70555](https://github.com/yetti/nla-blacklight_common/commit/4f7055527e34def4d7f855acc2282877bbd89c3f))
+* style staff login links and localise login text ([a1d3169](https://github.com/yetti/nla-blacklight_common/commit/a1d3169deb159e8ed86ccc87a5d1259e0d93fdd0))
+* update public patron login error messages ([665e6c2](https://github.com/yetti/nla-blacklight_common/commit/665e6c2d805ef7dd6ad2ba813d0f1fadb595deb8))
+* update Ruby version ([0074f45](https://github.com/yetti/nla-blacklight_common/commit/0074f4510cad95ac5ed65fadb41f495bebd3c4ec))
+
+
+### Bug Fixes
+
+* add logout endpoint for ebsco ([33540d7](https://github.com/yetti/nla-blacklight_common/commit/33540d7bc768bcc7497717ab5dd581efbcc880fa))
+* call Keycloak logout endpoint if user inactive ([16ceb66](https://github.com/yetti/nla-blacklight_common/commit/16ceb66b789e717691ac8bbe5fd6618a99fe224f))
+* change "(Shared)" tag to "(TOL)" ([8d284a4](https://github.com/yetti/nla-blacklight_common/commit/8d284a40469e822a97ffd3a74adb12e6cc761d82))
+* change "Log in" to "Login" ([27772fe](https://github.com/yetti/nla-blacklight_common/commit/27772fec959a55932687f9421e78ea068c9eee72))
+* change "Log in" to "Login" ([2d683be](https://github.com/yetti/nla-blacklight_common/commit/2d683be3bd117f9f9c124ef64327d6146b7f0e04))
+* change login alert wording ([bb4f77e](https://github.com/yetti/nla-blacklight_common/commit/bb4f77eef4ebb90e315051238e6a863877ecec24))
+* changes login password field to text field ([5689e10](https://github.com/yetti/nla-blacklight_common/commit/5689e10dc97c31c448d5d01a07299561baf91c4f))
+* correct typos in registration text ([22a5e16](https://github.com/yetti/nla-blacklight_common/commit/22a5e161ac497560d6bc8a5de66541d438f98d28))
+* fix install generator ([f3055cc](https://github.com/yetti/nla-blacklight_common/commit/f3055cc96834b99985e02fffb6b42d1c6c935638))
+* fix resolution of modules ([00a3864](https://github.com/yetti/nla-blacklight_common/commit/00a3864a561ce2812440639d1765af4ab8723bee))
+* fix session destruction and patron login style ([bdc42a9](https://github.com/yetti/nla-blacklight_common/commit/bdc42a9d7ec42e53bbd577939b224b9586a59cdb))
+* fix setting of solr url ([4cb0254](https://github.com/yetti/nla-blacklight_common/commit/4cb0254f7d208af4e6df9b6f2a6fb061cf8a6d0b))
+* fix tests in GitHub Actions ([3c0423b](https://github.com/yetti/nla-blacklight_common/commit/3c0423b99a13283759a2589b4345bbc0142fdad8))
+* fix typo ([779dd0f](https://github.com/yetti/nla-blacklight_common/commit/779dd0f49e22cf908a01f4d736b474f47060adf5))
+* fixes overridden Devise localisation and password label ([5d2c2a6](https://github.com/yetti/nla-blacklight_common/commit/5d2c2a6b3ee297f175ea8f33d6aa1df66a426e37))
+* ignore "folio_ext_sys_id" pre-removal from db ([e3dff35](https://github.com/yetti/nla-blacklight_common/commit/e3dff356e985994edc5c62b5ce27aa8821be9006))
+* make Solr connection timeout earlier ([80fe0e6](https://github.com/yetti/nla-blacklight_common/commit/80fe0e6571ec7a7b48ce9d8a6d10c6fcd93f41fe))
+* merge user accounts when logging in via Staff/public forms ([f3ea738](https://github.com/yetti/nla-blacklight_common/commit/f3ea738661ca84dc372b53cfa29c688cf9bdeb52))
+* move flipper-ui into finding-aids scope ([38d7ea6](https://github.com/yetti/nla-blacklight_common/commit/38d7ea652f0c0efc4ccce336edd7aa1756d0667e))
+* only reset session if matching session found ([f55895e](https://github.com/yetti/nla-blacklight_common/commit/f55895ee5e0f8b26710f4d86153a49de81287c9b))
+* post login redirect resolution ([af86aff](https://github.com/yetti/nla-blacklight_common/commit/af86aff1a38802be3350b359c6a16fc274634b89))
+* raise an error if staff login is missing folio_id ([94570bd](https://github.com/yetti/nla-blacklight_common/commit/94570bd0c8b38e6947562cc9f99660ae1801e04c))
+* reduce memory allocation and clean dependencies ([3dd23e9](https://github.com/yetti/nla-blacklight_common/commit/3dd23e9cec8d880e96d1f19995e047e0cd080a67))
+* reference correct engine in install generator ([a6a3726](https://github.com/yetti/nla-blacklight_common/commit/a6a3726e9890e1a3f41cf8862fd79eda059dd26a))
+* remove omniauth check for Keycloak login page ([d985edb](https://github.com/yetti/nla-blacklight_common/commit/d985edb334d7f0cd0fdda4ce4189f539f66a6aee))
+* rescue global message fetching timeout ([8bed297](https://github.com/yetti/nla-blacklight_common/commit/8bed29750b31f667a4981a7e0752a13fe9e3638d))
+* restyle patron login button ([b9f38b2](https://github.com/yetti/nla-blacklight_common/commit/b9f38b299625800db6d87e765847b19ccb9494a8))
+* store staff FOLIO ID on login ([28d1e23](https://github.com/yetti/nla-blacklight_common/commit/28d1e23a1eb5311362663fd950dbd18db14b1e77))
+* update change details from Keycloak on login ([da3bae4](https://github.com/yetti/nla-blacklight_common/commit/da3bae447de2c06bab7cb70a51de4730c6882d7d))
+* upgrade vulnerable dependencies ([0da807f](https://github.com/yetti/nla-blacklight_common/commit/0da807fbd28fa83c79b8068114a2d037dc8ca47a))
+* use blacklight config to define ZK host and collection ([b7952f0](https://github.com/yetti/nla-blacklight_common/commit/b7952f06ad63fcd6e5e382088d519ef1a77d04ba))
+
+
+### Reverts
+
+* move system login and feat flag tests back to features ([a55665c](https://github.com/yetti/nla-blacklight_common/commit/a55665c5e789990763c39004fa56ae053e2678bc))
+
+
+### Miscellaneous Chores
+
+* release 0.1.0 ([1a4ad5f](https://github.com/yetti/nla-blacklight_common/commit/1a4ad5f0e0bf75da800dbbab5a33217abc190833))
+* release 3.0.0 ([494c432](https://github.com/yetti/nla-blacklight_common/commit/494c4329099a02a0adcef32f50184e316182f1f9))
+
 ## [0.1.12](https://github.com/nla/nla-blacklight_common/compare/0.1.11...0.1.12) (2023-11-21)
 
 
