@@ -42,11 +42,13 @@ class Whitelist
   end
 
   def client_in_subnets(request, subnets)
-    client_ip = get_client_ip request
-
-    subnets.any? do |subnet|
-      IPAddr.new(subnet).include?(client_ip)
+    subnets.each do |subnet|
+      if client_in_subnet(request, subnet)
+        return true
+      end
     end
+
+    false
   end
 
   def get_client_ip(request)
@@ -62,5 +64,23 @@ class Whitelist
     # :nocov:
 
     client_ip
+  end
+
+  def client_in_subnet(request, subnet)
+    client_ip = get_client_ip request
+
+    client_ranges = client_ip.split(".")
+    subnet_ranges = subnet.split(".")
+
+    match = false
+    4.times { |i|
+      if subnet_ranges[i] == "0" || client_ranges[i] == subnet_ranges[i]
+        match = true
+      else
+        return false
+      end
+    }
+
+    match
   end
 end
