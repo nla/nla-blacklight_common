@@ -1,7 +1,5 @@
 require_relative "lib/nla/blacklight_common/version"
 
-ruby_version = "3.2.2"
-
 Gem::Specification.new do |spec|
   spec.name = "nla-blacklight_common"
   spec.version = Nla::BlacklightCommon::VERSION
@@ -11,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Common functionality for Blacklight/ArcLight"
   spec.homepage = "https://github.com/nla/nla-blacklight_common"
   spec.license = "Apache-2.0"
-  spec.required_ruby_version = ">= #{ruby_version}"
+  spec.required_ruby_version = ">= 3.2.2"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
   # to allow pushing to a single host or delete this section to allow pushing to any host.
