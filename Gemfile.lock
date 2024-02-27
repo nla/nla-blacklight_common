@@ -9,7 +9,6 @@ PATH
       bundler-audit
       connection_pool
       devise
-      dotenv-rails
       omniauth-keycloak (~> 1.4)
       omniauth-rails_csrf_protection (~> 1.0)
       rails (>= 7.0, < 7.1)
@@ -140,10 +139,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
     docile (1.4.0)
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
+    dotenv (3.0.3)
     erubi (1.12.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
@@ -442,6 +438,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   debug
+  dotenv
   factory_bot_rails
   faker
   fuubar

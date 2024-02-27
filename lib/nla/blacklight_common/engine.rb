@@ -10,9 +10,7 @@ module Nla
     class Engine < ::Rails::Engine
       if %w[development test].include? ENV["RAILS_ENV"]
         require "factory_bot_rails"
-        require "dotenv-rails"
-
-        Dotenv::Railtie.load
+        require "dotenv/load"
       end
 
       if defined?(FactoryBotRails)

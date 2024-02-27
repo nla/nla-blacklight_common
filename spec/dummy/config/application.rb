@@ -22,7 +22,7 @@ require "nla/blacklight_common"
 # Rails root path for the Dummy app is "/spec/dummy", so place your dotenv files in
 # "/spec/dummy/spec" instead of the project root to configure the Dummy app.
 if %w[development test].include? ENV["RAILS_ENV"]
-  Dotenv::Railtie.load
+  require "dotenv/load"
 end
 
 module Dummy

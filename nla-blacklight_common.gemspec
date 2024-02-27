@@ -30,10 +30,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rsolr", ">= 1.0", "< 3"
   spec.add_dependency "zk", "~> 1.10"
 
-  # All runtime config comes from the UNIX environment
-  # but we use dotenv to store that in files for development and testing
-  spec.add_dependency "dotenv-rails"
-
   # Brakeman analyzes our code for security vulnerabilities
   spec.add_dependency "brakeman"
 

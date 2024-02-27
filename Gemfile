@@ -17,6 +17,10 @@ gem "strong_migrations", "~> 1.4"
 gem "fuubar"
 
 group :development, :test do
+  # All runtime config comes from the UNIX environment
+  # but we use dotenv to store that in files for development and testing
+  gem "dotenv"
+
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "standard", require: false
   gem "rubocop-rails", require: false
