@@ -51,7 +51,7 @@ module Nla
 
             all_urls = []
             all_nodes.flatten&.each do |node|
-              next unless live_nodes.include?(node["node_name"]) && node["state"] == ACTIVE
+              next unless live_nodes.include?(node["node_name"]) && node["state"] == ACTIVE && node["leader"] == "true"
               all_urls << "#{node["base_url"]}/#{connection_config[:collection]}"
             end
 
