@@ -1,5 +1,62 @@
 # Changelog
 
+## [0.2.0](https://github.com/nla/nla-blacklight_common/compare/0.1.12...0.2.0) (2024-03-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* merge Blacklight 8 upgrade changes
+
+### Features
+
+* merge Blacklight 8 upgrade changes ([3929310](https://github.com/nla/nla-blacklight_common/commit/3929310f1db09f0a3160e2ca523d57276866c450))
+
+
+### Bug Fixes
+
+* only use leader nodes in Solr repository ([cd0a235](https://github.com/nla/nla-blacklight_common/commit/cd0a235c3a93df7e7ca1e7a2e899c38fce343b65))
+* remove dependabot updates for npm ([0c9319b](https://github.com/nla/nla-blacklight_common/commit/0c9319b4eafb2820b99c31f3d14860533b93d3b9))
+* remove versions from test group ([f27ee91](https://github.com/nla/nla-blacklight_common/commit/f27ee91f06c37e6765ec9d229efbd0766756555c))
+* turn off dotenv.autorestore in test to avoid frozen hash issue ([95dedb3](https://github.com/nla/nla-blacklight_common/commit/95dedb347bd41132dc367d801d8ba7e8eeb71fba))
+* update Rails to fix CVE-2024-26143 ([358c361](https://github.com/nla/nla-blacklight_common/commit/358c361df749b231dc0f2c64c1ff7431e55e5e9a))
+* upgrade vulnerable dependencies ([0da807f](https://github.com/nla/nla-blacklight_common/commit/0da807fbd28fa83c79b8068114a2d037dc8ca47a))
+
+
+### Reverts
+
+* change to ip lookup ([bf2827c](https://github.com/nla/nla-blacklight_common/commit/bf2827c4182864383091c361b7a2a89695517303))
+
+
+### Miscellaneous
+
+* **main:** release 0.1.0 ([5d55943](https://github.com/nla/nla-blacklight_common/commit/5d5594340983793b8a00c878ccca6870762907a3))
+* set ruby_version directly ([455ee24](https://github.com/nla/nla-blacklight_common/commit/455ee24c9144bf8290193d024cde42af78985b0a))
+
+
+### Code Refactoring
+
+* refactor repository connection and add test for down leader ([94d7a4f](https://github.com/nla/nla-blacklight_common/commit/94d7a4f2eed7ae6773b235a06a4fc9c8debd1355))
+
+
+### Build System
+
+* **deps-dev:** bump debug from 1.8.0 to 1.9.1 ([17f329c](https://github.com/nla/nla-blacklight_common/commit/17f329c4def45853e622bc17b57e6d02e874795e))
+* **deps-dev:** bump factory_bot_rails from 6.4.0 to 6.4.3 ([96a9819](https://github.com/nla/nla-blacklight_common/commit/96a9819843db6ce9670705d32fd11c38d3284627))
+* **deps-dev:** bump selenium-webdriver from 4.15.0 to 4.17.0 ([cc54d76](https://github.com/nla/nla-blacklight_common/commit/cc54d76caf23b107a0b7258a76f27f70f051f82a))
+* **deps-dev:** bump shoulda-matchers from 5.3.0 to 6.1.0 ([8e6950f](https://github.com/nla/nla-blacklight_common/commit/8e6950f19a09a2d921a25d592e25e42b425aa5cf))
+* **deps:** bump annotaterb from 4.4.1 to 4.5.0 ([e158c31](https://github.com/nla/nla-blacklight_common/commit/e158c31e61ec54b336de7f00acbb74c72e561131))
+* **deps:** bump brakeman from 6.0.1 to 6.1.2 ([6c64c4d](https://github.com/nla/nla-blacklight_common/commit/6c64c4d624f28d456aefbcb9ab0387aab48e04b8))
+* **deps:** bump google-github-actions/release-please-action ([0dbf264](https://github.com/nla/nla-blacklight_common/commit/0dbf264630dfca47bf53f55fe1cd6502ce711143))
+* **deps:** bump mysql2 from 0.5.5 to 0.5.6 ([99190b9](https://github.com/nla/nla-blacklight_common/commit/99190b9bfa39fef55a0a7bbb50baa97f510075a8))
+* **deps:** bump nokogiri from 1.15.5 to 1.16.2 ([7c818dc](https://github.com/nla/nla-blacklight_common/commit/7c818dce6bcd63b23848559c67049000a11eb4f5))
+* **deps:** bump omniauth-keycloak from 1.5.1 to 1.5.2 ([53f9f2a](https://github.com/nla/nla-blacklight_common/commit/53f9f2acae61a70b76d5a994a0535c2364e57a0b))
+* ignore CVE-2023-51774 until after release ([374fb27](https://github.com/nla/nla-blacklight_common/commit/374fb278a2938431a1d020bae84ce4410e5f9cdd))
+
+
+### Continuous Integration
+
+* fix dependabot update errors ([60121ab](https://github.com/nla/nla-blacklight_common/commit/60121ab1d0e9717957cf152b73f7cf0195efa967))
+
 ## [0.1.0](https://github.com/yetti/nla-blacklight_common/compare/v0.1.5...v0.1.0) (2024-01-23)
 
 
