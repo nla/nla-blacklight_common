@@ -26,7 +26,7 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
 
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 6.1"
   gem "shoulda-matchers"
   gem "factory_bot_rails"
   gem "faker"
