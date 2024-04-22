@@ -32,6 +32,8 @@ group :development, :test do
   gem "faker"
 
   gem "rails-ujs"
+
+  gem "bullet"
 end
 
 group :test do

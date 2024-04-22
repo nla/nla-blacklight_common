@@ -2,5 +2,6 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <% if current_user.present? %>
-  Logged in as <%= current_user %>
+  <p>Logged in as <%= current_user %></p>
+  <p>2FA flag: <%= current_user.account.email_2fa_flag %></p>
 <% end %>

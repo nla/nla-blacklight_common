@@ -4,10 +4,11 @@
 #
 # Table name: accounts
 #
-#  id         :bigint           not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
+#  id             :bigint           not null, primary key
+#  email_2fa_flag :string           default("y")
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  user_id        :bigint           not null
 #
 # Indexes
 #
@@ -29,8 +30,16 @@ RSpec.describe Account do
     expect(account).to belong_to(:user)
   end
 
-  it "validates the existence of a user" do
-    expect(account).to be_valid
+  describe "validations" do
+    it "validates the existence of a user" do
+      expect(account).to be_valid
+    end
+
+    it "defines an enum for email 2FA flag" do
+      expect(account).to define_enum_for(:email_2fa_flag)
+        .with_values(y: "y", n: "n")
+        .backed_by_column_of_type(:string)
+    end
   end
 
   context "when user is deleted" do
