@@ -1,0 +1,12 @@
+en:
+  account:
+    settings:
+      update:
+        errors:
+          2fa:
+            failed: "Sorry, we were unable to update your Two-factor Authentication (2FA) setting. Please try again later."
+      email_2fa:
+        alert:
+          prompt_text: "Would you like to further secure your NLA user account with Two-factor Authentication (2FA)? %{enable_link} or %{help_link}"
+          enable_link_text: "Turn on 2FA"
+          help_link_text: "Learn more about 2FA"

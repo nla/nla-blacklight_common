@@ -1,0 +1,10 @@
+<%if @session_flag.nil? || @session_flag == false %>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="email-2fa-alert" class="alert alert-info alert-dismissible fade show" role="alert">
+        <%= I18n.t("account.settings.email_2fa.alert.prompt_text", enable_link: enable_link, help_link: help_link).html_safe %>
+        <button type="button" class="btn-close" data-action="email-2fa-alert#dismiss" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+<% end %>
