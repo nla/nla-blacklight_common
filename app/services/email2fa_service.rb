@@ -10,8 +10,10 @@ class Email2faService
     if res.status != 200
       message = "Failed to retrieve two-factor authentication status for #{user_id}"
       Rails.logger.error message
+      false
+    else
+      res.body["status"]
     end
-    res.body["status"]
   rescue => e
     Rails.logger.error "email_2fa_status - Failed to connect catalogue-service: #{e.message}"
     raise Email2faDetailsError.new("Failed to retrieve details for #{user_id}")
