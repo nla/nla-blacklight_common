@@ -3,6 +3,6 @@ require "nla/blacklight_common/engine"
 
 module Nla
   module BlacklightCommon
-    # Your code goes here...
+    autoload :Routes, "nla/blacklight_common/routes"
   end
 end

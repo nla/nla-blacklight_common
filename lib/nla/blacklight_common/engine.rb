@@ -6,6 +6,7 @@ module Nla
     require "omniauth-keycloak"
     require "omniauth/rails_csrf_protection"
     require "connection_pool"
+    require "nla/blacklight_common"
 
     class Engine < ::Rails::Engine
       if %w[development test].include? ENV["RAILS_ENV"]

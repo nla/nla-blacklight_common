@@ -24,8 +24,6 @@
 require "bcrypt"
 
 class User < PatronsRecord
-  has_one :account, dependent: :destroy
-
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
 
