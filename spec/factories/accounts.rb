@@ -3,7 +3,6 @@
 # Table name: accounts
 #
 #  id             :bigint           not null, primary key
-#  email_2fa_flag :string           default("y")
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  user_id        :bigint           not null
