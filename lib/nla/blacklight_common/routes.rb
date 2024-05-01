@@ -1,5 +1,7 @@
 module Nla
   module BlacklightCommon
-    require "nla/blacklight_common/routes/email2fa"
+    module Routes
+      require "nla/blacklight_common/routes/email2fa"
+    end
   end
 end
