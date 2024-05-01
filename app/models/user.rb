@@ -24,8 +24,6 @@
 require "bcrypt"
 
 class User < PatronsRecord
-  has_one :account, dependent: :destroy
-
   # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
 
@@ -90,16 +88,6 @@ class User < PatronsRecord
 
       # set active state after auto renewal
       user.active = UserService.new.auto_renew(user.folio_id)
-
-      # check if user has enabled email 2FA since the last time they logged in
-      has_email_2fa = auth.extra.raw_info.realm_access.roles.include?("email-otp")
-      account = Account.find_or_create_by!(user_id: user.id)
-      if account.email_2fa_flag == "y" && has_email_2fa
-        # If the flag is set to 'y' and the user already has email 2FA, change the flag so we don't
-        # prompt them to add Email 2FA after logging in.
-        account.email_2fa_flag = "n"
-      end
-      account.save!
 
       # reload user with updated values from database
       user.save!

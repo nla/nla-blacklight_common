@@ -32,14 +32,4 @@ Rails.application.routes.draw do
     get "expired_keycloak_logout", to: "users/sessions#expired_keycloak_logout", as: :expired_keycloak_logout
     post "backchannel_logout", to: "users/sessions#backchannel_logout", as: :backchannel_logout
   end
-
-  # scope path: "/email_2fa", as: "email_2fa" do
-  #   get "/enable", to: "email2fa#enable_email_2fa", as: "enable"
-  #   get "/disable", to: "email2fa#disable_email_2fa", as: "disable"
-  #
-  #   scope path: "/alert", as: "alert" do
-  #     get "/", to: "email_2fa_alert#show"
-  #     get "/dismiss", to: "email_2fa_alert#dismiss"
-  #   end
-  # end
 end
