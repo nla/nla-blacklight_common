@@ -3,7 +3,20 @@
 require "rails_helper"
 
 RSpec.describe Email2faAlertComponent, type: :component do
+  describe "when feature flag is not enabled" do
+    it "does not render" do
+      render_inline(described_class.new(false, "https://example.com/enable", "https://example.com/help", true))
+
+      expect(page).not_to have_css("#email-2fa-alert")
+    end
+  end
+
   describe "when user has not enabled 2FA" do
+    before do
+      new_env = ENV.to_hash
+      stub_const("ENV", new_env.merge("EMAIL_2FA_REGISTRATION_URL" => "https://dummy.com"))
+    end
+
     context "when user has not dismissed the alert" do
       it "renders" do
         render_inline(described_class.new(false, "https://example.com/enable", "https://example.com/help", nil))

@@ -9,7 +9,7 @@ class Email2faAlertComponent < ViewComponent::Base
   end
 
   def render?
-    @status == false
+    ENV["EMAIL_2FA_REGISTRATION_URL"].present? && @status == false
   end
 
   def enable_link
