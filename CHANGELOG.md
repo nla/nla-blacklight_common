@@ -1,5 +1,35 @@
 # Changelog
 
+## [0.2.1](https://github.com/nla/nla-blacklight_common/compare/0.2.0...0.2.1) (2024-05-08)
+
+
+### Features
+
+* clean up unnecessary code ([2fbae47](https://github.com/nla/nla-blacklight_common/commit/2fbae47b1f770be6370813cb05b17b74db2ce526))
+* hide 2FA changes behind feature flag ([94c25b2](https://github.com/nla/nla-blacklight_common/commit/94c25b20596b6a494db881de86930c0400c7de1b))
+* implement common email 2fa functionality ([b9f9693](https://github.com/nla/nla-blacklight_common/commit/b9f9693058819277acd4f4a348e0a1b6711695b6))
+* store flag for displaying email 2FA alert ([dd71353](https://github.com/nla/nla-blacklight_common/commit/dd713537715b2ffccc2e81cbbaf35fd1e16a5493))
+
+
+### Bug Fixes
+
+* fix routes module ([ad09971](https://github.com/nla/nla-blacklight_common/commit/ad099719b862a9286ec79adf195c6bcf504dfa2e))
+
+
+### Reverts
+
+* remove SQL schema changes ([a946d01](https://github.com/nla/nla-blacklight_common/commit/a946d010efe04ab6effdcecf60d6f303edac6f95))
+
+
+### Tests
+
+* improve test coverage ([182a68a](https://github.com/nla/nla-blacklight_common/commit/182a68a0aa326c0b894e16aebbb57839913386d6))
+
+
+### Build System
+
+* **deps-dev:** bump rdoc from 6.6.2 to 6.6.3.1 ([fb8671e](https://github.com/nla/nla-blacklight_common/commit/fb8671ead2d4eab1cb6dce0dc96b93fda7fd37b5))
+
 ## [0.2.0](https://github.com/nla/nla-blacklight_common/compare/0.1.12...0.2.0) (2024-03-11)
 
 
