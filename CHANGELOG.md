@@ -1,12 +1,13 @@
 # Changelog
 
-## [0.2.1](https://github.com/nla/nla-blacklight_common/compare/0.2.0...0.2.1) (2024-05-08)
+## [0.2.1](https://github.com/nla/nla-blacklight_common/compare/v0.2.0...0.2.1) (2024-05-14)
 
 
 ### Features
 
-* clean up unnecessary code ([2fbae47](https://github.com/nla/nla-blacklight_common/commit/2fbae47b1f770be6370813cb05b17b74db2ce526))
+* disable login buttons during FOLIO update ([40ee833](https://github.com/nla/nla-blacklight_common/commit/40ee8335bf194608cc1f3200c45d30c899d26764))
 * hide 2FA changes behind feature flag ([94c25b2](https://github.com/nla/nla-blacklight_common/commit/94c25b20596b6a494db881de86930c0400c7de1b))
+* clean up unnecessary code ([2fbae47](https://github.com/nla/nla-blacklight_common/commit/2fbae47b1f770be6370813cb05b17b74db2ce526))
 * implement common email 2fa functionality ([b9f9693](https://github.com/nla/nla-blacklight_common/commit/b9f9693058819277acd4f4a348e0a1b6711695b6))
 * store flag for displaying email 2FA alert ([dd71353](https://github.com/nla/nla-blacklight_common/commit/dd713537715b2ffccc2e81cbbaf35fd1e16a5493))
 
@@ -19,6 +20,11 @@
 ### Reverts
 
 * remove SQL schema changes ([a946d01](https://github.com/nla/nla-blacklight_common/commit/a946d010efe04ab6effdcecf60d6f303edac6f95))
+
+
+### Miscellaneous
+
+* rollback previous version increment ([96c01e4](https://github.com/nla/nla-blacklight_common/commit/96c01e480f88c5e265de77fcec607bc963233391))
 
 
 ### Tests
