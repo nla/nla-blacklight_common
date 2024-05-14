@@ -1,3 +1,5 @@
 <h1>Login</h1>
 
-<%= render "keycloak_login" %>
+<% unless ENV["FOLIO_UPDATE_IN_PROGRESS"] == "true" %>
+  <%= render "keycloak_login" %>
+<% end %>
