@@ -7,7 +7,7 @@ RSpec.describe Email2faAlertComponent, type: :component do
     it "does not render" do
       render_inline(described_class.new(false, "https://example.com/enable", "https://example.com/help", true))
 
-      expect(page).not_to have_css("#email-2fa-alert")
+      expect(page).to have_no_css("#email-2fa-alert")
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe Email2faAlertComponent, type: :component do
       it "does not render" do
         render_inline(described_class.new(false, "https://example.com/enable", "https://example.com/help", true))
 
-        expect(page).not_to have_css("#email-2fa-alert")
+        expect(page).to have_no_css("#email-2fa-alert")
       end
     end
   end
@@ -40,7 +40,7 @@ RSpec.describe Email2faAlertComponent, type: :component do
     it "does not render" do
       render_inline(described_class.new(true, "https://example.com/enable", "https://example.com/help", false))
 
-      expect(page).not_to have_css("#email-2fa-alert")
+      expect(page).to have_no_css("#email-2fa-alert")
     end
   end
 end

@@ -45,7 +45,7 @@ RSpec.describe GlobalMessageComponent, type: :component do
     it "returns nil" do
       render_inline(described_class.new)
 
-      expect(page).not_to have_css("div.alert")
+      expect(page).to have_no_css("div.alert")
     end
   end
 end
