@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Email2faController < ApplicationController
+  before_action :authenticate_user!
+
   def enable
     url_hash = [
       ENV["KEYCLOAK_URL"],
