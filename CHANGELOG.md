@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.2.2](https://github.com/nla/nla-blacklight_common/compare/0.2.1...0.2.2) (2024-06-03)
+
+
+### Tests
+
+* update Capybara commands in specs ([1996643](https://github.com/nla/nla-blacklight_common/commit/1996643e8f080301da8ed671881a099f175818c1))
+
+
+### Build System
+
+* **deps-dev:** bump debug from 1.9.1 to 1.9.2 ([4244a19](https://github.com/nla/nla-blacklight_common/commit/4244a19f5859e6cb292120ee6fbb2853616ea23c))
+* **deps-dev:** bump dotenv from 3.0.3 to 3.1.2 ([9d8b73e](https://github.com/nla/nla-blacklight_common/commit/9d8b73eb441676b7f92f0bfef0f407ed91fb3a90))
+* **deps-dev:** bump faker from 3.2.2 to 3.3.1 ([0e776f3](https://github.com/nla/nla-blacklight_common/commit/0e776f3e5c00456bfeed1a254e99398d383b0da3))
+* **deps-dev:** bump rexml from 3.2.6 to 3.2.8 ([f6b47d8](https://github.com/nla/nla-blacklight_common/commit/f6b47d8238ee682c8c0a1795d0735639810a3088))
+* **deps-dev:** bump rspec-rails from 6.0.3 to 6.1.2 ([0a258dc](https://github.com/nla/nla-blacklight_common/commit/0a258dc001aaac23567d0df08eca9021c1d74669))
+* **deps-dev:** bump rubocop-rails from 2.22.2 to 2.25.0 ([8ca3b5d](https://github.com/nla/nla-blacklight_common/commit/8ca3b5d25c045242c3e7f09f5460558c6f5f8438))
+* **deps-dev:** bump rubocop-rspec from 2.25.0 to 2.29.2 ([f0f3f6f](https://github.com/nla/nla-blacklight_common/commit/f0f3f6f78ef43e81bd0d07c85adac2f08cda95a4))
+* **deps-dev:** bump shoulda-matchers from 6.1.0 to 6.2.0 ([c4e01ab](https://github.com/nla/nla-blacklight_common/commit/c4e01ab7d926071069801596b1992d730eb59cae))
+* **deps-dev:** bump standard from 1.32.0 to 1.36.0 ([96e2d5a](https://github.com/nla/nla-blacklight_common/commit/96e2d5aaeb0ee95c805cc33cd902428bd72d3ce1))
+* **deps:** bump annotaterb from 4.5.0 to 4.8.0 ([b53befb](https://github.com/nla/nla-blacklight_common/commit/b53befba518baba9deb6a04df560d0c53c2a8747))
+* **deps:** bump devise from 4.9.3 to 4.9.4 ([f88f182](https://github.com/nla/nla-blacklight_common/commit/f88f1829657b012618f0fb186f5d272681b1aa7c))
+* **deps:** bump isbang/compose-action from 1.5.1 to 2.0.0 ([8aab2e9](https://github.com/nla/nla-blacklight_common/commit/8aab2e93154a9e3fc923fa2b1afbf61d76ed2ed1))
+* **deps:** bump nokogiri from 1.16.2 to 1.16.5 ([4b81425](https://github.com/nla/nla-blacklight_common/commit/4b814256dec3a60143aee44bf41b8c67b277851f))
+
 ## [0.2.1](https://github.com/nla/nla-blacklight_common/compare/v0.2.0...0.2.1) (2024-05-14)
 
 
