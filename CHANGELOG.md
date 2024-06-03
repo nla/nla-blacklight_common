@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/nla/nla-blacklight_common/compare/0.2.2...0.2.3) (2024-06-03)
+
+
+### Bug Fixes
+
+* only show Email 2FA alert to patrons ([afd14b6](https://github.com/nla/nla-blacklight_common/commit/afd14b6a349e5bab9c282baae908b09f6fc2b3f3))
+
 ## [0.2.2](https://github.com/nla/nla-blacklight_common/compare/0.2.1...0.2.2) (2024-06-03)
 
 
