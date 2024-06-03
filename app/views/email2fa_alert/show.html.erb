@@ -1,1 +1,3 @@
-<%= render Email2faAlertComponent.new(@status, @enable_link, @help_link, @session_flag) %>
+<% if current_user && current_user.provider == "catalogue_patron" %>
+  <%= render Email2faAlertComponent.new(@status, @enable_link, @help_link, @session_flag) %>
+<% end %>
