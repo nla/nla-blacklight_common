@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/nla/nla-blacklight_common/compare/0.2.3...0.2.4) (2024-06-04)
+
+
+### Build System
+
+* **deps:** bump actiontext from 7.0.8.1 to 7.0.8.3 ([b5d7c27](https://github.com/nla/nla-blacklight_common/commit/b5d7c274e94880a074a7623a252f4a1a4fd692ec))
+
 ## [0.2.3](https://github.com/nla/nla-blacklight_common/compare/0.2.2...0.2.3) (2024-06-03)
 
 
