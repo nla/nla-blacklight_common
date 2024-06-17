@@ -1,6 +1,8 @@
 require:
   - standard
   - rubocop-rspec
+  - rubocop-rspec_rails
+  - rubocop-performance
   - rubocop-capybara
   - rubocop-factory_bot
 
