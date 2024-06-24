@@ -1,5 +1,39 @@
 # Changelog
 
+## [0.2.5](https://github.com/nla/nla-blacklight_common/compare/0.2.4...0.2.5) (2024-06-24)
+
+
+### Miscellaneous
+
+* update blacklight ([592ad08](https://github.com/nla/nla-blacklight_common/commit/592ad0835c785a2840433a460fbf0e24f1b4e977))
+
+
+### Build System
+
+* **deps-dev:** bump capybara from 3.39.2 to 3.40.0 ([429795b](https://github.com/nla/nla-blacklight_common/commit/429795bf82013099352b283cb5b9fef058a4c7d7))
+* **deps-dev:** bump rubocop-performance from 1.21.0 to 1.21.1 ([1dcd832](https://github.com/nla/nla-blacklight_common/commit/1dcd83299f9a64c8ee11442b00d6ec5e4d97b9ad))
+* **deps-dev:** bump rubocop-rspec from 2.29.2 to 3.0.1 ([fb151c2](https://github.com/nla/nla-blacklight_common/commit/fb151c270eda7c0b7d7d396c3eff045613038539))
+* **deps-dev:** bump selenium-webdriver from 4.17.0 to 4.21.1 ([b1f94b3](https://github.com/nla/nla-blacklight_common/commit/b1f94b3c52442406f76846449974b8d9ee4e2f68))
+* **deps-dev:** bump selenium-webdriver from 4.21.1 to 4.22.0 ([1ab510f](https://github.com/nla/nla-blacklight_common/commit/1ab510fe718a5033d888f718494237af52b5c859))
+* **deps-dev:** bump simplecov from 0.21.2 to 0.22.0 ([1216596](https://github.com/nla/nla-blacklight_common/commit/1216596fa02a85a61758601384a9f215d9ec8e70))
+* **deps-dev:** bump standard from 1.36.0 to 1.37.0 ([db605f9](https://github.com/nla/nla-blacklight_common/commit/db605f9311dd0f965b18be4d4c7cc5d2f7a0737c))
+* **deps-dev:** bump standard from 1.37.0 to 1.39.0 ([00b3798](https://github.com/nla/nla-blacklight_common/commit/00b3798056b9cca6d6bf73ccb0272e15569161fe))
+* **deps-dev:** bump webmock from 3.19.1 to 3.23.1 ([0e116e7](https://github.com/nla/nla-blacklight_common/commit/0e116e7a3539e820b8022eabc93a271581599072))
+* **deps:** bump actionpack from 7.0.8.3 to 7.0.8.4 ([efc08af](https://github.com/nla/nla-blacklight_common/commit/efc08afc7e85f6a5b308abd9d1005657c5a8d990))
+* **deps:** bump annotaterb from 4.8.0 to 4.9.0 ([2abbd54](https://github.com/nla/nla-blacklight_common/commit/2abbd54329851ff05b79a017e47929e23b2c0032))
+* **deps:** bump isbang/compose-action from 2.0.0 to 2.0.1 ([d8ed292](https://github.com/nla/nla-blacklight_common/commit/d8ed292161dc90efefb13a58fdd2deb515c03f93))
+* **deps:** bump jwt from 2.7.1 to 2.8.1 ([20acc28](https://github.com/nla/nla-blacklight_common/commit/20acc28053fddc3b0e4d2d0695e9bddee8339513))
+* **deps:** bump jwt from 2.8.1 to 2.8.2 ([d3bbb68](https://github.com/nla/nla-blacklight_common/commit/d3bbb684e013d69e67be62ad40d5e0deb6cd6ee6))
+* **deps:** bump omniauth-rails_csrf_protection from 1.0.1 to 1.0.2 ([0eaca61](https://github.com/nla/nla-blacklight_common/commit/0eaca6174caeae52559c064cba1681f90c322607))
+* **deps:** bump strong_migrations from 1.6.4 to 1.8.0 ([713a439](https://github.com/nla/nla-blacklight_common/commit/713a439c422ca7e8ff19b66fd077100ada589489))
+* fix missing rubocop dependencies ([584695e](https://github.com/nla/nla-blacklight_common/commit/584695e5ce28978c6bdee69860116de29d1d7330))
+* update rubocop config ([e1be8e6](https://github.com/nla/nla-blacklight_common/commit/e1be8e6d9c648655a103ad95d19eecfa4670016b))
+
+
+### Continuous Integration
+
+* update release-please token ([c0344f3](https://github.com/nla/nla-blacklight_common/commit/c0344f37542a79391fae6ba10e1be7dff5abd054))
+
 ## [0.2.4](https://github.com/nla/nla-blacklight_common/compare/0.2.3...0.2.4) (2024-06-04)
 
 
