@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.7](https://github.com/nla/nla-blacklight_common/compare/0.2.6...0.2.7) (2024-07-31)
+
+
+### Build System
+
+* **deps-dev:** bump faker from 3.3.1 to 3.4.2 ([9f7dcfe](https://github.com/nla/nla-blacklight_common/commit/9f7dcfe6cfa685acce1220cd4c6349e56c67a30c))
+* **deps-dev:** bump rspec-rails from 6.1.2 to 6.1.3 ([925a0d1](https://github.com/nla/nla-blacklight_common/commit/925a0d18a64fa9cb1d9157ea9d288f86ebe05071))
+* **deps-dev:** bump rubocop-rails from 2.25.0 to 2.25.1 ([a27f788](https://github.com/nla/nla-blacklight_common/commit/a27f788b3ff5a7821b23816e77749e547c61e5bc))
+* **deps:** bump annotaterb from 4.9.0 to 4.10.2 ([e29a01f](https://github.com/nla/nla-blacklight_common/commit/e29a01f89706fc482afbce087ae009aca9057fd6))
+* **deps:** bump rsolr from 2.5.0 to 2.6.0 ([58522cf](https://github.com/nla/nla-blacklight_common/commit/58522cf9b338e669f738b53c2e05840981559fdb))
+
 ## [0.2.5](https://github.com/nla/nla-blacklight_common/compare/0.2.4...0.2.5) (2024-06-24)
 
 
