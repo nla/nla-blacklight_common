@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.2.7](https://github.com/nla/nla-blacklight_common/compare/0.2.6...0.2.7) (2024-08-29)
+
+
+### Build System
+
+* **deps-dev:** bump faker from 3.3.1 to 3.4.2 ([9f7dcfe](https://github.com/nla/nla-blacklight_common/commit/9f7dcfe6cfa685acce1220cd4c6349e56c67a30c))
+* **deps-dev:** bump rexml from 3.3.2 to 3.3.3 ([0dddac3](https://github.com/nla/nla-blacklight_common/commit/0dddac30d8553a5f6b4e005f0f5cfba3982952cb))
+* **deps-dev:** bump rexml from 3.3.5 to 3.3.6 ([63405d2](https://github.com/nla/nla-blacklight_common/commit/63405d29fbeebc0bfdf2b4b3673636435759fa24))
+* **deps-dev:** bump rspec-rails from 6.1.2 to 6.1.3 ([925a0d1](https://github.com/nla/nla-blacklight_common/commit/925a0d18a64fa9cb1d9157ea9d288f86ebe05071))
+* **deps-dev:** bump rspec-rails from 6.1.3 to 6.1.4 ([964f549](https://github.com/nla/nla-blacklight_common/commit/964f54998b33807c21e4e3d2206fe111049685ba))
+* **deps-dev:** bump rubocop-rails from 2.25.0 to 2.25.1 ([a27f788](https://github.com/nla/nla-blacklight_common/commit/a27f788b3ff5a7821b23816e77749e547c61e5bc))
+* **deps-dev:** bump rubocop-rspec from 3.0.1 to 3.0.4 ([e0a1234](https://github.com/nla/nla-blacklight_common/commit/e0a1234dd56105ff08b9590ced20805c5ce355e1))
+* **deps-dev:** bump selenium-webdriver from 4.22.0 to 4.23.0 ([acb0bb7](https://github.com/nla/nla-blacklight_common/commit/acb0bb730767c39619d488758d282f0195fcec6d))
+* **deps-dev:** bump shoulda-matchers from 6.2.0 to 6.4.0 ([91d57e7](https://github.com/nla/nla-blacklight_common/commit/91d57e7a2657e74894b312d9c1aa99161c82799b))
+* **deps-dev:** bump standard from 1.39.0 to 1.39.2 ([423b215](https://github.com/nla/nla-blacklight_common/commit/423b215a074d42b21085fd685a53f767da95338d))
+* **deps:** bump annotaterb from 4.10.2 to 4.11.0 ([839d1ac](https://github.com/nla/nla-blacklight_common/commit/839d1acba1a5948070248ff150bd5ebd47eb6e25))
+* **deps:** bump annotaterb from 4.9.0 to 4.10.2 ([e29a01f](https://github.com/nla/nla-blacklight_common/commit/e29a01f89706fc482afbce087ae009aca9057fd6))
+* **deps:** bump rsolr from 2.5.0 to 2.6.0 ([58522cf](https://github.com/nla/nla-blacklight_common/commit/58522cf9b338e669f738b53c2e05840981559fdb))
+* **deps:** bump sprockets-rails from 3.4.2 to 3.5.2 ([795ff2e](https://github.com/nla/nla-blacklight_common/commit/795ff2e79085497b84c4df288340a0f628ef49e9))
+
 ## [0.2.5](https://github.com/nla/nla-blacklight_common/compare/0.2.4...0.2.5) (2024-06-24)
 
 
