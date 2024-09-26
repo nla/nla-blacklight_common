@@ -12,7 +12,7 @@ gem "puma", "~> 6.0"
 
 gem "jwt", "~> 2.8"
 
-gem "strong_migrations", "~> 1.8"
+gem "strong_migrations", "~> 2.0"
 
 gem "fuubar"
 
