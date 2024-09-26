@@ -261,7 +261,7 @@ GEM
     psych (5.1.2)
       stringio
     public_suffix (5.1.1)
-    puma (6.4.2)
+    puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.9)
@@ -454,7 +454,7 @@ DEPENDENCIES
   jwt (~> 2.8)
   mysql2
   nla-blacklight_common!
-  puma (~> 6.0)
+  puma (~> 6.4)
   rails-controller-testing
   rails-ujs
   rspec-rails (~> 6.1)
