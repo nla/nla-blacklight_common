@@ -10,7 +10,7 @@ gem "sprockets-rails"
 
 gem "puma", "~> 6.4"
 
-gem "jwt", "~> 2.8"
+gem "jwt", "~> 2.9"
 
 gem "strong_migrations", "~> 2.0"
 
