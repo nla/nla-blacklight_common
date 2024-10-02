@@ -318,18 +318,18 @@ GEM
     rsolr (2.6.0)
       builder (>= 2.1.2)
       faraday (>= 0.9, < 3, != 2.0.0)
-    rspec-core (3.13.0)
+    rspec-core (3.13.1)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.2)
+    rspec-expectations (3.13.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-mocks (3.13.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (6.1.4)
-      actionpack (>= 6.1)
-      activesupport (>= 6.1)
-      railties (>= 6.1)
+    rspec-rails (7.0.1)
+      actionpack (>= 7.0)
+      activesupport (>= 7.0)
+      railties (>= 7.0)
       rspec-core (~> 3.13)
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
@@ -432,7 +432,7 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.17)
+    zeitwerk (2.6.18)
     zk (1.10.0)
       zookeeper (~> 1.5.0)
     zookeeper (1.5.5)
@@ -455,7 +455,7 @@ DEPENDENCIES
   puma (~> 6.4)
   rails-controller-testing
   rails-ujs
-  rspec-rails (~> 6.1)
+  rspec-rails (~> 7.0)
   rubocop-capybara
   rubocop-factory_bot
   rubocop-performance
