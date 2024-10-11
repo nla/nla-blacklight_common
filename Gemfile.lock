@@ -141,7 +141,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
     docile (1.4.0)
-    dotenv (3.1.2)
+    dotenv (3.1.4)
     erubi (1.13.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
