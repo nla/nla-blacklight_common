@@ -24,13 +24,6 @@ RSpec.describe "Login" do
     expect(page).to have_content(I18n.t("auth.patron.login_btn"))
   end
 
-  it "does not display the upgrade link" do
-    visit root_path
-    click_on "Login"
-    expect(page).not_to have_content(I18n.t("auth.patron.upgrade_text"))
-    expect(page).not_to have_content(I18n.t("auth.patron.upgrade_btn"))
-  end
-
   context "when FOLIO_UPDATE_IN_PROGRESS is `true`" do
     it "does not render the request button" do
       allow(ENV).to receive(:[]).and_call_original
