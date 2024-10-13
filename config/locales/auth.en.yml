@@ -10,7 +10,5 @@ en:
       shared_text: "Team Official Loan (TOL) is for Library teams who require access to the collection for work-related purposes for extended periods, or by multiple staff."
       shared_login: "Team Official Loan"
     patron:
-      upgrade_text: "Already have a Library card but don’t yet have an email and password login? As of 20 November 2023 library logins require an email address and password."
-      upgrade_btn: "Upgrade Login"
       login_text: "Login with your email and password to request material and access eResources."
       login_btn: "Login"
