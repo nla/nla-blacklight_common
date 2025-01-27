@@ -77,7 +77,7 @@ jobs:
           bundle exec rails db:migrate
 
       - name: Spin up SolrCloud + Zookeeper cluster
-        uses: isbang/compose-action@v2.0.2
+        uses: isbang/compose-action@v2.1.0
         with:
           compose-file: "./solr/docker-compose.yml"
           down-flags: "--volumes"
