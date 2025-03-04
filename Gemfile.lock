@@ -269,7 +269,7 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    puma (6.4.3)
+    puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.11)
@@ -462,7 +462,7 @@ DEPENDENCIES
   jwt (~> 2.9)
   mysql2
   nla-blacklight_common!
-  puma (~> 6.4)
+  puma (~> 6.6)
   rails-controller-testing
   rails-ujs
   rspec-rails (~> 7.0)
