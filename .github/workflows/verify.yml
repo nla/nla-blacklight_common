@@ -49,7 +49,7 @@ jobs:
       DB_PASSWORD: root
       RAILS_ENV: test
       DATABASE_URL: "mysql2://root:root@localhost:3306/dummy_test"
-      PATRONS_DB_URL: "mysql2://root:root@localhost:3306/dummy_test"
+      PATRONS_DB_URL: "mysql2://root:root@localhost:3306/patrons_test"
       REDIS_URL: redis://redis:6379
     services:
       redis:
