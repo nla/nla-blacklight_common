@@ -8,11 +8,11 @@ gem "mysql2"
 
 gem "sprockets-rails"
 
-gem "puma", "~> 6.4"
+gem "puma", "~> 6.6"
 
 gem "jwt", "~> 2.9"
 
-gem "strong_migrations", "~> 2.0"
+gem "strong_migrations", "~> 2.2"
 
 gem "fuubar"
 
@@ -30,7 +30,7 @@ group :development, :test do
   gem "rubocop-capybara", require: false
   gem "rubocop-factory_bot", require: false
 
-  gem "rspec-rails", "~> 7.0"
+  gem "rspec-rails", "~> 7.1"
   gem "shoulda-matchers"
   gem "factory_bot_rails"
   gem "faker"
