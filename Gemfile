@@ -25,12 +25,11 @@ group :development, :test do
   gem "standard", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
-  gem "rubocop-rspec_rails", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-capybara", require: false
   gem "rubocop-factory_bot", require: false
 
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 6.1"
   gem "shoulda-matchers"
   gem "factory_bot_rails"
   gem "faker"
