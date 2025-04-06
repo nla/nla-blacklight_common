@@ -11,7 +11,7 @@ echo "[ bin/ci ] Preparing database"
 bin/rails db:reset || bin/rails db:migrate
 
 echo "[ bin/ci ] Linting source"
-bundle exec rubocop -A
+bundle exec rubocop -A --parallel
 
 echo "[ bin/ci ] Analysing Ruby gems for"
 echo "[ bin/ci ] security vulnerabilities"
