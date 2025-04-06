@@ -45,11 +45,12 @@ jobs:
     env:
       CI: true
       DB_DATABASE: dummy_test
+      DB_PATRONS_DATABASE: patrons_test
       DB_USER: root
       DB_PASSWORD: root
       RAILS_ENV: test
       DATABASE_URL: "mysql2://root:root@localhost:3306/dummy_test"
-      PATRONS_DB_URL: "mysql2://root:root@localhost:3306/dummy_test"
+      PATRONS_DB_URL: "mysql2://root:root@localhost:3306/patrons_test"
       REDIS_URL: redis://redis:6379
     services:
       redis:
@@ -74,6 +75,7 @@ jobs:
           pwd
           sudo /etc/init.d/mysql start
           mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
+          mysql -e 'CREATE DATABASE ${{ env.DB_PATRONS_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
           bundle exec rails db:migrate
 
       - name: Spin up SolrCloud + Zookeeper cluster
