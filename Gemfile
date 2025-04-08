@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# placeholder: rails 7.2.2.1
-
 # Specify your gem's dependencies in nla-blacklight_common.gemspec.
 gemspec
 
