@@ -11,7 +11,7 @@ PATH
       devise
       omniauth-keycloak (~> 1.4)
       omniauth-rails_csrf_protection (~> 1.0)
-      rails (>= 8, < 9.0)
+      rails (>= 8.0, < 8.1)
       rsolr (>= 1.0, < 3)
       zk (~> 1.10)
 
