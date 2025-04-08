@@ -88,8 +88,6 @@ jobs:
 
       - name: RSpec tests
         run: |
-#          bundle exec rake db:reset
-#          bundle exec rails db:migrate RAILS_ENV=${{ env.RAILS_ENV }}
           bundle exec rspec --format progress
 
       - name: Simplecov Report
