@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.2.8](https://github.com/nla/nla-blacklight_common/compare/0.2.7...0.2.8) (2024-10-17)
+
+
+### Build System
+
+* **deps-dev:** bump dotenv from 3.1.2 to 3.1.4 ([d6ad08a](https://github.com/nla/nla-blacklight_common/commit/d6ad08a8ba1116c120b9eb19cb55cacbdae5e797))
+* **deps-dev:** bump rspec-rails from 6.1.4 to 7.0.1 ([4b3c1d7](https://github.com/nla/nla-blacklight_common/commit/4b3c1d790a9cdc6198bdd70e395f429e60aa1ce1))
+* **deps-dev:** bump rubocop-rails from 2.25.1 to 2.26.2 ([bbd8fad](https://github.com/nla/nla-blacklight_common/commit/bbd8fad6511f3c9f3164f0be201ae82a86a4d2e3))
+* **deps-dev:** bump rubocop-rspec from 3.0.4 to 3.1.0 ([59180f8](https://github.com/nla/nla-blacklight_common/commit/59180f884f27e304faad265c9cd8c9a53274e2bc))
+* **deps-dev:** bump selenium-webdriver from 4.23.0 to 4.25.0 ([357e932](https://github.com/nla/nla-blacklight_common/commit/357e93296a80d414045e0b06cc901c3cf90ee48b))
+* **deps-dev:** bump standard from 1.39.2 to 1.41.0 ([10ade70](https://github.com/nla/nla-blacklight_common/commit/10ade7071fc5262bf1c0a6e7a3c61da4570724a0))
+* **deps-dev:** bump webmock from 3.23.1 to 3.24.0 ([fbf61d4](https://github.com/nla/nla-blacklight_common/commit/fbf61d4ea5e16da01608eb5e02846e1aad77909a))
+* **deps:** bump actionpack from 7.0.8.4 to 7.0.8.5 ([2a7c2c6](https://github.com/nla/nla-blacklight_common/commit/2a7c2c6729c78817692ee0dab0d4d2449bebc83e))
+* **deps:** bump brakeman from 6.1.2 to 6.2.1 ([941bde2](https://github.com/nla/nla-blacklight_common/commit/941bde21cdb1e586fd57a84f16822414295b55d9))
+* **deps:** bump bundler-audit from 0.9.1 to 0.9.2 ([d6eea0c](https://github.com/nla/nla-blacklight_common/commit/d6eea0cf7f1c603717363ef2060a2edebe5793a6))
+* **deps:** bump isbang/compose-action from 2.0.1 to 2.0.2 ([c44e4a7](https://github.com/nla/nla-blacklight_common/commit/c44e4a774ef1c485ca0ed39c83f797cd6aa5bab2))
+* **deps:** bump jwt from 2.8.2 to 2.9.1 ([f96ffaa](https://github.com/nla/nla-blacklight_common/commit/f96ffaa58a4e064457fc14d321a5ee0d57d9d77e))
+* **deps:** bump jwt from 2.9.1 to 2.9.3 ([8e292f3](https://github.com/nla/nla-blacklight_common/commit/8e292f351f5a2a816bff8cf2560b04691682b8fb))
+* **deps:** bump puma from 6.4.2 to 6.4.3 ([cdac8df](https://github.com/nla/nla-blacklight_common/commit/cdac8dfcc9d5411819bec35b05e676c0557fc0e1))
+* **deps:** bump strong_migrations from 1.8.0 to 2.0.0 ([fd4e7e6](https://github.com/nla/nla-blacklight_common/commit/fd4e7e6242357b686437df7d6c67230820abf02a))
+
 ## [0.2.7](https://github.com/nla/nla-blacklight_common/compare/0.2.6...0.2.7) (2024-08-29)
 
 
