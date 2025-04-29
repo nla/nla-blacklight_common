@@ -22,7 +22,7 @@ then
   echo "[ bin/ci ] Docker not found, skipping SolrCloud adapter tests"
 
   echo "[ bin/ci ] Running RSpec tests"
-  bundle exec rspec --exclude-pattern "spec/lib/blacklight/solr_cloud/*_spec.rb"
+  bundle exec rspec --exclude-pattern "spec/lib/nla/solr_cloud/*_spec.rb"
 else
   echo "[ bin/ci ] Docker found, including SolrCloud adapter tests"
 
