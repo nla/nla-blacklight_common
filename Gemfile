@@ -29,7 +29,7 @@ group :development, :test do
   gem "rubocop-capybara", require: false
   gem "rubocop-factory_bot", require: false
 
-  gem "rspec-rails", "~> 7.1"
+  gem "rspec-rails", "~> 8.0"
   gem "shoulda-matchers"
   gem "factory_bot_rails"
   gem "faker"
