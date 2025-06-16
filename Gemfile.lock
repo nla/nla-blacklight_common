@@ -100,7 +100,7 @@ GEM
     aes_key_wrap (1.1.0)
     annotaterb (4.14.0)
     ast (2.4.3)
-    base64 (0.2.0)
+    base64 (0.3.0)
     bcrypt (3.1.20)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
@@ -192,7 +192,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    jwt (2.10.1)
+    jwt (3.0.0)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -484,7 +484,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fuubar
-  jwt (~> 2.9)
+  jwt (~> 3.0)
   mysql2
   nla-blacklight_common!
   puma (~> 6.6)
