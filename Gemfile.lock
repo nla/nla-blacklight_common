@@ -192,7 +192,7 @@ GEM
       bindata
       faraday (~> 2.0)
       faraday-follow_redirects
-    jwt (2.10.1)
+    jwt (3.1.2)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -484,7 +484,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fuubar
-  jwt (~> 2.9)
+  jwt (~> 3.1)
   mysql2
   nla-blacklight_common!
   puma (~> 6.6)
