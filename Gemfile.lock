@@ -241,8 +241,6 @@ GEM
     nio4r (2.7.4)
     nokogiri (1.18.9-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.9-x86_64-linux-gnu)
-      racc (~> 1.4)
     oauth2 (2.0.10)
       faraday (>= 0.17.3, < 4.0)
       jwt (>= 1.0, < 4.0)
@@ -427,10 +425,10 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    standard (1.51.1)
+    standard (1.50.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
-      rubocop (~> 1.80.2)
+      rubocop (~> 1.75.5)
       standard-custom (~> 1.0.0)
       standard-performance (~> 1.8)
     standard-custom (1.0.2)
@@ -476,10 +474,7 @@ GEM
     zookeeper (1.5.5)
 
 PLATFORMS
-  arm64-darwin-22
-  arm64-darwin-23
   arm64-darwin-24
-  x86_64-linux
 
 DEPENDENCIES
   capybara
