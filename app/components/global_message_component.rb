@@ -16,7 +16,7 @@ class GlobalMessageComponent < ViewComponent::Base
   def fetch_messages
     Rails.cache.fetch("global_messages", expires_in: 1.hour) do
       uri = URI.parse(ENV["GLOBAL_MESSAGE_URL"])
-      conn = Faraday.new(url: "#{uri.scheme}://#{uri.host}#{uri.port.present? ? ":#{uri.port}" : ""}")
+      conn = Faraday.new(url: "#{uri.scheme}://#{uri.host}#{":#{uri.port}" if uri.port.present?}")
       response = conn.get uri.path.to_s
       if response.status == 200 && response.body.present?
         JSON.parse(response.body)
