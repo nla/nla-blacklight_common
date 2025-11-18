@@ -24,10 +24,12 @@ class Whitelist
   end
 
   def in_local_subnet?(request)
+    Rails.logger.error "checking local subnet"
     client_in_subnets(request, local_subnets)
   end
 
   def in_staff_subnet?(request)
+    Rails.logger.error "checking staff subnet"
     client_in_subnets(request, staff_subnets)
   end
 
@@ -74,9 +76,12 @@ class Whitelist
 
     match = false
     4.times { |i|
+      Rails.logger.error "subnet check {} in {}.", i, subnet_ranges[i]
       if subnet_ranges[i] == "0" || client_ranges[i] == subnet_ranges[i]
+        Rails.logger.error "match at {}.", i
         match = true
       else
+        Rails.logger.error "Fail at {}.", i
         return false
       end
     }
