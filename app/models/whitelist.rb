@@ -56,7 +56,8 @@ class Whitelist
   def get_client_ip(request)
     client_ip = request.remote_ip
     Rails.logger.error "checking client ip: #{client_ip}"
-    Rails.logger.error "checking client ip: #{request.pretty_print}"
+    Rails.logger.error "checking client ip: #{request.keys}"
+    Rails.logger.error "checking client ip: #{request.to_s}"
 
 
     # Theoretically this shouldn't happen, because #remote_ip should get the real IP address,
