@@ -53,12 +53,21 @@ class Whitelist
     false
   end
 
+  # Logs all request.env key-value pairs for debugging purposes
+  def log_request_details(request)
+    Rails.logger.error "--- Begin Request Details ---"
+    request.env.each do |key, value|
+      Rails.logger.error "#{key}: #{value.inspect}"
+    end
+    Rails.logger.error "--- End Request Details ---"
+  end
+
   def get_client_ip(request)
     client_ip = request.remote_ip
     Rails.logger.error "checking client ip: #{client_ip}"
-    Rails.logger.error "checking client ip: #{request.keys}"
     Rails.logger.error "checking client ip: #{request.to_s}"
 
+    log_request_details(request)
 
     # Theoretically this shouldn't happen, because #remote_ip should get the real IP address,
     # but I've carried it over from the original VuFind code.
