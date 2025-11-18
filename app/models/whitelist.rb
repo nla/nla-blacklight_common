@@ -76,7 +76,7 @@ class Whitelist
 
     match = false
     4.times { |i|
-      Rails.logger.error "Comparing client"+ client_ranges[i]+ " subnet" +subnet_ranges[i] +" i"+ i
+      Rails.logger.error "Comparing client#{client_ranges[i]}  subnet #{subnet_ranges[i]}  i #{i}"
       if subnet_ranges[i] == "0" || client_ranges[i] == subnet_ranges[i]
         Rails.logger.error "match"
         match = true
