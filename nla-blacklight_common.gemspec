@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 7.2", "< 8.2"
 
   # blacklight
-  spec.add_dependency "blacklight", ">= 8.0.0", "< 9"
+  spec.add_dependency "blacklight", ">= 8.0.0", "< 10"
   spec.add_dependency "rsolr", ">= 1.0", "< 3"
   spec.add_dependency "zk", "~> 1.10"
 
@@ -40,7 +40,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "activerecord-session_store", "~> 2.0"
   spec.add_dependency "devise"
   spec.add_dependency "omniauth-keycloak", "~> 1.4"
-  spec.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
+  spec.add_dependency "omniauth-rails_csrf_protection", ">= 1", "< 3"
 
   # utilities
   spec.add_dependency "annotaterb"
