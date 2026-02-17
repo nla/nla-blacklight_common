@@ -8,7 +8,7 @@ gem "mysql2"
 
 gem "sprockets-rails"
 
-gem "puma", "~> 7.1"
+gem "puma", "~> 7.2"
 
 gem "jwt", "~> 3.1"
 
