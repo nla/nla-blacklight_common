@@ -30,13 +30,6 @@ class CatalogueFailureApp < Devise::FailureApp
   end
 end
 
-Devise.add_module(:getalibrarycard_authenticatable, {
-  strategy: true,
-  controller: :sessions,
-  model: "devise/models/getalibrarycard_authenticatable",
-  route: :session
-})
-
 Devise.add_module(:user_reg_authenticatable, {
   strategy: true,
   controller: :sessions,
