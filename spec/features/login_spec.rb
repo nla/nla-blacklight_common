@@ -20,8 +20,8 @@ RSpec.describe "Login" do
   it "displays the patron login button" do
     visit root_path
     click_on "Login"
-    expect(page).to have_content(I18n.t("auth.patron.login_text"))
-    expect(page).to have_content(I18n.t("auth.patron.login_btn"))
+    expect(page).to have_text(I18n.t("auth.patron.login_text"))
+    expect(page).to have_text(I18n.t("auth.patron.login_btn"))
   end
 
   context "when FOLIO_UPDATE_IN_PROGRESS is `true`" do
