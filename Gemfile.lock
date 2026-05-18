@@ -449,7 +449,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.26.0)
     stringio (3.2.0)
-    strong_migrations (2.7.0)
+    strong_migrations (2.8.0)
       activerecord (>= 7.2)
     thor (1.5.0)
     timeout (0.6.1)
@@ -516,7 +516,7 @@ DEPENDENCIES
   simplecov-json
   sprockets-rails
   standard
-  strong_migrations (~> 2.5)
+  strong_migrations (~> 2.8)
   webmock
 
 BUNDLED WITH
