@@ -8,11 +8,11 @@ gem "mysql2"
 
 gem "sprockets-rails"
 
-gem "puma", "~> 7.2"
+gem "puma", "~> 8.0"
 
-gem "jwt", "~> 3.1"
+gem "jwt", "~> 3.2"
 
-gem "strong_migrations", "~> 2.5"
+gem "strong_migrations", "~> 2.8"
 
 gem "fuubar"
 
