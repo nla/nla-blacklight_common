@@ -8,7 +8,11 @@ gem "mysql2"
 
 gem "sprockets-rails"
 
-gem "puma", "~> 8.0"
+gem "puma", "~> 8.0.2"
+
+gem "net-imap", ">= 0.6.4.1"
+
+gem "oauth2", ">= 2.0.22"
 
 gem "jwt", "~> 3.2"
 
