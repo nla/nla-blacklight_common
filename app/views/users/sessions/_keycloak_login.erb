@@ -11,19 +11,19 @@
     </div>
     <%- if Rails.env.development? || user_location == :staff %>
     <div class="col-md-5 offset-md-2">
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col">
           <p><%= t("auth.staff.sol_text") %></p>
           <%= button_to t("auth.staff.sol_login"), user_catalogue_sol_omniauth_authorize_path, class: "btn btn-secondary", data: { turbo: false } %>
         </div>
       </div>
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col">
           <p><%= t("auth.staff.spl_text") %></p>
           <%= button_to t("auth.staff.spl_login"), user_catalogue_spl_omniauth_authorize_path, class: "btn btn-secondary", data: { turbo: false } %>
         </div>
       </div>
-      <div class="row mb-3">
+      <div class="row mb-4">
         <div class="col">
           <p><%= t("auth.staff.shared_text") %></p>
           <%= button_to t("auth.staff.shared_login"), user_catalogue_shared_omniauth_authorize_path, class: "btn btn-secondary", data: { turbo: false } %>
