@@ -12,3 +12,6 @@ en:
     patron:
       login_text: "Login with your email and password to request material and access eResources."
       login_btn: "Login"
+    join:
+      join_text_html: 'Don’t have a login? <a href="https://www.library.gov.au/research/guides-and-resources/join-library">Join Us</a>'
+
