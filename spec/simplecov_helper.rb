@@ -10,19 +10,19 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
 SimpleCov.start "rails" do
   # enable_coverage :branch
 
-  add_filter do |source_file|
+  skip do |source_file|
     source_file.lines.count < 10
   end
 
-  add_filter "lib/nla/blacklight_common/engine.rb"
-  add_filter "lib/generators/"
-  add_filter "lib/tasks/"
+  skip "lib/nla/blacklight_common/engine.rb"
+  skip "lib/generators/"
+  skip "lib/tasks/"
 
-  add_filter "app/controllers/users/omniauth_callbacks_controller.rb"
+  skip "app/controllers/users/omniauth_callbacks_controller.rb"
 
   # these will be removed soon
-  add_filter "lib/devise/models/getalibrarycard_authenticatable.rb"
-  add_filter "lib/devise/strategies/getalibrarycard_authenticatable.rb"
-  add_filter "lib/devise/models/user_reg_authenticatable.rb"
-  add_filter "lib/devise/strategies/user_reg_authenticatable.rb"
+  skip "lib/devise/models/getalibrarycard_authenticatable.rb"
+  skip "lib/devise/strategies/getalibrarycard_authenticatable.rb"
+  skip "lib/devise/models/user_reg_authenticatable.rb"
+  skip "lib/devise/strategies/user_reg_authenticatable.rb"
 end
