@@ -13,9 +13,9 @@ module Devise
       extend ActiveSupport::Concern
 
       def required_fields(*)
-        # :nocov:
+        # simplecov:disable
         [:username, :password]
-        # :nocov:
+        # simplecov:enable
       end
 
       def after_user_reg_authentication

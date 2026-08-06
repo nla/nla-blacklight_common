@@ -11,9 +11,9 @@ class Users::SessionsController < Devise::SessionsController
       keycloak_logout
     else
       # There is no Keycloak session identifier, so destroy what we can, which is the Devise session.
-      # :nocov:
+      # simplecov:disable
       devise_logout
-      # :nocov:
+      # simplecov:enable
     end
   end
 
@@ -55,13 +55,13 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
 
-  # :nocov:
+  # simplecov:disable
   def devise_logout
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
     set_flash_message! :notice, :signed_out if signed_out
     respond_to_on_destroy
   end
-  # :nocov:
+  # simplecov:enable
 
   def keycloak_logout
     iss = session[:iss]

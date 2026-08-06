@@ -56,12 +56,12 @@ class Whitelist
 
     # Theoretically this shouldn't happen, because #remote_ip should get the real IP address,
     # but I've carried it over from the original VuFind code.
-    # :nocov:
+    # simplecov:disable
     if client_ip.include? ","
       client_ip = client_ip.split(",")
       client_ip = client_ip.last
     end
-    # :nocov:
+    # simplecov:enable
 
     client_ip
   end
