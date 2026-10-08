@@ -53,7 +53,7 @@ class Whitelist
 
   def get_client_ip(request)
     client_ip = request.remote_ip
-    Rails.logger.debug "Client IP: #{client_ip}"
+    Rails.logger.info "Client IP: #{client_ip}"
 
     # Theoretically this shouldn't happen, because #remote_ip should get the real IP address,
     # but I've carried it over from the original VuFind code.
