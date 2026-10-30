@@ -13,6 +13,7 @@ RSpec.describe "Expired account login" do
       allow_any_instance_of(UserService).to receive(:auto_renew).with(anything).and_return(false)
       # rubocop:enable RSpec/AnyInstance
 
+      get root_path
       post "/users/auth/catalogue_patron"
       follow_redirect!
 

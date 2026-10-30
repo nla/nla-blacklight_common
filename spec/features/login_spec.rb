@@ -31,9 +31,8 @@ RSpec.describe "Login" do
 
       visit new_user_session_path
 
-      # rubocop:disable Capybara/NegationMatcherAfterVisit
+      expect(page).to have_css("h1", text: "Login")
       expect(page).to have_no_button(I18n.t("auth.patron.login_btn"))
-      # rubocop:enable Capybara/NegationMatcherAfterVisit
     end
   end
 
