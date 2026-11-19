@@ -292,7 +292,7 @@ GEM
     prism (2.1.0-arm64-darwin)
     prism (2.1.0-x86_64-linux-gnu)
     public_suffix (7.0.5)
-    puma (8.0.2)
+    puma (8.0.4)
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.8)
@@ -492,6 +492,7 @@ PLATFORMS
   arm64-darwin-23
   arm64-darwin-24
   arm64-darwin-25
+  arm64-darwin-27
   x86_64-linux
 
 DEPENDENCIES
